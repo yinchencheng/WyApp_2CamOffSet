@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Commministion xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LogLevel>Debug</LogLevel>
+  <LogFileExistDay>7</LogFileExistDay>
+  <PlcEnable>true</PlcEnable>
+  <PlcType>Melsec.MelsecMcNet</PlcType>
+  <PlcIpAddress>127.0.0.1</PlcIpAddress>
+  <PlcIpPort>6000</PlcIpPort>
+  <PlcDevice>0x01</PlcDevice>
+  <TcpClientEnable>false</TcpClientEnable>
+  <TcpClientIpAddress>127.0.0.1</TcpClientIpAddress>
+  <TcpClientIpPort>9600</TcpClientIpPort>
+  <TcpServerEnable>false</TcpServerEnable>
+  <TcpServerIpAddress>192.168.3.20</TcpServerIpAddress>
+  <TcpServerIpPort>580</TcpServerIpPort>
+  <ImagePath>D:\VisionDetect\InspectImage\</ImagePath>
+  <ImageSavePath>D:\Image\</ImageSavePath>
+  <productName>50</productName>
+</Commministion>

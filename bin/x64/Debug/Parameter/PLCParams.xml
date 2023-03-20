@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<PLCParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Trigger_Detection>100</Trigger_Detection>
+  <Completion>D100</Completion>
+  <HeartBeatAdd>D104</HeartBeatAdd>
+  <StartAdd />
+</PLCParams>
