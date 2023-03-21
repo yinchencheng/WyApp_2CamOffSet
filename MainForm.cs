@@ -657,7 +657,7 @@ namespace WY_App
                     MainThread[i].Abort();
                 }
             }           
-            HivCam.StopGrab();
+           // HivCam.StopGrab();
         }
 
         private void btn_Connutius_Click(object sender, EventArgs e)

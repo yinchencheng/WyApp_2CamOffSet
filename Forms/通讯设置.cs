@@ -208,7 +208,7 @@ namespace WY_App
         private void uiRadioButton5_CheckedChanged(object sender, EventArgs e)
         {
             Parameters.cameraParam.CamContinuesMode = !uiRadioButton5.Checked;
-            MainForm.HivCam.TriggerMode();
+            //MainForm.HivCam.TriggerMode();
         }
 
         private void uiRadioButton6_CheckedChanged(object sender, EventArgs e)

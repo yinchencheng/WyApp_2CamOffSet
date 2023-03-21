@@ -147,8 +147,7 @@ public partial class HDevelopExport
             HOperatorSet.TupleFind(hv_SupportedModelTypes, hv_DLModelType, out hv_Index);
             if ((int)((new HTuple(hv_Index.TupleEqual(-1))).TupleOr(new HTuple(hv_Index.TupleEqual(
                 new HTuple())))) != 0)
-            {
-                throw new HalconException(new HTuple("Only models of type 'anomaly_detection', 'classification', 'detection', 'gc_anomaly_detection', 'ocr_recognition' or 'segmentation' are supported"));
+            {               
                 hv_Exception.Dispose();
                 hv_SupportedModelTypes.Dispose();
                 hv_Index.Dispose();
@@ -190,8 +189,8 @@ public partial class HDevelopExport
                 hv_IgnoreDirection.Dispose();
                 hv_ClassIDsNoOrientation.Dispose();
                 hv_SemTypes.Dispose();
-
-                return;
+                throw new HalconException(new HTuple("Only models of type 'anomaly_detection', 'classification', 'detection', 'gc_anomaly_detection', 'ocr_recognition' or 'segmentation' are supported"));
+                //return;
             }
             //
             //Parameter names that are required.
@@ -296,8 +295,7 @@ public partial class HDevelopExport
                 HOperatorSet.TupleFind(hv_ParamNamesAll, hv_Key, out hv_Indices);
                 if ((int)(new HTuple(hv_Indices.TupleEqual(-1))) != 0)
                 {
-                    throw new HalconException(("Unknown key for DLPreprocessParam: '" + (hv_InputKeys.TupleSelect(
-                        hv_I))) + "'");
+                    
                     hv_KeyExists.Dispose();
                     hv_DLModelType.Dispose();
                     hv_Exception.Dispose();
@@ -343,6 +341,8 @@ public partial class HDevelopExport
                     hv_SemTypes.Dispose();
 
                     return;
+                    throw new HalconException(("Unknown key for DLPreprocessParam: '" + (hv_InputKeys.TupleSelect(
+                        hv_I))) + "'");
                 }
                 //Set expected values and types.
                 hv_ValidValues.Dispose();
