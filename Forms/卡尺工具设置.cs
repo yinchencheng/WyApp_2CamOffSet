@@ -64,5 +64,47 @@ namespace WY_App
             }
             
         }
+
+        private void 修改_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiButton2_Click(object sender, EventArgs e)
+        {
+            switch (MainForm.baseNum)
+            {
+                case 0:
+                    {
+                        相机检测设置.showXBase(sender, e);
+                        break;
+                    }
+                case 1:
+                    {
+                        相机检测设置.showY1Base(sender, e);
+                        break;
+                    }
+                case 2:
+                    {
+                        相机检测设置.showY2Base(sender, e);
+                        break;
+                    }
+            }
+        }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            Parameters.detectionSpec[MainForm.CamNum].MeasureLength1[MainForm.baseNum] = (uint)num_MeasureLength1.Value;
+            Parameters.detectionSpec[MainForm.CamNum].MeasureLength2[MainForm.baseNum] = (uint)num_MeasureLength2.Value;
+            Parameters.detectionSpec[MainForm.CamNum].MeasureSigma[MainForm.baseNum] = (double)num_MeasureSigma.Value;
+            Parameters.detectionSpec[MainForm.CamNum].MeasureThreshold[MainForm.baseNum] = (uint)num_MeasureThreshold.Value;
+            Parameters.detectionSpec[MainForm.CamNum].MeasureTransition[MainForm.baseNum] = num_MeasureTransition.SelectedText;
+            XMLHelper.serialize<Parameters.DetectionSpec>(Parameters.detectionSpec[MainForm.CamNum], Parameters.commministion.productName + "/DetectionSpec" + MainForm.CamNum + ".xml");
+        }
     }
 }

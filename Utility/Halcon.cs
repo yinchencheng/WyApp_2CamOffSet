@@ -4,6 +4,7 @@ using SevenZip.Compression.LZ;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
@@ -20,26 +21,84 @@ namespace WY_App.Utility
 {
     public class Halcon
     {
-        public static HTuple[] hv_Width = new HTuple[3];
-        public static HTuple[] hv_Height = new HTuple[3];
-        public static void initalCamera(HTuple hv_AcqHandle, string CameraId, out bool camera_opend)
+        public static HTuple[] hv_Width = new HTuple[4];
+        public static HTuple[] hv_Height = new HTuple[4];
+        public static HTuple[] hv_AcqHandle = new HTuple[4];
+        public static bool[] CamConnect = new bool[4] { false ,false,false,false};
+        public static bool initalCamera(string CamID, ref HTuple hv_AcqHandle)
         {
             try
             {
                 //获取相机句柄
-                HOperatorSet.OpenFramegrabber("GigEVision2", 0, 0, 0, 0, 0, 0, "progressive",-1, "default", -1, "false", "default", 
-                    "34bd20134a54_Hikrobot_MVCS01610GM",0, -1, out hv_AcqHandle);
-                HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
-                camera_opend = true;
+                HOperatorSet.OpenFramegrabber("GenICamTL", 0, 0, 0, 0, 0, 0, "progressive", -1, "default", -1, "false", "default", CamID, 0, -1, out hv_AcqHandle);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", "Off");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSource", "Software");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "grab_timeout", 20000);
+                return true;
             }
-            catch
+            catch (Exception ex)
             {
-                camera_opend = false;
+                LogHelper.Log.WriteError(System.DateTime.Now.ToString() + CamID + "相机链接失败" + ex.Message);
+                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + CamID + "相机链接失败" + ex.Message);
+                return false;
             }
 
         }
 
+        public Halcon()
+        {
 
+            Thread th = new Thread(ini_Cam);
+            th.IsBackground = true;
+            th.Start();
+
+        }
+
+        private void ini_Cam()
+        {
+            while (true)
+            {
+                Thread.Sleep(5000);
+                while (!CamConnect[0])
+                {
+                    Thread.Sleep(5000);
+                    if (!CamConnect[0])
+                    {
+                        CamConnect[0] = initalCamera("LineCam0", ref hv_AcqHandle[0]);                        
+                    }
+                    else
+                    {
+                        LogHelper.Log.WriteError(System.DateTime.Now.ToString() + "相机1链接成功");
+                        MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "相机1链接成功");
+                    }
+                }
+                while (!CamConnect[1])
+                {
+                    Thread.Sleep(5000);
+                    if (!CamConnect[1])
+                    {
+                        CamConnect[1] = initalCamera("LineCam1", ref hv_AcqHandle[1]);                        
+                    }
+                    else
+                    {
+                        LogHelper.Log.WriteError(System.DateTime.Now.ToString() + "相机2链接成功");
+                        MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "相机2链接成功");
+                    }
+                } while (!CamConnect[2])
+                {
+                    Thread.Sleep(5000);
+                    if (!CamConnect[2])
+                    {
+                        CamConnect[2] = initalCamera("LineCam2", ref hv_AcqHandle[2]);                       
+                    }
+                    else
+                    {
+                        LogHelper.Log.WriteError(System.DateTime.Now.ToString() + "相机3链接成功");
+                        MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "相机3链接成功");
+                    }
+                }
+            }
+        }
         public static bool ImgDisplay(int index,string imgPath, HWindow Hwindow1, HWindow Hwindow2)
         {
             MainForm.hImage[index].Dispose();
@@ -54,6 +113,20 @@ namespace WY_App.Utility
             HOperatorSet.DispObj(MainForm.hImage[index], Hwindow2);//显示图片
 
             return true;
+        }
+
+        public static bool GrabImage(int i,  HTuple hv_AcqHandle, out HObject ho_Image)
+        {
+            try
+            {
+                HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
+                return true;
+            }
+            catch
+            {
+                ho_Image = null;
+                return false;
+            }
         }
         //        //-----------------------------------------------------------------------------
         public static void CloseFramegrabber(HTuple hv_AcqHandle)
@@ -174,7 +247,7 @@ namespace WY_App.Utility
         /// <param name="rect1"></param>
         /// <param name="PointXY"></param>
         /// <returns></returns>
-        public static bool DetectionHalconLine(int CamNum,int BaseNum ,HWindow hWindow, HObject hImage, Parameters.DetectionSpec rect1, HTuple length, ref HRect1 PointXY)
+        public static bool DetectionHalconLine(int CamNum,int BaseNum ,HWindow hWindow, HObject hImage, Parameters.DetectionSpec rect1, ref HRect1 PointXY)
         {
 
             HObject ho_Contours, ho_Cross, ho_Contour;
@@ -202,14 +275,14 @@ namespace WY_App.Utility
             //添加测量对象
             HOperatorSet.SetMetrologyModelImageSize(hv_MetrologyHandle, hv_Width[CamNum], hv_Height[CamNum]);
             hv_Index.Dispose();
-            HOperatorSet.AddMetrologyObjectGeneric(hv_MetrologyHandle, "line", hv_shapeParam, length, 30, 5, 10, new HTuple(), new HTuple(), out hv_Index);
+            HOperatorSet.AddMetrologyObjectGeneric(hv_MetrologyHandle, "line", hv_shapeParam, rect1.MeasureLength1[BaseNum], rect1.MeasureLength2[BaseNum], rect1.MeasureSigma[BaseNum], rect1.MeasureThreshold[BaseNum], new HTuple(), new HTuple(), out hv_Index);
 
             //执行测量，获取边缘点集
             HOperatorSet.SetColor(hWindow, "yellow");
             HOperatorSet.ApplyMetrologyModel(hImage, hv_MetrologyHandle);
             hv_Row.Dispose(); hv_Column.Dispose();
             HOperatorSet.GetMetrologyObjectMeasures(out ho_Contours, hv_MetrologyHandle, "all", "all", out hv_Row, out hv_Column);
-            //HOperatorSet.DispObj(ho_Contours, hWindow);
+            HOperatorSet.DispObj(ho_Contours, hWindow);
             HOperatorSet.SetColor(hWindow, "red");
             HOperatorSet.GenCrossContourXld(out ho_Cross, hv_Row, hv_Column, 1, 0.785398);
             //获取最终测量数据和轮廓线
@@ -237,10 +310,11 @@ namespace WY_App.Utility
 
             return true;
         }
+        
+
         public static bool DetectionHalconRegion(int CamNum, int BaseNum, HWindow[] hWindow, HObject hImage, Parameters.DetectionSpec spec , HObject hObject ,ref List<DetectionResult>  detectionResult)
         {
-            // Local iconic variables 
-            detectionResult.Clear();
+            // Local iconic variables             
             HObject ho_ImageReduced, ho_Region, ho_ConnectedRegions;
             HObject ho_SelectedRegions1, ho_ObjectSelected, ho_SelectedRegions;
             HObject ho_Rectangle;
@@ -398,7 +472,14 @@ namespace WY_App.Utility
                     {
                         hv_Column12[i] = hv_Width[CamNum] - 500;
                     }
-                    HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row12[i] - 500, hv_Column12[i] - 500, hv_Row12[i] + 500, hv_Column12[i] + 500);
+                    HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row12[i], hv_Column12[i], 1000, 1000);
+                    string stfFileNameOut = "CAM" + CamNum + "-Area-" + i + MainForm.productSN + "-" + MainForm.strDateTime;  // 默认的图像保存名称
+                    string pathOut = Parameters.commministion.ImageSavePath + "/" + MainForm.strDateTimeDay + "/" + MainForm.productSN + "/";
+                    if (!System.IO.Directory.Exists(pathOut))
+                    {
+                        System.IO.Directory.CreateDirectory(pathOut);//不存在就创建文件夹
+                    }
+                    HOperatorSet.WriteImage(detectionResult1.NGAreahObject, "jpeg", 0, pathOut + stfFileNameOut + ".jpeg");
                     detectionResult.Add(detectionResult1);
                     HOperatorSet.SetColor(hWindow[0], "red");
                     HOperatorSet.SetTposition(hWindow[0], hv_Row12[i], hv_Column12[i]);

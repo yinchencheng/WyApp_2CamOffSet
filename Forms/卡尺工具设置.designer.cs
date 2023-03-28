@@ -34,7 +34,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.num_MeasureTransition = new System.Windows.Forms.ComboBox();
             this.极性 = new System.Windows.Forms.Label();
@@ -46,9 +45,10 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.保存 = new System.Windows.Forms.Button();
-            this.修改 = new System.Windows.Forms.Button();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.uiButton1 = new Sunny.UI.UIButton();
+            this.btn_login = new Sunny.UI.UIButton();
+            this.uiButton2 = new Sunny.UI.UIButton();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -80,7 +80,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(209, 39);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(210, 39);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btn_Close_System
@@ -93,7 +93,7 @@
             this.btn_Close_System.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_Close_System.FillSelectedColor = System.Drawing.Color.Red;
             this.btn_Close_System.Font = new System.Drawing.Font("楷体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_Close_System.Location = new System.Drawing.Point(171, 3);
+            this.btn_Close_System.Location = new System.Drawing.Point(172, 3);
             this.btn_Close_System.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_Close_System.Name = "btn_Close_System";
             this.btn_Close_System.RectColor = System.Drawing.Color.Red;
@@ -114,7 +114,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(168, 39);
+            this.panel4.Size = new System.Drawing.Size(169, 39);
             this.panel4.TabIndex = 11;
             // 
             // tableLayoutPanel1
@@ -134,35 +134,21 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(209, 281);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(210, 282);
             this.tableLayoutPanel1.TabIndex = 60;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.uiButton2);
+            this.panel1.Controls.Add(this.uiButton1);
+            this.panel1.Controls.Add(this.btn_login);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.保存);
-            this.panel1.Controls.Add(this.修改);
             this.panel1.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panel1.Location = new System.Drawing.Point(0, 49);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(209, 229);
+            this.panel1.Size = new System.Drawing.Size(203, 224);
             this.panel1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(72, 189);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 29);
-            this.button1.TabIndex = 60;
-            this.button1.Text = "测试";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
@@ -180,7 +166,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(11, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(185, 170);
+            this.groupBox1.Size = new System.Drawing.Size(185, 161);
             this.groupBox1.TabIndex = 56;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "卡尺模型设置";
@@ -358,43 +344,61 @@
             this.label14.TabIndex = 8;
             this.label14.Text = "阈值";
             // 
-            // 保存
-            // 
-            this.保存.BackColor = System.Drawing.Color.Black;
-            this.保存.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.保存.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.保存.ForeColor = System.Drawing.Color.White;
-            this.保存.Location = new System.Drawing.Point(140, 189);
-            this.保存.Name = "保存";
-            this.保存.Size = new System.Drawing.Size(57, 29);
-            this.保存.TabIndex = 59;
-            this.保存.Text = "保存";
-            this.保存.UseVisualStyleBackColor = false;
-            this.保存.Click += new System.EventHandler(this.保存_Click);
-            // 
-            // 修改
-            // 
-            this.修改.BackColor = System.Drawing.Color.Black;
-            this.修改.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.修改.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.修改.ForeColor = System.Drawing.Color.White;
-            this.修改.Location = new System.Drawing.Point(12, 189);
-            this.修改.Name = "修改";
-            this.修改.Size = new System.Drawing.Size(50, 29);
-            this.修改.TabIndex = 58;
-            this.修改.Text = "修改";
-            this.修改.UseVisualStyleBackColor = false;
-            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.FillColor = System.Drawing.Color.Black;
+            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton1.Location = new System.Drawing.Point(24, 189);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Size = new System.Drawing.Size(46, 20);
+            this.uiButton1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiButton1.TabIndex = 62;
+            this.uiButton1.Text = "修改";
+            this.uiButton1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
+            // 
+            // btn_login
+            // 
+            this.btn_login.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_login.FillColor = System.Drawing.Color.Black;
+            this.btn_login.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_login.Location = new System.Drawing.Point(128, 189);
+            this.btn_login.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(46, 20);
+            this.btn_login.Style = Sunny.UI.UIStyle.Custom;
+            this.btn_login.TabIndex = 61;
+            this.btn_login.Text = "保存";
+            this.btn_login.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
+            // 
+            // uiButton2
+            // 
+            this.uiButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton2.FillColor = System.Drawing.Color.Black;
+            this.uiButton2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton2.Location = new System.Drawing.Point(76, 189);
+            this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton2.Name = "uiButton2";
+            this.uiButton2.Size = new System.Drawing.Size(46, 20);
+            this.uiButton2.Style = Sunny.UI.UIStyle.Custom;
+            this.uiButton2.TabIndex = 63;
+            this.uiButton2.Text = "测试";
+            this.uiButton2.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton2.Click += new System.EventHandler(this.uiButton2_Click);
+            // 
             // 卡尺工具设置
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(209, 281);
+            this.ClientSize = new System.Drawing.Size(210, 282);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -434,8 +438,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button 保存;
-        private System.Windows.Forms.Button 修改;
-        private System.Windows.Forms.Button button1;
+        private Sunny.UI.UIButton uiButton2;
+        private Sunny.UI.UIButton uiButton1;
+        private Sunny.UI.UIButton btn_login;
     }
 }

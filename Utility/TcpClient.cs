@@ -97,11 +97,11 @@ namespace WY_App.Utility
                     string s = Encoding.UTF8.GetString(buffer, 0, r);
                     if(s.Contains("OK"))
                     {
-                        HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion, 0);                      
+                                      
                     }
                     else
                     {
-                        HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion, 1);
+                       
                     }
                     MainForm.AlarmList.Add(System.DateTime.Now.ToString() + socketSend.RemoteEndPoint + "接收数据:" + s);
                 }

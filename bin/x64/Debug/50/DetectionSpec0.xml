@@ -1,61 +1,59 @@
 <?xml version="1.0"?>
 <DetectionSpec xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <PixelResolutionRow>0.01</PixelResolutionRow>
-  <PixelResolutionColum>0.01</PixelResolutionColum>
-  <RowAOI1>10</RowAOI1>
-  <ColumAOI1>20</ColumAOI1>
-  <RowAOI2>1000</RowAOI2>
-  <ColumAOI2>1000</ColumAOI2>
+  <PixelResolutionRow>1</PixelResolutionRow>
+  <PixelResolutionColum>1</PixelResolutionColum>
+  <BaseRow>0</BaseRow>
+  <BaseColumn>0</BaseColumn>
   <RowBase>
-    <double>2498.4855776038571</double>
+    <double>2501.6694868722934</double>
   </RowBase>
   <ColumBase>
-    <double>1352.6520351099009</double>
+    <double>1295.065431293219</double>
   </ColumBase>
   <Row1>
-    <double>3113.3519924098673</double>
-    <double>2487.1660341555976</double>
+    <double>4331.5683111954459</double>
+    <double>2521.321631878558</double>
     <double>11583.940227703984</double>
   </Row1>
   <Colum1>
-    <double>1292.6058020477815</double>
-    <double>1586.1757679180887</double>
+    <double>1320.5648464163824</double>
+    <double>2159.3361774744026</double>
     <double>1488.3191126279864</double>
   </Colum1>
   <Row2>
-    <double>10866.672675521822</double>
-    <double>2532.7068311195444</double>
+    <double>9477.678368121442</double>
+    <double>2578.2476280834912</double>
     <double>11606.710626185959</double>
   </Row2>
   <Colum2>
-    <double>1222.7081911262799</double>
-    <double>7108.0870307167233</double>
+    <double>1236.6877133105802</double>
+    <double>7191.9641638225257</double>
     <double>7010.2303754266213</double>
   </Colum2>
   <MeasureLength1>
-    <unsignedInt>100</unsignedInt>
-    <unsignedInt>100</unsignedInt>
-    <unsignedInt>100</unsignedInt>
+    <unsignedInt>500</unsignedInt>
+    <unsignedInt>500</unsignedInt>
+    <unsignedInt>500</unsignedInt>
   </MeasureLength1>
   <MeasureLength2>
-    <unsignedInt>10</unsignedInt>
+    <unsignedInt>1000</unsignedInt>
     <unsignedInt>10</unsignedInt>
     <unsignedInt>10</unsignedInt>
   </MeasureLength2>
   <MeasureSigma>
-    <double>5</double>
+    <double>3</double>
     <double>10</double>
     <double>10</double>
   </MeasureSigma>
   <MeasureThreshold>
-    <unsignedInt>10</unsignedInt>
+    <unsignedInt>40</unsignedInt>
     <unsignedInt>10</unsignedInt>
     <unsignedInt>10</unsignedInt>
   </MeasureThreshold>
   <MeasureTransition>
     <string />
-    <string>all</string>
-    <string>all</string>
+    <string />
+    <string />
   </MeasureTransition>
   <lengthWidthRatio>
     <double>0</double>
@@ -98,7 +96,7 @@
     <double>0</double>
   </adjust>
   <ThresholdLow>
-    <double>15</double>
+    <double>100</double>
     <double>15</double>
     <double>0</double>
     <double>0</double>
@@ -108,7 +106,7 @@
     <double>0</double>
   </ThresholdLow>
   <ThresholdHigh>
-    <double>30</double>
+    <double>200</double>
     <double>35</double>
     <double>0</double>
     <double>0</double>
@@ -118,7 +116,7 @@
     <double>0</double>
   </ThresholdHigh>
   <AreaLow>
-    <double>10000</double>
+    <double>1</double>
     <double>10000</double>
     <double>0</double>
     <double>0</double>

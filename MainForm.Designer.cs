@@ -67,18 +67,19 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.hWindowControl5 = new HalconDotNet.HWindowControl();
-            this.hWindowControl6 = new HalconDotNet.HWindowControl();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.hWindowControl3 = new HalconDotNet.HWindowControl();
+            this.lst_LogInfos = new System.Windows.Forms.ListBox();
+            this.tabooo = new System.Windows.Forms.TableLayoutPanel();
             this.hWindowControl4 = new HalconDotNet.HWindowControl();
+            this.hWindowControl5 = new HalconDotNet.HWindowControl();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.hWindowControl6 = new HalconDotNet.HWindowControl();
+            this.hWindowControl7 = new HalconDotNet.HWindowControl();
             this.hWindowControl1 = new HalconDotNet.HWindowControl();
             this.hWindowControl2 = new HalconDotNet.HWindowControl();
             this.messageShow1 = new WY_App.UserControls.MessageShow();
+            this.messageShow0 = new WY_App.UserControls.MessageShow();
             this.messageShow2 = new WY_App.UserControls.MessageShow();
             this.messageShow3 = new WY_App.UserControls.MessageShow();
-            this.messageShow4 = new WY_App.UserControls.MessageShow();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -86,7 +87,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
+            this.tabooo.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -565,7 +566,6 @@
             this.lab_log.Name = "lab_log";
             this.lab_log.Size = new System.Drawing.Size(1421, 17);
             this.lab_log.Spring = true;
-            this.lab_log.Text = "log";
             // 
             // lab_Time
             // 
@@ -613,7 +613,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 518F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.hWindowControl1, 0, 0);
@@ -631,92 +631,54 @@
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel8, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lst_LogInfos, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.tabooo, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel8, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(1396, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(1414, 0);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 180F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(518, 985);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(500, 985);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
-            // tableLayoutPanel6
+            // lst_LogInfos
             // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.hWindowControl5, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.hWindowControl6, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.messageShow3, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.messageShow4, 1, 1);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 402);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(518, 402);
-            this.tableLayoutPanel6.TabIndex = 1;
+            this.lst_LogInfos.BackColor = System.Drawing.SystemColors.ControlText;
+            this.lst_LogInfos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lst_LogInfos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lst_LogInfos.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lst_LogInfos.ForeColor = System.Drawing.Color.White;
+            this.lst_LogInfos.FormattingEnabled = true;
+            this.lst_LogInfos.ItemHeight = 14;
+            this.lst_LogInfos.Location = new System.Drawing.Point(0, 744);
+            this.lst_LogInfos.Margin = new System.Windows.Forms.Padding(0);
+            this.lst_LogInfos.Name = "lst_LogInfos";
+            this.lst_LogInfos.Size = new System.Drawing.Size(500, 241);
+            this.lst_LogInfos.TabIndex = 4;
             // 
-            // hWindowControl5
+            // tabooo
             // 
-            this.hWindowControl5.BackColor = System.Drawing.Color.Black;
-            this.hWindowControl5.BorderColor = System.Drawing.Color.Black;
-            this.hWindowControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hWindowControl5.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.hWindowControl5.Location = new System.Drawing.Point(3, 3);
-            this.hWindowControl5.Name = "hWindowControl5";
-            this.hWindowControl5.Size = new System.Drawing.Size(253, 296);
-            this.hWindowControl5.TabIndex = 5;
-            this.hWindowControl5.WindowSize = new System.Drawing.Size(253, 296);
-            // 
-            // hWindowControl6
-            // 
-            this.hWindowControl6.BackColor = System.Drawing.Color.Black;
-            this.hWindowControl6.BorderColor = System.Drawing.Color.Black;
-            this.hWindowControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hWindowControl6.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.hWindowControl6.Location = new System.Drawing.Point(262, 3);
-            this.hWindowControl6.Name = "hWindowControl6";
-            this.hWindowControl6.Size = new System.Drawing.Size(253, 296);
-            this.hWindowControl6.TabIndex = 6;
-            this.hWindowControl6.WindowSize = new System.Drawing.Size(253, 296);
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 2;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Controls.Add(this.hWindowControl3, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.hWindowControl4, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.messageShow1, 0, 1);
-            this.tableLayoutPanel8.Controls.Add(this.messageShow2, 1, 1);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 2;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(518, 402);
-            this.tableLayoutPanel8.TabIndex = 0;
-            // 
-            // hWindowControl3
-            // 
-            this.hWindowControl3.BackColor = System.Drawing.Color.Black;
-            this.hWindowControl3.BorderColor = System.Drawing.Color.Black;
-            this.hWindowControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hWindowControl3.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.hWindowControl3.Location = new System.Drawing.Point(3, 3);
-            this.hWindowControl3.Name = "hWindowControl3";
-            this.hWindowControl3.Size = new System.Drawing.Size(253, 294);
-            this.hWindowControl3.TabIndex = 5;
-            this.hWindowControl3.WindowSize = new System.Drawing.Size(253, 294);
+            this.tabooo.ColumnCount = 2;
+            this.tabooo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tabooo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tabooo.Controls.Add(this.messageShow1, 1, 1);
+            this.tabooo.Controls.Add(this.messageShow0, 0, 1);
+            this.tabooo.Controls.Add(this.hWindowControl4, 0, 0);
+            this.tabooo.Controls.Add(this.hWindowControl5, 1, 0);
+            this.tabooo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabooo.Location = new System.Drawing.Point(0, 0);
+            this.tabooo.Margin = new System.Windows.Forms.Padding(0);
+            this.tabooo.Name = "tabooo";
+            this.tabooo.RowCount = 2;
+            this.tabooo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.17911F));
+            this.tabooo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.8209F));
+            this.tabooo.Size = new System.Drawing.Size(500, 372);
+            this.tabooo.TabIndex = 3;
             // 
             // hWindowControl4
             // 
@@ -724,11 +686,66 @@
             this.hWindowControl4.BorderColor = System.Drawing.Color.Black;
             this.hWindowControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hWindowControl4.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.hWindowControl4.Location = new System.Drawing.Point(262, 3);
+            this.hWindowControl4.Location = new System.Drawing.Point(3, 3);
             this.hWindowControl4.Name = "hWindowControl4";
-            this.hWindowControl4.Size = new System.Drawing.Size(253, 294);
-            this.hWindowControl4.TabIndex = 6;
-            this.hWindowControl4.WindowSize = new System.Drawing.Size(253, 294);
+            this.hWindowControl4.Size = new System.Drawing.Size(244, 232);
+            this.hWindowControl4.TabIndex = 4;
+            this.hWindowControl4.WindowSize = new System.Drawing.Size(244, 232);
+            // 
+            // hWindowControl5
+            // 
+            this.hWindowControl5.BackColor = System.Drawing.Color.Black;
+            this.hWindowControl5.BorderColor = System.Drawing.Color.Black;
+            this.hWindowControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hWindowControl5.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.hWindowControl5.Location = new System.Drawing.Point(253, 3);
+            this.hWindowControl5.Name = "hWindowControl5";
+            this.hWindowControl5.Size = new System.Drawing.Size(244, 232);
+            this.hWindowControl5.TabIndex = 5;
+            this.hWindowControl5.WindowSize = new System.Drawing.Size(244, 232);
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Controls.Add(this.messageShow2, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.messageShow3, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.hWindowControl6, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.hWindowControl7, 1, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 372);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 2;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.80597F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.19403F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(500, 372);
+            this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // hWindowControl6
+            // 
+            this.hWindowControl6.BackColor = System.Drawing.Color.Black;
+            this.hWindowControl6.BorderColor = System.Drawing.Color.Black;
+            this.hWindowControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hWindowControl6.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.hWindowControl6.Location = new System.Drawing.Point(3, 3);
+            this.hWindowControl6.Name = "hWindowControl6";
+            this.hWindowControl6.Size = new System.Drawing.Size(244, 231);
+            this.hWindowControl6.TabIndex = 5;
+            this.hWindowControl6.WindowSize = new System.Drawing.Size(244, 231);
+            // 
+            // hWindowControl7
+            // 
+            this.hWindowControl7.BackColor = System.Drawing.Color.Black;
+            this.hWindowControl7.BorderColor = System.Drawing.Color.Black;
+            this.hWindowControl7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hWindowControl7.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.hWindowControl7.Location = new System.Drawing.Point(253, 3);
+            this.hWindowControl7.Name = "hWindowControl7";
+            this.hWindowControl7.Size = new System.Drawing.Size(244, 231);
+            this.hWindowControl7.TabIndex = 6;
+            this.hWindowControl7.WindowSize = new System.Drawing.Size(244, 231);
             // 
             // hWindowControl1
             // 
@@ -739,9 +756,9 @@
             this.hWindowControl1.Location = new System.Drawing.Point(0, 0);
             this.hWindowControl1.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl1.Name = "hWindowControl1";
-            this.hWindowControl1.Size = new System.Drawing.Size(698, 985);
+            this.hWindowControl1.Size = new System.Drawing.Size(707, 985);
             this.hWindowControl1.TabIndex = 4;
-            this.hWindowControl1.WindowSize = new System.Drawing.Size(698, 985);
+            this.hWindowControl1.WindowSize = new System.Drawing.Size(707, 985);
             // 
             // hWindowControl2
             // 
@@ -749,44 +766,48 @@
             this.hWindowControl2.BorderColor = System.Drawing.Color.Black;
             this.hWindowControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hWindowControl2.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.hWindowControl2.Location = new System.Drawing.Point(698, 0);
+            this.hWindowControl2.Location = new System.Drawing.Point(707, 0);
             this.hWindowControl2.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl2.Name = "hWindowControl2";
-            this.hWindowControl2.Size = new System.Drawing.Size(698, 985);
+            this.hWindowControl2.Size = new System.Drawing.Size(707, 985);
             this.hWindowControl2.TabIndex = 5;
-            this.hWindowControl2.WindowSize = new System.Drawing.Size(698, 985);
+            this.hWindowControl2.WindowSize = new System.Drawing.Size(707, 985);
             // 
             // messageShow1
             // 
             this.messageShow1.BackColor = System.Drawing.Color.Black;
-            this.messageShow1.Location = new System.Drawing.Point(3, 303);
+            this.messageShow1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageShow1.Location = new System.Drawing.Point(253, 241);
             this.messageShow1.Name = "messageShow1";
-            this.messageShow1.Size = new System.Drawing.Size(242, 96);
-            this.messageShow1.TabIndex = 7;
+            this.messageShow1.Size = new System.Drawing.Size(244, 128);
+            this.messageShow1.TabIndex = 3;
+            // 
+            // messageShow0
+            // 
+            this.messageShow0.BackColor = System.Drawing.Color.Black;
+            this.messageShow0.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageShow0.Location = new System.Drawing.Point(3, 241);
+            this.messageShow0.Name = "messageShow0";
+            this.messageShow0.Size = new System.Drawing.Size(244, 128);
+            this.messageShow0.TabIndex = 2;
             // 
             // messageShow2
             // 
             this.messageShow2.BackColor = System.Drawing.Color.Black;
-            this.messageShow2.Location = new System.Drawing.Point(262, 303);
+            this.messageShow2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageShow2.Location = new System.Drawing.Point(3, 240);
             this.messageShow2.Name = "messageShow2";
-            this.messageShow2.Size = new System.Drawing.Size(246, 96);
-            this.messageShow2.TabIndex = 8;
+            this.messageShow2.Size = new System.Drawing.Size(244, 129);
+            this.messageShow2.TabIndex = 4;
             // 
             // messageShow3
             // 
             this.messageShow3.BackColor = System.Drawing.Color.Black;
-            this.messageShow3.Location = new System.Drawing.Point(3, 305);
+            this.messageShow3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageShow3.Location = new System.Drawing.Point(253, 240);
             this.messageShow3.Name = "messageShow3";
-            this.messageShow3.Size = new System.Drawing.Size(246, 94);
-            this.messageShow3.TabIndex = 7;
-            // 
-            // messageShow4
-            // 
-            this.messageShow4.BackColor = System.Drawing.Color.Black;
-            this.messageShow4.Location = new System.Drawing.Point(262, 305);
-            this.messageShow4.Name = "messageShow4";
-            this.messageShow4.Size = new System.Drawing.Size(246, 94);
-            this.messageShow4.TabIndex = 8;
+            this.messageShow3.Size = new System.Drawing.Size(244, 129);
+            this.messageShow3.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -809,7 +830,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tabooo.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -848,23 +869,25 @@
         private System.Windows.Forms.ToolStripStatusLabel lab_Cam1;
         private System.Windows.Forms.ToolStripStatusLabel lab_Cam2;
         private System.Windows.Forms.ToolStripStatusLabel lab_log;
-        private System.Windows.Forms.ToolStripStatusLabel lab_Time; 
+        private System.Windows.Forms.ToolStripStatusLabel lab_Time;
+        private System.Windows.Forms.TableLayoutPanel tabooo;
+        
+        private UserControls.MessageShow messageShow1;
+        private UserControls.MessageShow messageShow0;
+        private UserControls.MessageShow messageShow2;
+        private UserControls.MessageShow messageShow3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private HalconDotNet.HWindowControl hWindowControl3;
         private HalconDotNet.HWindowControl hWindowControl4;
+        private HalconDotNet.HWindowControl hWindowControl5;
+        private HalconDotNet.HWindowControl hWindowControl6;
+        private HalconDotNet.HWindowControl hWindowControl7;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
         private HalconDotNet.HWindowControl hWindowControl1;
         private HalconDotNet.HWindowControl hWindowControl2;
         private Sunny.UI.UIButton btn_changeProduct;
         private System.Windows.Forms.ToolStripStatusLabel lab_Product;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel9;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private HalconDotNet.HWindowControl hWindowControl5;
-        private HalconDotNet.HWindowControl hWindowControl6;
-        private UserControls.MessageShow messageShow3;
-        private UserControls.MessageShow messageShow4;
-        private UserControls.MessageShow messageShow1;
-        private UserControls.MessageShow messageShow2;
+        public System.Windows.Forms.ListBox lst_LogInfos;
     }
 }
 
