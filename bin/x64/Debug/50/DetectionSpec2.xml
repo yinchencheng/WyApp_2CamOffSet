@@ -2,39 +2,31 @@
 <DetectionSpec xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <PixelResolutionRow>1</PixelResolutionRow>
   <PixelResolutionColum>1</PixelResolutionColum>
-  <RowAOI1>10</RowAOI1>
-  <ColumAOI1>20</ColumAOI1>
-  <RowAOI2>1000</RowAOI2>
-  <ColumAOI2>1000</ColumAOI2>
   <RowBase>
-    <double>100</double>
-    <double>100</double>
-    <double>100</double>
+    <double>2550.8616343386416</double>
   </RowBase>
   <ColumBase>
-    <double>200</double>
-    <double>200</double>
-    <double>200</double>
+    <double>7651.8229828914982</double>
   </ColumBase>
   <Row1>
-    <double>0</double>
-    <double>1</double>
-    <double>2</double>
+    <double>3090.5815939278937</double>
+    <double>2453.0104364326376</double>
+    <double>11572.555028462999</double>
   </Row1>
   <Colum1>
-    <double>0</double>
-    <double>1</double>
-    <double>2</double>
+    <double>7569.4112627986351</double>
+    <double>2369.0290102389076</double>
+    <double>1865.7662116040956</double>
   </Colum1>
   <Row2>
-    <double>500</double>
-    <double>500</double>
-    <double>500</double>
+    <double>10832.517077798862</double>
+    <double>2487.1660341555976</double>
+    <double>11583.940227703984</double>
   </Row2>
   <Colum2>
-    <double>1000</double>
-    <double>1000</double>
-    <double>1000</double>
+    <double>7485.5341296928327</double>
+    <double>6758.5989761092151</double>
+    <double>6884.4146757679182</double>
   </Colum2>
   <MeasureLength1>
     <unsignedInt>100</unsignedInt>

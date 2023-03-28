@@ -132,6 +132,8 @@ namespace WY_App.Utility
             ///X方向放大比例
             /// </summary>
             public double PixelResolutionColum;
+            public double BaseRow;
+            public double BaseColumn;
             public double[] RowBase = new double[3];
             public double[] ColumBase = new double[3];
 
@@ -387,17 +389,32 @@ namespace WY_App.Utility
 
         public class PLCParams
         {
-            public string Trigger_Detection;
-            public string Completion;
+            public string Trigger_Detection0;
+            public string Completion0;
+            public string Trigger_Detection1;
+            public string Completion1;
+            public string Trigger_Detection2;
+            public string Completion2;
             public string HeartBeatAdd;
             public string StartAdd;
+            public string SNReadAdd;
+            public string[] 预留地址 = new string[20];
            
             public PLCParams()
             {
-                Trigger_Detection = "D100";
-                Completion = "D100";
+                HeartBeatAdd = "D100";
                 HeartBeatAdd = "D102";
-                HeartBeatAdd = "D104";                               
+                Trigger_Detection0 = "D104";
+                Completion0 = "D106";
+                Trigger_Detection1 = "D108";
+                Completion1 = "D110";
+                Trigger_Detection2 = "D112";
+                Completion2 = "D114";
+                SNReadAdd = "D116";
+                for (int i = 0; i < 20; i++)
+                {
+                    预留地址[i] = "D" + i * 2 + 200;
+                }
             }
         }
 

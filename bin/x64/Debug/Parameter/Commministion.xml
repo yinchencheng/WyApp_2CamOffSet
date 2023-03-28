@@ -6,7 +6,7 @@
   <PlcType>Melsec.MelsecMcNet</PlcType>
   <PlcIpAddress>127.0.0.1</PlcIpAddress>
   <PlcIpPort>6000</PlcIpPort>
-  <PlcDevice>0x01</PlcDevice>
+  <PlcDevice>1</PlcDevice>
   <TcpClientEnable>false</TcpClientEnable>
   <TcpClientIpAddress>127.0.0.1</TcpClientIpAddress>
   <TcpClientIpPort>9600</TcpClientIpPort>

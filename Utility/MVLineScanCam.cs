@@ -44,11 +44,11 @@ namespace WY_App.Utility
         /// <summary>
         /// ch:操作采集卡和设备 | en:Interface and device operation
         /// </summary>
-        CInterface[] m_cInterface = null;
+        CInterface[] m_cInterface = new CInterface[3];
         /// <summary>
         /// ch:操作设备和流 | en:Device and stream operation
         /// </summary>
-        CDevice[] m_cDevice = null;
+        CDevice[] m_cDevice = new CDevice[3];
         /// <summary>
         /// ch:操作流和缓存 | en:Stream and buffer operation
         /// </summary>
@@ -135,7 +135,8 @@ namespace WY_App.Utility
                 {
                     if (m_nInterfaceNum==0)
                     {
-                        EnumInterface();                      
+                        EnumInterface();
+                        Thread.Sleep(10000);
                     }
                     else
                     {
@@ -143,7 +144,8 @@ namespace WY_App.Utility
                         {
                             if (!m_bIsIFOpen[index])
                             {
-                                OpenInterface(index);                               
+                                OpenInterface(index);
+                                Thread.Sleep(10000);
                             }
                         }
                         Thread.Sleep(1000);
@@ -393,10 +395,11 @@ namespace WY_App.Utility
             if (m_bIsIFOpen[index] && !m_bIsDeviceOpen[index])
             {
                 // ch:打开设备，获得设备句柄 | en:Open device, get handle
-                int nRet = m_cInterface[index].OpenDevice(index, out m_cDevice[index]);
+                int nRet = m_cInterface[index].OpenDevice(0, out m_cDevice[index]);
                 if (CErrorCode.MV_FG_SUCCESS != nRet)
                 {
-                    MessageBox.Show("打开相机设备" + index + "失败，故障代码:" + nRet.ToString("X"));
+                    LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":打开相机设备" + index + "失败，故障代码: " + nRet.ToString("X"));
+                    MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":打开相机设备" + index + "失败，故障代码: " + nRet.ToString("X"));
                     m_bIsDeviceOpen[index] = false;
                     return;
                 }

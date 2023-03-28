@@ -1,7 +1,33 @@
 <?xml version="1.0"?>
 <PLCParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Trigger_Detection>100</Trigger_Detection>
-  <Completion>D100</Completion>
-  <HeartBeatAdd>D104</HeartBeatAdd>
-  <StartAdd />
+  <Trigger_Detection0>D104</Trigger_Detection0>
+  <Completion0>D106</Completion0>
+  <Trigger_Detection1>D108</Trigger_Detection1>
+  <Completion1>D110</Completion1>
+  <Trigger_Detection2>D112</Trigger_Detection2>
+  <Completion2>D114</Completion2>
+  <HeartBeatAdd>D102</HeartBeatAdd>
+  <StartAdd>D100</StartAdd>
+  <预留地址>
+    <string>D0200</string>
+    <string>D2200</string>
+    <string>D4200</string>
+    <string>D6200</string>
+    <string>D8200</string>
+    <string>D10200</string>
+    <string>D12200</string>
+    <string>D14200</string>
+    <string>D16200</string>
+    <string>D18200</string>
+    <string>D20200</string>
+    <string>D22200</string>
+    <string>D24200</string>
+    <string>D26200</string>
+    <string>D28200</string>
+    <string>D30200</string>
+    <string>D32200</string>
+    <string>D34200</string>
+    <string>D36200</string>
+    <string>D38200</string>
+  </预留地址>
 </PLCParams>

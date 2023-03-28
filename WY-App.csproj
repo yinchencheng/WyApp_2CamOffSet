@@ -194,6 +194,12 @@
     <Compile Include="Forms\登陆界面.Designer.cs">
       <DependentUpon>登陆界面.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\相机配置界面.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\相机配置界面.designer.cs">
+      <DependentUpon>相机配置界面.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\通讯设置.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\登陆界面.resx">
       <DependentUpon>登陆界面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\相机配置界面.resx">
+      <DependentUpon>相机配置界面.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\通讯设置.resx">
       <DependentUpon>通讯设置.cs</DependentUpon>
