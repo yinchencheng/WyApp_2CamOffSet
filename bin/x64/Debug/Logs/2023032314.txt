@@ -1,0 +1,667 @@
+﻿[信息] 2023-03-23 14:07:27.083 thread:[001] 2023/3/23 14:07:27初始化完成
+[错误] 2023-03-23 14:07:28.090 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:30.096 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:32.102 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:34.107 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:36.111 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:36.957 thread:[003] 2023/3/23 14:07:36LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:07:38.114 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:40.118 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:42.122 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:44.126 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:44.742 thread:[003] 2023/3/23 14:07:44LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:07:46.129 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:48.135 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:50.142 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:52.148 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:52.536 thread:[003] 2023/3/23 14:07:52LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:07:54.154 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:56.160 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:07:58.164 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:00.166 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:00.321 thread:[003] 2023/3/23 14:08:00LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:08:02.171 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:04.176 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:06.180 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:08.115 thread:[003] 2023/3/23 14:08:08LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:08:08.183 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:10.187 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:12.190 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:14.192 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:15.902 thread:[003] 2023/3/23 14:08:15LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:08:16.198 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:18.204 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:20.210 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:22.216 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:23.711 thread:[003] 2023/3/23 14:08:23LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:08:24.221 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:26.226 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:28.234 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:30.238 thread:[009] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:08:31.493 thread:[003] 2023/3/23 14:08:31LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[信息] 2023-03-23 14:08:31.536 thread:[001] 2023/3/23 14:08:31软件关闭。
+[信息] 2023-03-23 14:10:41.807 thread:[001] 2023/3/23 14:10:41初始化完成
+[错误] 2023-03-23 14:10:42.805 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:10:44.810 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:10:46.817 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:10:48.823 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:10:50.827 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:10:52.097 thread:[003] 2023/3/23 14:10:52LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:10:52.831 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:10:54.836 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:10:56.840 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:10:58.841 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:10:59.882 thread:[003] 2023/3/23 14:10:59LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:11:00.849 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:02.855 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:04.859 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:06.863 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:07.670 thread:[003] 2023/3/23 14:11:07LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:11:08.867 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:10.871 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:12.877 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:14.879 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:15.452 thread:[003] 2023/3/23 14:11:15LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:11:16.882 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:18.886 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:20.892 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:22.897 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:23.240 thread:[003] 2023/3/23 14:11:23LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:11:24.903 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:26.907 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:28.910 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:30.912 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:31.034 thread:[003] 2023/3/23 14:11:31LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:11:32.918 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:34.922 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:36.928 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:38.815 thread:[003] 2023/3/23 14:11:38LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:11:38.932 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:40.937 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:42.941 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:44.945 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:46.602 thread:[003] 2023/3/23 14:11:46LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:11:46.951 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:48.956 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:50.962 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:52.966 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:54.403 thread:[003] 2023/3/23 14:11:54LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:11:54.971 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:56.974 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:11:58.981 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:00.986 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:02.189 thread:[003] 2023/3/23 14:12:02LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:12:02.987 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:04.992 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:06.998 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:09.001 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:09.986 thread:[003] 2023/3/23 14:12:09LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:12:11.005 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:13.010 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:15.016 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:17.018 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:17.766 thread:[003] 2023/3/23 14:12:17LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:12:19.020 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:21.025 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:23.028 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:25.034 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:25.559 thread:[003] 2023/3/23 14:12:25LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:12:27.037 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:29.040 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:31.044 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:33.048 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:33.346 thread:[003] 2023/3/23 14:12:33LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:12:35.054 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:37.058 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:39.063 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:41.067 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:41.125 thread:[003] 2023/3/23 14:12:41LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:12:43.073 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:45.078 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:47.084 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:48.936 thread:[003] 2023/3/23 14:12:48LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:12:49.089 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:51.095 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:53.098 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:55.104 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:56.713 thread:[003] 2023/3/23 14:12:56LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:12:57.109 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:12:59.115 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:01.120 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:03.126 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:04.492 thread:[003] 2023/3/23 14:13:04LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:13:05.133 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:07.138 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:09.144 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:11.149 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:12.277 thread:[003] 2023/3/23 14:13:12LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:13:13.153 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:15.159 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:17.169 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:19.175 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:20.061 thread:[003] 2023/3/23 14:13:20LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:13:21.180 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:23.185 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:25.190 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:27.196 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:27.851 thread:[003] 2023/3/23 14:13:27LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:13:29.202 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:31.206 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:33.210 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:35.214 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:35.638 thread:[003] 2023/3/23 14:13:35LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:13:37.218 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:39.224 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:41.227 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:43.230 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:43.425 thread:[003] 2023/3/23 14:13:43LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:13:45.235 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:47.239 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:49.243 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:51.211 thread:[003] 2023/3/23 14:13:51LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:13:51.248 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:53.253 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:55.257 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:57.262 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:13:58.998 thread:[003] 2023/3/23 14:13:58LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:13:59.268 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:01.275 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:03.280 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:05.283 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:06.786 thread:[003] 2023/3/23 14:14:06LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:14:07.287 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:09.292 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:11.294 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:13.297 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:14.577 thread:[003] 2023/3/23 14:14:14LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:14:15.302 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:17.306 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:19.311 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:21.314 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:22.367 thread:[003] 2023/3/23 14:14:22LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:14:23.319 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:25.325 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:27.329 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:29.334 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:30.154 thread:[003] 2023/3/23 14:14:30LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:14:31.339 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:33.345 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:35.352 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:37.356 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:37.939 thread:[003] 2023/3/23 14:14:37LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:14:39.363 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:41.369 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:43.375 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:45.378 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:45.724 thread:[003] 2023/3/23 14:14:45LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:14:47.382 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:49.387 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:51.393 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:53.399 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:53.510 thread:[003] 2023/3/23 14:14:53LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:14:55.403 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:57.409 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:14:59.413 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:01.299 thread:[003] 2023/3/23 14:15:01LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:15:01.420 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:03.424 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:05.431 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:07.435 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:09.083 thread:[003] 2023/3/23 14:15:09LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:15:09.439 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:11.444 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:13.447 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[信息] 2023-03-23 14:15:20.053 thread:[001] 2023/3/23 14:15:20初始化完成
+[错误] 2023-03-23 14:15:21.060 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:23.067 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:25.071 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:27.074 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:29.080 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:30.357 thread:[003] 2023/3/23 14:15:30LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:15:31.084 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:33.089 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:35.095 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:37.097 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:38.150 thread:[003] 2023/3/23 14:15:38LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:15:39.100 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:41.104 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:43.110 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:45.116 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:45.934 thread:[003] 2023/3/23 14:15:45LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:15:47.122 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:49.127 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:51.131 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:53.137 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:53.729 thread:[003] 2023/3/23 14:15:53LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:15:55.141 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:57.145 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:15:59.149 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:01.154 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:01.517 thread:[003] 2023/3/23 14:16:01LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:16:03.158 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:05.163 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:07.168 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:09.174 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:09.298 thread:[003] 2023/3/23 14:16:09LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:16:11.180 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:13.182 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:15.186 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:17.081 thread:[003] 2023/3/23 14:16:17LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:16:17.190 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:19.193 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:21.196 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:23.202 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:24.872 thread:[003] 2023/3/23 14:16:24LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:16:25.207 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:27.208 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:29.213 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:31.218 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:32.658 thread:[003] 2023/3/23 14:16:32LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:16:33.220 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:35.225 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:37.228 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:39.233 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:16:40.452 thread:[003] 2023/3/23 14:16:40LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:16:41.240 thread:[021] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[信息] 2023-03-23 14:17:56.507 thread:[001] 2023/3/23 14:17:56初始化完成
+[错误] 2023-03-23 14:17:57.501 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:17:59.507 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:01.512 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:03.515 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:05.521 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:06.362 thread:[003] 2023/3/23 14:18:06LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:18:07.526 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:09.531 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:11.535 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:13.542 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:14.141 thread:[003] 2023/3/23 14:18:14LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:18:15.547 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:17.552 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:19.558 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:21.564 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:21.927 thread:[003] 2023/3/23 14:18:21LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:18:23.569 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:25.574 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:27.580 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:29.584 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:29.711 thread:[003] 2023/3/23 14:18:29LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:18:31.586 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:33.588 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:35.592 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:37.506 thread:[003] 2023/3/23 14:18:37LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:18:37.596 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:39.601 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:41.606 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:44.363 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:45.294 thread:[003] 2023/3/23 14:18:45LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:18:46.370 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:48.377 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:50.380 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:52.382 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:53.092 thread:[003] 2023/3/23 14:18:53LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:18:54.388 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:56.392 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:18:58.394 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:00.400 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:00.881 thread:[003] 2023/3/23 14:19:00LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:19:02.407 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:04.414 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:06.417 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:08.421 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:08.666 thread:[003] 2023/3/23 14:19:08LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:19:10.425 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:12.429 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:14.434 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:16.440 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:16.455 thread:[003] 2023/3/23 14:19:16LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:19:18.445 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:20.453 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:22.458 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:24.244 thread:[003] 2023/3/23 14:19:24LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:19:24.464 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:26.469 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:28.474 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:30.475 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:32.036 thread:[003] 2023/3/23 14:19:32LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:19:32.478 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:34.483 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:36.487 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:38.492 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:39.831 thread:[003] 2023/3/23 14:19:39LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:19:40.496 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:42.501 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:44.505 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:46.510 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:47.624 thread:[003] 2023/3/23 14:19:47LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:19:48.515 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:50.520 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:52.526 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:54.529 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:55.423 thread:[003] 2023/3/23 14:19:55LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:19:56.532 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:19:58.540 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:20:00.545 thread:[016] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[信息] 2023-03-23 14:20:01.920 thread:[001] 2023/3/23 14:20:01软件关闭。
+[信息] 2023-03-23 14:21:19.862 thread:[001] 2023/3/23 14:21:19初始化完成
+[错误] 2023-03-23 14:21:20.867 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:22.871 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:24.875 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:26.879 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:28.883 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:30.215 thread:[003] 2023/3/23 14:21:30LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:21:30.888 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:32.892 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:34.897 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:36.903 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:38.003 thread:[003] 2023/3/23 14:21:38LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:21:38.906 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:40.910 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:42.914 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:44.918 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:45.789 thread:[003] 2023/3/23 14:21:45LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:21:46.924 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:48.929 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:50.932 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:52.939 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:53.583 thread:[003] 2023/3/23 14:21:53LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:21:54.947 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:56.952 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:21:58.955 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:00.958 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:01.369 thread:[003] 2023/3/23 14:22:01LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:22:02.960 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:04.966 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:06.969 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:08.974 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:09.155 thread:[003] 2023/3/23 14:22:09LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:22:10.979 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:12.982 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:14.987 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:16.949 thread:[003] 2023/3/23 14:22:16LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:22:16.992 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:18.997 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:21.000 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:23.010 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:24.735 thread:[003] 2023/3/23 14:22:24LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:22:25.012 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:27.014 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:29.020 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:31.026 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:32.526 thread:[003] 2023/3/23 14:22:32LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:22:33.029 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:35.034 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:22:37.039 thread:[015] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[信息] 2023-03-23 14:22:38.431 thread:[001] 2023/3/23 14:22:38软件关闭。
+[信息] 2023-03-23 14:33:39.057 thread:[001] 2023/3/23 14:33:39初始化完成
+[错误] 2023-03-23 14:33:40.051 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:33:42.055 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:33:44.058 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:33:46.064 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:33:48.066 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:33:48.838 thread:[003] 2023/3/23 14:33:48LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:33:50.070 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:33:52.077 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:33:54.085 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:33:56.090 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:33:56.630 thread:[003] 2023/3/23 14:33:56LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:33:58.096 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:00.099 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:02.102 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:04.109 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:04.416 thread:[003] 2023/3/23 14:34:04LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:34:06.112 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:08.115 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:10.121 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:12.125 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:12.198 thread:[003] 2023/3/23 14:34:12LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:34:14.130 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:16.134 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:18.140 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:19.996 thread:[003] 2023/3/23 14:34:19LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:34:20.143 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:22.146 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:24.151 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:26.155 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:27.798 thread:[003] 2023/3/23 14:34:27LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:34:28.157 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:30.161 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:32.166 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:34.170 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:35.585 thread:[003] 2023/3/23 14:34:35LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:34:36.174 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:38.177 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:40.184 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:42.189 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:43.379 thread:[003] 2023/3/23 14:34:43LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:34:44.192 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:46.194 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:48.195 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:50.200 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:51.170 thread:[003] 2023/3/23 14:34:51LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:34:52.207 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:54.211 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:56.218 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:58.224 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:34:58.964 thread:[003] 2023/3/23 14:34:58LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:35:00.228 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:02.228 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:04.234 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:06.239 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:06.755 thread:[003] 2023/3/23 14:35:06LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:35:08.244 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:10.249 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:12.253 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:14.258 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:14.539 thread:[003] 2023/3/23 14:35:14LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:35:16.261 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:18.264 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:20.269 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:22.274 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:22.330 thread:[003] 2023/3/23 14:35:22LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:35:24.277 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:26.279 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:28.284 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:30.111 thread:[003] 2023/3/23 14:35:30LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:35:30.289 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:32.294 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:34.299 thread:[011] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[信息] 2023-03-23 14:35:39.102 thread:[001] 2023/3/23 14:35:39初始化完成
+[错误] 2023-03-23 14:35:40.103 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:42.106 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:44.109 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:46.115 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:48.121 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:49.456 thread:[003] 2023/3/23 14:35:49LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:35:50.126 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:52.128 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:54.134 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:56.140 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:35:57.242 thread:[003] 2023/3/23 14:35:57LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:35:58.146 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:00.151 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:02.156 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:04.160 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:05.031 thread:[003] 2023/3/23 14:36:05LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:36:06.166 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:08.171 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:10.178 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:12.184 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:12.823 thread:[003] 2023/3/23 14:36:12LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:36:14.187 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:16.192 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:18.197 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:20.203 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:20.611 thread:[003] 2023/3/23 14:36:20LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:36:22.210 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:24.213 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:26.219 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:28.224 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:28.415 thread:[003] 2023/3/23 14:36:28LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:36:30.230 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:32.233 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:34.239 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:36.212 thread:[003] 2023/3/23 14:36:36LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:36:36.244 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:38.248 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:40.253 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:42.257 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:44.001 thread:[003] 2023/3/23 14:36:44LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:36:44.262 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:46.269 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:48.273 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:50.276 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:51.796 thread:[003] 2023/3/23 14:36:51LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:36:52.281 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:54.290 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:56.294 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:36:58.299 thread:[018] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[信息] 2023-03-23 14:36:58.824 thread:[001] 2023/3/23 14:36:58软件关闭。
+[信息] 2023-03-23 14:39:02.325 thread:[001] 2023/3/23 14:39:02初始化完成
+[错误] 2023-03-23 14:39:03.315 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:05.318 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:07.324 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:09.327 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:11.331 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:12.637 thread:[003] 2023/3/23 14:39:12LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:39:13.335 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:15.340 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:17.344 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:19.348 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:20.419 thread:[003] 2023/3/23 14:39:20LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:39:21.352 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:23.354 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:25.359 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:27.364 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:28.205 thread:[003] 2023/3/23 14:39:28LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:39:29.370 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:31.373 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:33.377 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:35.383 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:36.001 thread:[003] 2023/3/23 14:39:36LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:39:37.387 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:39.391 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:41.395 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:43.401 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:43.800 thread:[003] 2023/3/23 14:39:43LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:39:45.405 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:47.411 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:49.414 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:51.417 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:39:51.597 thread:[003] 2023/3/23 14:39:51LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:39:53.420 thread:[020] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[信息] 2023-03-23 14:39:53.620 thread:[001] 2023/3/23 14:39:53软件关闭。
+[信息] 2023-03-23 14:44:31.873 thread:[001] 2023/3/23 14:44:31初始化完成
+[错误] 2023-03-23 14:44:32.861 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:34.864 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:36.877 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:38.883 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:40.887 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:41.716 thread:[003] 2023/3/23 14:44:41LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:44:42.891 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:44.898 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:46.905 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:48.909 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:49.510 thread:[003] 2023/3/23 14:44:49LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:44:50.913 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:52.917 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:54.921 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:56.926 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:44:57.308 thread:[003] 2023/3/23 14:44:57LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:44:58.931 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:00.935 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:02.939 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:04.943 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:05.103 thread:[003] 2023/3/23 14:45:05LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:45:06.948 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:08.954 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:10.959 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:12.886 thread:[003] 2023/3/23 14:45:12LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:45:12.963 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:14.969 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:16.975 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:18.981 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:20.670 thread:[003] 2023/3/23 14:45:20LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:45:20.987 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:22.990 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:24.992 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:26.997 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:28.464 thread:[003] 2023/3/23 14:45:28LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:45:29.001 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:31.007 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:33.010 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:35.014 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:36.260 thread:[003] 2023/3/23 14:45:36LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:45:37.020 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:39.025 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:41.027 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:43.033 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:44.042 thread:[003] 2023/3/23 14:45:44LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:45:45.036 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:47.041 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:49.044 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:51.048 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:51.824 thread:[003] 2023/3/23 14:45:51LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:45:53.054 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:55.061 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:57.065 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:59.071 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:45:59.606 thread:[003] 2023/3/23 14:45:59LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:46:01.073 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:03.078 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:05.080 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:07.086 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:07.398 thread:[003] 2023/3/23 14:46:07LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:46:09.088 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:11.095 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:13.098 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:15.101 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:15.195 thread:[003] 2023/3/23 14:46:15LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:46:17.105 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:19.112 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:21.118 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:22.992 thread:[003] 2023/3/23 14:46:22LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:46:23.123 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:25.125 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:27.130 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:29.137 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:30.767 thread:[003] 2023/3/23 14:46:30LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:46:31.140 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:33.143 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:35.148 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:37.155 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:38.548 thread:[003] 2023/3/23 14:46:38LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:46:39.160 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:41.164 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:43.170 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:46:45.173 thread:[013] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[信息] 2023-03-23 14:46:45.924 thread:[001] 2023/3/23 14:46:45软件关闭。
+[信息] 2023-03-23 14:49:14.880 thread:[001] 2023/3/23 14:49:14初始化完成
+[错误] 2023-03-23 14:49:15.882 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:17.890 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:19.896 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:21.897 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:23.902 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:25.168 thread:[003] 2023/3/23 14:49:25LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:49:25.907 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:27.912 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:29.917 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:31.921 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:32.957 thread:[003] 2023/3/23 14:49:32LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:49:33.926 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:35.932 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:37.938 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:39.941 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:40.743 thread:[003] 2023/3/23 14:49:40LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:49:41.945 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:43.950 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:45.957 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:47.962 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:48.534 thread:[003] 2023/3/23 14:49:48LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:49:49.969 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:51.974 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:53.980 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:55.983 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:56.324 thread:[003] 2023/3/23 14:49:56LineCam0相机链接失败HALCON error #5312: Image acquisition: device cannot be initialized in operator open_framegrabber
+[错误] 2023-03-23 14:49:57.989 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[错误] 2023-03-23 14:49:59.994 thread:[012] Melsec.MelsecMcNet连接失败:IP127.0.0.1  Port:6000
+[信息] 2023-03-23 14:50:00.344 thread:[001] 2023/3/23 14:50:00软件关闭。
