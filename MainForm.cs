@@ -32,6 +32,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Runtime.Remoting.Messaging;
 using System.Web.UI.WebControls;
 using HslCommunication.Secs.Types;
+using HslCommunication.BasicFramework;
 
 namespace WY_App
 {
@@ -71,21 +72,6 @@ namespace WY_App
         public MainForm()
         {
             InitializeComponent();
-            HOperatorSet.ReadImage(out hImage[0], Application.StartupPath + "/image/N1.jpg");
-            HOperatorSet.GetImageSize(MainForm.hImage[0], out Halcon.hv_Width[0], out Halcon.hv_Height[0]);//获取图片大小规格
-            HOperatorSet.ReadImage(out hImage[1], Application.StartupPath + "/image/N1.jpg");
-            HOperatorSet.GetImageSize(MainForm.hImage[1], out Halcon.hv_Width[1], out Halcon.hv_Height[1]);//获取图片大小规格
-            hWindows0 = new HWindow[3] { hWindowControl1.HalconWindow, hWindowControl4.HalconWindow, hWindowControl5.HalconWindow };
-            HOperatorSet.SetPart(hWindows0[0], 0, 0, -1, -1);//设置窗体的规格
-            HOperatorSet.SetPart(hWindows0[1], 0, 0, 1000, 1000);//设置窗体的规格
-            HOperatorSet.SetPart(hWindows0[2], 0, 0, 1000, 1000);//设置窗体的规格
-            HOperatorSet.DispObj(hImage[0], hWindows0[0]);
-            hWindows1 = new HWindow[3] { hWindowControl2.HalconWindow, hWindowControl6.HalconWindow, hWindowControl7.HalconWindow };
-            HOperatorSet.SetPart(hWindows1[0], 0, 0, -1, -1);//设置窗体的规格
-            HOperatorSet.SetPart(hWindows1[1], 0, 0, 1000, 1000);//设置窗体的规格
-            HOperatorSet.SetPart(hWindows1[2], 0, 0, 1000, 1000);//设置窗体的规格
-            HOperatorSet.DispObj(hImage[1], hWindows1[0]);
-            pictureBox1.Load(Application.StartupPath + "/image/logo.png");
             #region 读取配置文件
             try
             {
@@ -95,6 +81,10 @@ namespace WY_App
             {
                 Parameters.commministion = new Parameters.Commministion();
                 XMLHelper.serialize<Parameters.Commministion>(Parameters.commministion, "Parameter/Commministion.xml");
+            }
+            if (!EnumDivice(Parameters.commministion.DeviceID))
+            {
+                return;
             }
             try
             {
@@ -137,9 +127,45 @@ namespace WY_App
                 HOperatorSet.ReadRegion(out hoRegions[i], Parameters.commministion.productName + "/halcon/hoRegion" + i + ".tiff");
             }
             #endregion
+            
+            HOperatorSet.ReadImage(out hImage[0], Application.StartupPath + "/image/N1.jpg");
+            HOperatorSet.GetImageSize(MainForm.hImage[0], out Halcon.hv_Width[0], out Halcon.hv_Height[0]);//获取图片大小规格
+            HOperatorSet.ReadImage(out hImage[1], Application.StartupPath + "/image/N1.jpg");
+            HOperatorSet.GetImageSize(MainForm.hImage[1], out Halcon.hv_Width[1], out Halcon.hv_Height[1]);//获取图片大小规格
+            hWindows0 = new HWindow[3] { hWindowControl1.HalconWindow, hWindowControl4.HalconWindow, hWindowControl5.HalconWindow };
+            HOperatorSet.SetPart(hWindows0[0], 0, 0, -1, -1);//设置窗体的规格
+            HOperatorSet.SetPart(hWindows0[1], 0, 0, 1000, 1000);//设置窗体的规格
+            HOperatorSet.SetPart(hWindows0[2], 0, 0, 1000, 1000);//设置窗体的规格
+            HOperatorSet.DispObj(hImage[0], hWindows0[0]);
+            hWindows1 = new HWindow[3] { hWindowControl2.HalconWindow, hWindowControl6.HalconWindow, hWindowControl7.HalconWindow };
+            HOperatorSet.SetPart(hWindows1[0], 0, 0, -1, -1);//设置窗体的规格
+            HOperatorSet.SetPart(hWindows1[1], 0, 0, 1000, 1000);//设置窗体的规格
+            HOperatorSet.SetPart(hWindows1[2], 0, 0, 1000, 1000);//设置窗体的规格
+            HOperatorSet.DispObj(hImage[1], hWindows1[0]);
+            pictureBox1.Load(Application.StartupPath + "/image/logo.png");
+           
             myThread = new Thread(initAll);
             myThread.IsBackground = true;
             myThread.Start();
+        }
+        private bool EnumDivice(string DiviceSn)
+        {
+            SoftAuthorize softAuthorize = new SoftAuthorize();
+            if (!softAuthorize.CheckAuthorize(DiviceSn, AuthorizeEncrypted))
+            {
+                MessageBox.Show("注册码和机器不匹配，请联系领先技术人员获取对应激活序列号！");
+                Close();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+        private string AuthorizeEncrypted(string origin)
+        {
+            return SoftSecurity.MD5Encrypt(origin, "12345678");
         }
 
         /// <summary>
@@ -425,7 +451,7 @@ namespace WY_App
                         catch
                         {
                             Halcon.CamConnect[1] = false;
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 1);
+                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 2);
                             return;
                         }
                         HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Trigger_Detection1, 0);
@@ -437,11 +463,11 @@ namespace WY_App
                         相机检测设置.Detection(1, hWindows1, MainForm.hImage[1], ref detectionResults);
                         if (DetectionResult)
                         {
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 0);
+                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 1);
                         }
                         else
                         {
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 1);
+                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 2);
                         }                                             
                         this.Invoke((EventHandler)delegate
                         {
