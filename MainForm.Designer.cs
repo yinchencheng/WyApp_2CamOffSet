@@ -30,6 +30,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -69,17 +74,20 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lst_LogInfos = new System.Windows.Forms.ListBox();
             this.tabooo = new System.Windows.Forms.TableLayoutPanel();
+            this.messageShow1 = new WY_App.UserControls.MessageShow();
+            this.messageShow0 = new WY_App.UserControls.MessageShow();
             this.hWindowControl4 = new HalconDotNet.HWindowControl();
             this.hWindowControl5 = new HalconDotNet.HWindowControl();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.messageShow2 = new WY_App.UserControls.MessageShow();
+            this.messageShow3 = new WY_App.UserControls.MessageShow();
             this.hWindowControl6 = new HalconDotNet.HWindowControl();
             this.hWindowControl7 = new HalconDotNet.HWindowControl();
             this.hWindowControl1 = new HalconDotNet.HWindowControl();
             this.hWindowControl2 = new HalconDotNet.HWindowControl();
-            this.messageShow1 = new WY_App.UserControls.MessageShow();
-            this.messageShow0 = new WY_App.UserControls.MessageShow();
-            this.messageShow2 = new WY_App.UserControls.MessageShow();
-            this.messageShow3 = new WY_App.UserControls.MessageShow();
+            this.uiDataGridView1 = new Sunny.UI.UIDataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -89,6 +97,7 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tabooo.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -613,8 +622,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.hWindowControl1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.hWindowControl2, 1, 0);
@@ -631,19 +639,20 @@
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.lst_LogInfos, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.lst_LogInfos, 0, 3);
             this.tableLayoutPanel5.Controls.Add(this.tabooo, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel8, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.uiDataGridView1, 0, 2);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(1414, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(1514, 0);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 3;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 240F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(500, 985);
+            this.tableLayoutPanel5.RowCount = 4;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.11166F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.88834F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 175F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(400, 985);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // lst_LogInfos
@@ -655,10 +664,10 @@
             this.lst_LogInfos.ForeColor = System.Drawing.Color.White;
             this.lst_LogInfos.FormattingEnabled = true;
             this.lst_LogInfos.ItemHeight = 14;
-            this.lst_LogInfos.Location = new System.Drawing.Point(0, 744);
+            this.lst_LogInfos.Location = new System.Drawing.Point(0, 809);
             this.lst_LogInfos.Margin = new System.Windows.Forms.Padding(0);
             this.lst_LogInfos.Name = "lst_LogInfos";
-            this.lst_LogInfos.Size = new System.Drawing.Size(500, 241);
+            this.lst_LogInfos.Size = new System.Drawing.Size(400, 176);
             this.lst_LogInfos.TabIndex = 4;
             // 
             // tabooo
@@ -675,10 +684,28 @@
             this.tabooo.Margin = new System.Windows.Forms.Padding(0);
             this.tabooo.Name = "tabooo";
             this.tabooo.RowCount = 2;
-            this.tabooo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.17911F));
-            this.tabooo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.8209F));
-            this.tabooo.Size = new System.Drawing.Size(500, 372);
+            this.tabooo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.8942F));
+            this.tabooo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.1058F));
+            this.tabooo.Size = new System.Drawing.Size(400, 293);
             this.tabooo.TabIndex = 3;
+            // 
+            // messageShow1
+            // 
+            this.messageShow1.BackColor = System.Drawing.Color.Black;
+            this.messageShow1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageShow1.Location = new System.Drawing.Point(203, 199);
+            this.messageShow1.Name = "messageShow1";
+            this.messageShow1.Size = new System.Drawing.Size(194, 91);
+            this.messageShow1.TabIndex = 3;
+            // 
+            // messageShow0
+            // 
+            this.messageShow0.BackColor = System.Drawing.Color.Black;
+            this.messageShow0.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageShow0.Location = new System.Drawing.Point(3, 199);
+            this.messageShow0.Name = "messageShow0";
+            this.messageShow0.Size = new System.Drawing.Size(194, 91);
+            this.messageShow0.TabIndex = 2;
             // 
             // hWindowControl4
             // 
@@ -688,9 +715,9 @@
             this.hWindowControl4.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
             this.hWindowControl4.Location = new System.Drawing.Point(3, 3);
             this.hWindowControl4.Name = "hWindowControl4";
-            this.hWindowControl4.Size = new System.Drawing.Size(244, 232);
+            this.hWindowControl4.Size = new System.Drawing.Size(194, 190);
             this.hWindowControl4.TabIndex = 4;
-            this.hWindowControl4.WindowSize = new System.Drawing.Size(244, 232);
+            this.hWindowControl4.WindowSize = new System.Drawing.Size(194, 190);
             // 
             // hWindowControl5
             // 
@@ -698,11 +725,11 @@
             this.hWindowControl5.BorderColor = System.Drawing.Color.Black;
             this.hWindowControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hWindowControl5.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.hWindowControl5.Location = new System.Drawing.Point(253, 3);
+            this.hWindowControl5.Location = new System.Drawing.Point(203, 3);
             this.hWindowControl5.Name = "hWindowControl5";
-            this.hWindowControl5.Size = new System.Drawing.Size(244, 232);
+            this.hWindowControl5.Size = new System.Drawing.Size(194, 190);
             this.hWindowControl5.TabIndex = 5;
-            this.hWindowControl5.WindowSize = new System.Drawing.Size(244, 232);
+            this.hWindowControl5.WindowSize = new System.Drawing.Size(194, 190);
             // 
             // tableLayoutPanel8
             // 
@@ -714,14 +741,32 @@
             this.tableLayoutPanel8.Controls.Add(this.hWindowControl6, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.hWindowControl7, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 372);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 293);
             this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 2;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.80597F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.19403F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(500, 372);
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.67088F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.32911F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(400, 316);
             this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // messageShow2
+            // 
+            this.messageShow2.BackColor = System.Drawing.Color.Black;
+            this.messageShow2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageShow2.Location = new System.Drawing.Point(3, 220);
+            this.messageShow2.Name = "messageShow2";
+            this.messageShow2.Size = new System.Drawing.Size(194, 93);
+            this.messageShow2.TabIndex = 4;
+            // 
+            // messageShow3
+            // 
+            this.messageShow3.BackColor = System.Drawing.Color.Black;
+            this.messageShow3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageShow3.Location = new System.Drawing.Point(203, 220);
+            this.messageShow3.Name = "messageShow3";
+            this.messageShow3.Size = new System.Drawing.Size(194, 93);
+            this.messageShow3.TabIndex = 3;
             // 
             // hWindowControl6
             // 
@@ -731,9 +776,9 @@
             this.hWindowControl6.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
             this.hWindowControl6.Location = new System.Drawing.Point(3, 3);
             this.hWindowControl6.Name = "hWindowControl6";
-            this.hWindowControl6.Size = new System.Drawing.Size(244, 231);
+            this.hWindowControl6.Size = new System.Drawing.Size(194, 211);
             this.hWindowControl6.TabIndex = 5;
-            this.hWindowControl6.WindowSize = new System.Drawing.Size(244, 231);
+            this.hWindowControl6.WindowSize = new System.Drawing.Size(194, 211);
             // 
             // hWindowControl7
             // 
@@ -741,11 +786,11 @@
             this.hWindowControl7.BorderColor = System.Drawing.Color.Black;
             this.hWindowControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hWindowControl7.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.hWindowControl7.Location = new System.Drawing.Point(253, 3);
+            this.hWindowControl7.Location = new System.Drawing.Point(203, 3);
             this.hWindowControl7.Name = "hWindowControl7";
-            this.hWindowControl7.Size = new System.Drawing.Size(244, 231);
+            this.hWindowControl7.Size = new System.Drawing.Size(194, 211);
             this.hWindowControl7.TabIndex = 6;
-            this.hWindowControl7.WindowSize = new System.Drawing.Size(244, 231);
+            this.hWindowControl7.WindowSize = new System.Drawing.Size(194, 211);
             // 
             // hWindowControl1
             // 
@@ -756,9 +801,9 @@
             this.hWindowControl1.Location = new System.Drawing.Point(0, 0);
             this.hWindowControl1.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl1.Name = "hWindowControl1";
-            this.hWindowControl1.Size = new System.Drawing.Size(707, 985);
+            this.hWindowControl1.Size = new System.Drawing.Size(757, 985);
             this.hWindowControl1.TabIndex = 4;
-            this.hWindowControl1.WindowSize = new System.Drawing.Size(707, 985);
+            this.hWindowControl1.WindowSize = new System.Drawing.Size(757, 985);
             // 
             // hWindowControl2
             // 
@@ -766,48 +811,79 @@
             this.hWindowControl2.BorderColor = System.Drawing.Color.Black;
             this.hWindowControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hWindowControl2.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.hWindowControl2.Location = new System.Drawing.Point(707, 0);
+            this.hWindowControl2.Location = new System.Drawing.Point(757, 0);
             this.hWindowControl2.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl2.Name = "hWindowControl2";
-            this.hWindowControl2.Size = new System.Drawing.Size(707, 985);
+            this.hWindowControl2.Size = new System.Drawing.Size(757, 985);
             this.hWindowControl2.TabIndex = 5;
-            this.hWindowControl2.WindowSize = new System.Drawing.Size(707, 985);
+            this.hWindowControl2.WindowSize = new System.Drawing.Size(757, 985);
             // 
-            // messageShow1
+            // uiDataGridView1
             // 
-            this.messageShow1.BackColor = System.Drawing.Color.Black;
-            this.messageShow1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messageShow1.Location = new System.Drawing.Point(253, 241);
-            this.messageShow1.Name = "messageShow1";
-            this.messageShow1.Size = new System.Drawing.Size(244, 128);
-            this.messageShow1.TabIndex = 3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.uiDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.uiDataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.uiDataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(45)))), ((int)(((byte)(92)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(45)))), ((int)(((byte)(92)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.uiDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.uiDataGridView1.ColumnHeadersHeight = 32;
+            this.uiDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.uiDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.uiDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.uiDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiDataGridView1.EnableHeadersVisualStyles = false;
+            this.uiDataGridView1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(92)))));
+            this.uiDataGridView1.Location = new System.Drawing.Point(3, 612);
+            this.uiDataGridView1.Name = "uiDataGridView1";
+            this.uiDataGridView1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(92)))));
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(92)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.uiDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.uiDataGridView1.RowTemplate.Height = 23;
+            this.uiDataGridView1.SelectedIndex = -1;
+            this.uiDataGridView1.ShowGridLine = true;
+            this.uiDataGridView1.Size = new System.Drawing.Size(394, 194);
+            this.uiDataGridView1.StripeEvenColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.uiDataGridView1.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.uiDataGridView1.Style = Sunny.UI.UIStyle.Black;
+            this.uiDataGridView1.TabIndex = 5;
             // 
-            // messageShow0
+            // Column1
             // 
-            this.messageShow0.BackColor = System.Drawing.Color.Black;
-            this.messageShow0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messageShow0.Location = new System.Drawing.Point(3, 241);
-            this.messageShow0.Name = "messageShow0";
-            this.messageShow0.Size = new System.Drawing.Size(244, 128);
-            this.messageShow0.TabIndex = 2;
+            this.Column1.HeaderText = "Cam1";
+            this.Column1.Name = "Column1";
             // 
-            // messageShow2
+            // Column2
             // 
-            this.messageShow2.BackColor = System.Drawing.Color.Black;
-            this.messageShow2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messageShow2.Location = new System.Drawing.Point(3, 240);
-            this.messageShow2.Name = "messageShow2";
-            this.messageShow2.Size = new System.Drawing.Size(244, 129);
-            this.messageShow2.TabIndex = 4;
-            // 
-            // messageShow3
-            // 
-            this.messageShow3.BackColor = System.Drawing.Color.Black;
-            this.messageShow3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messageShow3.Location = new System.Drawing.Point(253, 240);
-            this.messageShow3.Name = "messageShow3";
-            this.messageShow3.Size = new System.Drawing.Size(244, 129);
-            this.messageShow3.TabIndex = 3;
+            this.Column2.HeaderText = "Cam2";
+            this.Column2.Name = "Column2";
             // 
             // MainForm
             // 
@@ -832,6 +908,7 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tabooo.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -888,6 +965,9 @@
         private System.Windows.Forms.ToolStripStatusLabel lab_Product;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel9;
         public System.Windows.Forms.ListBox lst_LogInfos;
+        private Sunny.UI.UIDataGridView uiDataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
 

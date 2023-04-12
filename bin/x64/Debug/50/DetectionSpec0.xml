@@ -36,17 +36,17 @@
     <unsignedInt>500</unsignedInt>
   </MeasureLength1>
   <MeasureLength2>
-    <unsignedInt>1000</unsignedInt>
+    <unsignedInt>10</unsignedInt>
     <unsignedInt>10</unsignedInt>
     <unsignedInt>10</unsignedInt>
   </MeasureLength2>
   <MeasureSigma>
-    <double>3</double>
+    <double>10</double>
     <double>10</double>
     <double>10</double>
   </MeasureSigma>
   <MeasureThreshold>
-    <unsignedInt>40</unsignedInt>
+    <unsignedInt>10</unsignedInt>
     <unsignedInt>10</unsignedInt>
     <unsignedInt>10</unsignedInt>
   </MeasureThreshold>

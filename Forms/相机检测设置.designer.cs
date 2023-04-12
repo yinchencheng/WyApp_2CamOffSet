@@ -49,6 +49,7 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PixelResolutionRow = new System.Windows.Forms.Panel();
+            this.uiButton4 = new Sunny.UI.UIButton();
             this.uiButton3 = new Sunny.UI.UIButton();
             this.uiButton2 = new Sunny.UI.UIButton();
             this.uiButton1 = new Sunny.UI.UIButton();
@@ -99,7 +100,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.hWindowControl4 = new HalconDotNet.HWindowControl();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.uiButton4 = new Sunny.UI.UIButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -280,6 +280,7 @@
             this.hWindowControl2.Size = new System.Drawing.Size(384, 381);
             this.hWindowControl2.TabIndex = 3;
             this.hWindowControl2.WindowSize = new System.Drawing.Size(384, 381);
+            this.hWindowControl2.HMouseDown += new HalconDotNet.HMouseEventHandler(this.hWindowControl2_HMouseDown);
             // 
             // panel1
             // 
@@ -398,6 +399,22 @@
             this.PixelResolutionRow.Size = new System.Drawing.Size(316, 885);
             this.PixelResolutionRow.TabIndex = 6;
             this.PixelResolutionRow.Paint += new System.Windows.Forms.PaintEventHandler(this.PixelResolutionRow_Paint);
+            // 
+            // uiButton4
+            // 
+            this.uiButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton4.FillColor = System.Drawing.Color.Black;
+            this.uiButton4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton4.Location = new System.Drawing.Point(26, 408);
+            this.uiButton4.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton4.Name = "uiButton4";
+            this.uiButton4.Radius = 20;
+            this.uiButton4.Size = new System.Drawing.Size(60, 29);
+            this.uiButton4.Style = Sunny.UI.UIStyle.Custom;
+            this.uiButton4.TabIndex = 85;
+            this.uiButton4.Text = "基准";
+            this.uiButton4.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton4.Click += new System.EventHandler(this.uiButton4_Click);
             // 
             // uiButton3
             // 
@@ -1195,27 +1212,12 @@
             this.hWindowControl4.Size = new System.Drawing.Size(596, 1074);
             this.hWindowControl4.TabIndex = 0;
             this.hWindowControl4.WindowSize = new System.Drawing.Size(596, 1074);
+            this.hWindowControl4.HMouseDown += new HalconDotNet.HMouseEventHandler(this.hWindowControl4_HMouseDown);
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // uiButton4
-            // 
-            this.uiButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton4.FillColor = System.Drawing.Color.Black;
-            this.uiButton4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton4.Location = new System.Drawing.Point(26, 408);
-            this.uiButton4.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton4.Name = "uiButton4";
-            this.uiButton4.Radius = 20;
-            this.uiButton4.Size = new System.Drawing.Size(60, 29);
-            this.uiButton4.Style = Sunny.UI.UIStyle.Custom;
-            this.uiButton4.TabIndex = 85;
-            this.uiButton4.Text = "基准";
-            this.uiButton4.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton4.Click += new System.EventHandler(this.uiButton4_Click);
             // 
             // 相机检测设置
             // 

@@ -337,8 +337,8 @@ namespace WY_App
                             setCallBack = SaveImages;
                             this.Invoke(setCallBack, 0, hImage[0], "OUT-");
                         }
-
-                        this.Invoke((EventHandler)delegate 
+                        
+                            this.Invoke((EventHandler)delegate 
                         {
                             if (detectionResults.Count == 1)
                             {

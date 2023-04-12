@@ -238,6 +238,29 @@ namespace WY_App.Utility
             hWindow.DrawLine(out rect1.Row1[index], out rect1.Colum1[index], out rect1.Row2[index], out rect1.Colum2[index]);
             HOperatorSet.DispLine(hWindow, rect1.Row1[index], rect1.Colum1[index], rect1.Row2[index], rect1.Colum2[index]);
         }
+        public static void DetectionGenRegionAOI(int index, HWindow hWindow, HObject hImage, ref HObject ho_Region)
+        {
+            // Local control variables 
+
+            HTuple hv_Row = new HTuple(), hv_Col = new HTuple();
+            // Initialize local and output iconic variables 
+            HOperatorSet.GenEmptyObj(out ho_Region);
+            hv_Row.Dispose();
+            hv_Row = new HTuple();
+            hv_Row[0] = 0;
+            hv_Row[1] = 100;
+            hv_Row[2] = 200;
+            hv_Row[3] = 100;
+            hv_Col.Dispose();
+            hv_Col = new HTuple();
+            hv_Col[0] = 100;
+            hv_Col[1] = 0;
+            hv_Col[2] = 100;
+            hv_Col[3] = 200;;
+            HOperatorSet.GenRegionPolygonFilled(out ho_Region, hv_Row, hv_Col);
+            hv_Row.Dispose();
+            hv_Col.Dispose();
+        }
 
         /// <summary>
         /// 直线卡尺工具
@@ -400,7 +423,7 @@ namespace WY_App.Utility
                 {
                     hv_Column = hv_Width[CamNum] - 500;
                 }
-                HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row - 500, hv_Column - 500, hv_Row + 500, hv_Column + 500);               
+                HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row, hv_Column, 1000, 1000);               
                 detectionResult.Add(detectionResult1);
                 HOperatorSet.SetColor(hWindow[0], "red");
                 HOperatorSet.SetTposition(hWindow[0], hv_Row, hv_Column);
