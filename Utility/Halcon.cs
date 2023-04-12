@@ -33,7 +33,7 @@ namespace WY_App.Utility
                 HOperatorSet.OpenFramegrabber("GenICamTL", 0, 0, 0, 0, 0, 0, "progressive", -1, "default", -1, "false", "default", CamID, 0, -1, out hv_AcqHandle);
                 HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", "Off");
                 HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSource", "Software");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "grab_timeout", 20000);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "grab_timeout", 5000);
                 return true;
             }
             catch (Exception ex)
@@ -423,7 +423,7 @@ namespace WY_App.Utility
                 {
                     hv_Column = hv_Width[CamNum] - 500;
                 }
-                HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row, hv_Column, 1000, 1000);               
+                HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row-500, hv_Column-500, 1000, 1000);               
                 detectionResult.Add(detectionResult1);
                 HOperatorSet.SetColor(hWindow[0], "red");
                 HOperatorSet.SetTposition(hWindow[0], hv_Row, hv_Column);
@@ -495,7 +495,7 @@ namespace WY_App.Utility
                     {
                         hv_Column12[i] = hv_Width[CamNum] - 500;
                     }
-                    HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row12[i], hv_Column12[i], 1000, 1000);
+                    HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row12[i]-500, hv_Column12[i] - 500, 1000, 1000);
                     string stfFileNameOut = "CAM" + CamNum + "-Area-" + i + MainForm.productSN + "-" + MainForm.strDateTime;  // 默认的图像保存名称
                     string pathOut = Parameters.commministion.ImageSavePath + "/" + MainForm.strDateTimeDay + "/" + MainForm.productSN + "/";
                     if (!System.IO.Directory.Exists(pathOut))

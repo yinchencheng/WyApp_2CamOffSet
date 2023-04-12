@@ -32,11 +32,13 @@ namespace WY_App
         static HWindow[] hWindows;       
         HWindow hWindow = new HWindow();
         static HRect1[,] BaseReault = new HRect1[3,3];
+        static MessageShow[] messageShows;
         public 相机检测设置()
         {
             InitializeComponent();
             hWindow = hWindowControl4.HalconWindow;
             hWindows = new HWindow[3] { hWindowControl1.HalconWindow, hWindowControl2.HalconWindow, hWindowControl3.HalconWindow };
+            messageShows = new MessageShow[2] {messageShow0,messageShow1 };
             HOperatorSet.SetPart(hWindows[0], 0, 0, -1, -1);//设置窗体的规格
             HOperatorSet.SetPart(hWindows[1], 0, 0, 1000, 1000);//设置窗体的规格
             HOperatorSet.SetPart(hWindows[2], 0, 0, 1000, 1000);//设置窗体的规格
@@ -154,7 +156,27 @@ namespace WY_App
             Detection(MainForm.CamNum, hWindows, MainForm.hImage[MainForm.CamNum], ref detectionResults);
             this.Invoke((EventHandler)delegate
             {
-                if(detectionResults!= null)
+                for (int i = 0; i < 2; i++)
+                {
+                    hWindows[i + 1].ClearWindow();
+                    HOperatorSet.SetPart(hWindows[1], 0, 0, 1000, 1000);//设置窗体的规格
+                    HOperatorSet.SetPart(hWindows[2], 0, 0, 1000, 1000);//设置窗体的规格
+                }
+                messageShow0.lab_Timer.Text = "";
+                messageShow0.lab_Column.Text = "";
+                messageShow0.lab_Row.Text = "";
+                messageShow0.lab_Size.Text = "";
+                messageShow0.lab_Kind.Text = "";
+                messageShow0.lab_Level.Text = "";
+                messageShow0.lab_Gray.Text = "";
+                messageShow1.lab_Timer.Text = "";
+                messageShow1.lab_Column.Text = "";
+                messageShow1.lab_Row.Text = "";
+                messageShow1.lab_Size.Text = "";
+                messageShow1.lab_Kind.Text = "";
+                messageShow1.lab_Level.Text = "";
+                messageShow1.lab_Gray.Text = "";
+                if (detectionResults!= null)
                 {
                     if (detectionResults.Count == 1)
                     {
@@ -163,13 +185,13 @@ namespace WY_App
                         hWindows[1].ClearWindow();
                         hWindows[2].ClearWindow();
                         hWindows[1].DispObj(detectionResults[0].NGAreahObject);
-                        messageShow3.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
-                        messageShow3.lab_Column.Text = detectionResults[0].ResultXPosition.ToString();
-                        messageShow3.lab_Row.Text = detectionResults[0].ResultYPosition.ToString();
-                        messageShow3.lab_Size.Text = detectionResults[0].ResultSize.ToString();
-                        messageShow3.lab_Kind.Text = detectionResults[0].ResultKind.ToString();
-                        messageShow3.lab_Level.Text = detectionResults[0].ResultLevel.ToString();
-                        messageShow3.lab_Gray.Text = detectionResults[0].ResultGray.ToString();
+                        messageShow0.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
+                        messageShow0.lab_Column.Text = detectionResults[0].ResultXPosition.ToString();
+                        messageShow0.lab_Row.Text = detectionResults[0].ResultYPosition.ToString();
+                        messageShow0.lab_Size.Text = detectionResults[0].ResultSize.ToString();
+                        messageShow0.lab_Kind.Text = detectionResults[0].ResultKind.ToString();
+                        messageShow0.lab_Level.Text = detectionResults[0].ResultLevel.ToString();
+                        messageShow0.lab_Gray.Text = detectionResults[0].ResultGray.ToString();
                     }
                     if (detectionResults.Count > 1)
                     {
@@ -180,20 +202,20 @@ namespace WY_App
                             HOperatorSet.SetPart(hWindows[2], 0, 0, 1000, 1000);//设置窗体的规格
                             hWindows[i + 1].DispObj(detectionResults[i].NGAreahObject);
                         }
-                        messageShow3.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
-                        messageShow3.lab_Column.Text = detectionResults[0].ResultXPosition.ToString();
-                        messageShow3.lab_Row.Text = detectionResults[0].ResultYPosition.ToString();
-                        messageShow3.lab_Size.Text = detectionResults[0].ResultSize.ToString();
-                        messageShow3.lab_Kind.Text = detectionResults[0].ResultKind.ToString();
-                        messageShow3.lab_Level.Text = detectionResults[0].ResultLevel.ToString();
-                        messageShow3.lab_Gray.Text = detectionResults[0].ResultGray.ToString();
-                        messageShow4.lab_Timer.Text = detectionResults[1].ResultdateTime.ToString();
-                        messageShow4.lab_Column.Text = detectionResults[1].ResultXPosition.ToString();
-                        messageShow4.lab_Row.Text = detectionResults[1].ResultYPosition.ToString();
-                        messageShow4.lab_Size.Text = detectionResults[1].ResultSize.ToString();
-                        messageShow4.lab_Kind.Text = detectionResults[1].ResultKind.ToString();
-                        messageShow4.lab_Level.Text = detectionResults[1].ResultLevel.ToString();
-                        messageShow4.lab_Gray.Text = detectionResults[1].ResultGray.ToString();
+                        messageShow0.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
+                        messageShow0.lab_Column.Text = detectionResults[0].ResultXPosition.ToString();
+                        messageShow0.lab_Row.Text = detectionResults[0].ResultYPosition.ToString();
+                        messageShow0.lab_Size.Text = detectionResults[0].ResultSize.ToString();
+                        messageShow0.lab_Kind.Text = detectionResults[0].ResultKind.ToString();
+                        messageShow0.lab_Level.Text = detectionResults[0].ResultLevel.ToString();
+                        messageShow0.lab_Gray.Text = detectionResults[0].ResultGray.ToString();
+                        messageShow1.lab_Timer.Text = detectionResults[1].ResultdateTime.ToString();
+                        messageShow1.lab_Column.Text = detectionResults[1].ResultXPosition.ToString();
+                        messageShow1.lab_Row.Text = detectionResults[1].ResultYPosition.ToString();
+                        messageShow1.lab_Size.Text = detectionResults[1].ResultSize.ToString();
+                        messageShow1.lab_Kind.Text = detectionResults[1].ResultKind.ToString();
+                        messageShow1.lab_Level.Text = detectionResults[1].ResultLevel.ToString();
+                        messageShow1.lab_Gray.Text = detectionResults[1].ResultGray.ToString();
                     }
                 }
                 
@@ -224,7 +246,7 @@ namespace WY_App
             }
             
         }
-        public static bool Detection(int indexCam, HWindow[] hWindows,HObject hImage, ref List<DetectionResult> detectionResult)
+        public static bool Detection(int indexCam, HWindow[] hWindows,HObject hImage, ref List<DetectionResult> detectionResult )
         {
             if( Parameters.specifications.MeanImageEnabled)
             {
@@ -339,13 +361,13 @@ namespace WY_App
                 hWindows[1].ClearWindow();
                 hWindows[2].ClearWindow();
                 hWindows[1].DispObj(detectionResults[0].NGAreahObject);
-                messageShow3.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
-                messageShow3.lab_Column.Text = detectionResults[0].ResultXPosition.ToString();
-                messageShow3.lab_Row.Text = detectionResults[0].ResultYPosition.ToString();
-                messageShow3.lab_Size.Text = detectionResults[0].ResultSize.ToString();
-                messageShow3.lab_Kind.Text = detectionResults[0].ResultKind.ToString();
-                messageShow3.lab_Level.Text = detectionResults[0].ResultLevel.ToString();
-                messageShow3.lab_Gray.Text = detectionResults[0].ResultGray.ToString();
+                messageShow0.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
+                messageShow0.lab_Column.Text = detectionResults[0].ResultXPosition.ToString();
+                messageShow0.lab_Row.Text = detectionResults[0].ResultYPosition.ToString();
+                messageShow0.lab_Size.Text = detectionResults[0].ResultSize.ToString();
+                messageShow0.lab_Kind.Text = detectionResults[0].ResultKind.ToString();
+                messageShow0.lab_Level.Text = detectionResults[0].ResultLevel.ToString();
+                messageShow0.lab_Gray.Text = detectionResults[0].ResultGray.ToString();
             }
             if (detectionResults.Count > 1)
             {
@@ -356,20 +378,20 @@ namespace WY_App
                     HOperatorSet.SetPart(hWindows[2], 0, 0, 1000, 1000);//设置窗体的规格
                     hWindows[i + 1].DispObj(detectionResults[i].NGAreahObject);
                 }
-                messageShow3.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
-                messageShow3.lab_Column.Text = detectionResults[0].ResultXPosition.ToString();
-                messageShow3.lab_Row.Text = detectionResults[0].ResultYPosition.ToString();
-                messageShow3.lab_Size.Text = detectionResults[0].ResultSize.ToString();
-                messageShow3.lab_Kind.Text = detectionResults[0].ResultKind.ToString();
-                messageShow3.lab_Level.Text = detectionResults[0].ResultLevel.ToString();
-                messageShow3.lab_Gray.Text = detectionResults[0].ResultGray.ToString();
-                messageShow4.lab_Timer.Text = detectionResults[1].ResultdateTime.ToString();
-                messageShow4.lab_Column.Text = detectionResults[1].ResultXPosition.ToString();
-                messageShow4.lab_Row.Text = detectionResults[1].ResultYPosition.ToString();
-                messageShow4.lab_Size.Text = detectionResults[1].ResultSize.ToString();
-                messageShow4.lab_Kind.Text = detectionResults[1].ResultKind.ToString();
-                messageShow4.lab_Level.Text = detectionResults[1].ResultLevel.ToString();
-                messageShow4.lab_Gray.Text = detectionResults[1].ResultGray.ToString();
+                messageShow0.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
+                messageShow0.lab_Column.Text = detectionResults[0].ResultXPosition.ToString();
+                messageShow0.lab_Row.Text = detectionResults[0].ResultYPosition.ToString();
+                messageShow0.lab_Size.Text = detectionResults[0].ResultSize.ToString();
+                messageShow0.lab_Kind.Text = detectionResults[0].ResultKind.ToString();
+                messageShow0.lab_Level.Text = detectionResults[0].ResultLevel.ToString();
+                messageShow0.lab_Gray.Text = detectionResults[0].ResultGray.ToString();
+                messageShow1.lab_Timer.Text = detectionResults[1].ResultdateTime.ToString();
+                messageShow1.lab_Column.Text = detectionResults[1].ResultXPosition.ToString();
+                messageShow1.lab_Row.Text = detectionResults[1].ResultYPosition.ToString();
+                messageShow1.lab_Size.Text = detectionResults[1].ResultSize.ToString();
+                messageShow1.lab_Kind.Text = detectionResults[1].ResultKind.ToString();
+                messageShow1.lab_Level.Text = detectionResults[1].ResultLevel.ToString();
+                messageShow1.lab_Gray.Text = detectionResults[1].ResultGray.ToString();
             }
         }
 
