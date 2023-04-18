@@ -37,10 +37,10 @@
             this.hWindowControl3 = new HalconDotNet.HWindowControl();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.messageShow3 = new WY_App.UserControls.MessageShow();
+            this.messageShow0 = new WY_App.UserControls.MessageShow();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.messageShow4 = new WY_App.UserControls.MessageShow();
+            this.messageShow1 = new WY_App.UserControls.MessageShow();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.hWindowControl2 = new HalconDotNet.HWindowControl();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -209,7 +209,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.messageShow3);
+            this.groupBox5.Controls.Add(this.messageShow0);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.ForeColor = System.Drawing.Color.White;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
@@ -219,13 +219,13 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "瑕疵信息显示1";
             // 
-            // messageShow3
+            // messageShow0
             // 
-            this.messageShow3.BackColor = System.Drawing.Color.Black;
-            this.messageShow3.Location = new System.Drawing.Point(85, 21);
-            this.messageShow3.Name = "messageShow3";
-            this.messageShow3.Size = new System.Drawing.Size(210, 96);
-            this.messageShow3.TabIndex = 0;
+            this.messageShow0.BackColor = System.Drawing.Color.Black;
+            this.messageShow0.Location = new System.Drawing.Point(85, 21);
+            this.messageShow0.Name = "messageShow0";
+            this.messageShow0.Size = new System.Drawing.Size(210, 96);
+            this.messageShow0.TabIndex = 0;
             // 
             // panel5
             // 
@@ -238,7 +238,7 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.messageShow4);
+            this.groupBox6.Controls.Add(this.messageShow1);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.ForeColor = System.Drawing.Color.White;
             this.groupBox6.Location = new System.Drawing.Point(0, 0);
@@ -248,13 +248,13 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "瑕疵信息显示1";
             // 
-            // messageShow4
+            // messageShow1
             // 
-            this.messageShow4.BackColor = System.Drawing.Color.Black;
-            this.messageShow4.Location = new System.Drawing.Point(85, 20);
-            this.messageShow4.Name = "messageShow4";
-            this.messageShow4.Size = new System.Drawing.Size(232, 108);
-            this.messageShow4.TabIndex = 0;
+            this.messageShow1.BackColor = System.Drawing.Color.Black;
+            this.messageShow1.Location = new System.Drawing.Point(85, 20);
+            this.messageShow1.Name = "messageShow1";
+            this.messageShow1.Size = new System.Drawing.Size(232, 108);
+            this.messageShow1.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -1314,8 +1314,8 @@
         private HalconDotNet.HWindowControl hWindowControl2;
         private HalconDotNet.HWindowControl hWindowControl1;
         private HalconDotNet.HWindowControl hWindowControl4;
-        private UserControls.MessageShow messageShow3;
-        private UserControls.MessageShow messageShow4;
+        private UserControls.MessageShow messageShow0;
+        private UserControls.MessageShow messageShow1;
         private Sunny.UI.UITextBox txt_PixelResolutionColumn;
         private Sunny.UI.UITextBox txt_PixelResolutionRow;
         private Sunny.UI.UIButton uiButton1;
