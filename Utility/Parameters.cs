@@ -242,7 +242,10 @@ namespace WY_App.Utility
 
             public int meanImageEnum { get; set; }
 
-            public Specifications()
+			public int ImageWidth;
+			public int ImageHeigth;
+
+			public Specifications()
             {
                 SaveOrigalImage = false;
                 SaveDefeatImage = false;
@@ -250,7 +253,9 @@ namespace WY_App.Utility
                 CropImagelength = 500;
                 MeanImageEnabled = false;
                 meanImageEnum = 0;
-            }
+				ImageWidth = 1000;
+				ImageHeigth = 800;
+			}
         }
         public static Specifications specifications = new Specifications();
 
@@ -398,7 +403,7 @@ namespace WY_App.Utility
             public string HeartBeatAdd;
             public string StartAdd;
             public string SNReadAdd;
-            public string[] 预留地址 = new string[20];
+            public string[] 预留地址 = new string[200];
            
             public PLCParams()
             {
@@ -411,7 +416,7 @@ namespace WY_App.Utility
                 Trigger_Detection2 = "D112";
                 Completion2 = "D114";
                 SNReadAdd = "D116";
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 200; i++)
                 {
                     预留地址[i] = "D" + i * 2 + 200;
                 }

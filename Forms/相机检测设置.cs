@@ -610,7 +610,8 @@ namespace WY_App
             {
                 MessageBox.Show("基准点寻找异常，请联系软件工程师", "严重错误提示");
                 return;
-            }           
+            }        
+
             IsOverlapping.Dispose();
             Row.Dispose();
             Column.Dispose();

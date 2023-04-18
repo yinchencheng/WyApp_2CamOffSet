@@ -123,7 +123,18 @@ namespace WY_App
                 Parameters.specifications = new Parameters.Specifications();
                 XMLHelper.serialize<Parameters.Specifications>(Parameters.specifications, Parameters.commministion.productName + "/Specifications.xml");
             }
-            for (int i = 0; i < 2; i++)
+
+			try
+			{
+				Constructor.cameraParams = XMLHelper.BackSerialize<Constructor.CameraParams>(Parameters.commministion.productName + "/CameraParams.xml");
+			}
+			catch
+			{
+				Constructor.cameraParams = new Constructor.CameraParams();
+				XMLHelper.serialize<Constructor.CameraParams>(Constructor.cameraParams, Parameters.commministion.productName + "/CameraParams.xml");
+			}
+
+			for (int i = 0; i < 2; i++)
             {
                 try
                 {
@@ -308,12 +319,24 @@ namespace WY_App
                         System.Diagnostics.Stopwatch stopwatch = new Stopwatch();
                         stopwatch.Start(); //  开始监视代码运行时间
                         AlarmList.Add(System.DateTime.Now.ToString() + "线程1开始");
-                        if (Halcon.CamConnect[0])
+
+                        try
                         {
-                            hImage[0].Dispose();
-                            HOperatorSet.GrabImage(out hImage[0], Halcon.hv_AcqHandle[0]);              //同步采集
-                            //HOperatorSet.GrabImageAsync(out hImage[0], Halcon.hv_AcqHandle[0],-1);    //异步采集
-                        }
+							if (Halcon.CamConnect[0])
+							{
+								hImage[0].Dispose();
+								HOperatorSet.GrabImage(out hImage[0], Halcon.hv_AcqHandle[0]);              //同步采集
+								//HOperatorSet.GrabImageAsync(out hImage[0], Halcon.hv_AcqHandle[0],-1);    //异步采集
+							}
+						}
+                        catch
+                        {
+							HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion0, 2);
+							Halcon.CamConnect[0] = false;
+							LogHelper.WriteError("线程1采图异常终止");
+							return;
+						}
+                      
                         HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Trigger_Detection0, 0);
                         bool DetectionResult = true;
                         HOperatorSet.GetImageSize(hImage[0], out Halcon.hv_Height[0], out Halcon.hv_Width[0]);
@@ -383,12 +406,16 @@ namespace WY_App
                                           
                         if (DetectionResult)
                         {
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion0, 0);
-                        }
+                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion0, 1);
+							Parameters.counts.Count[1]++;
+							uiDataGridView1.Rows[0].Cells[1].Value = Parameters.counts.Count[1];
+						}
                         else
                         {
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion0, 1);
-                        }
+							HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion0, 2);
+							Parameters.counts.Count[1]++;
+							uiDataGridView1.Rows[1].Cells[1].Value = Parameters.counts.Count[1];
+						}
                         stopwatch.Stop(); //  停止监视
                         TimeSpan timespan = stopwatch.Elapsed; //  获取当前实例测量得出的总时间
                         double milliseconds = timespan.TotalMilliseconds;  //  总毫秒数           
@@ -410,13 +437,25 @@ namespace WY_App
                         System.Diagnostics.Stopwatch stopwatch = new Stopwatch();
                         stopwatch.Start(); //  开始监视代码运行时间
                         AlarmList.Add(System.DateTime.Now.ToString() + "线程2开始");
-                        if (Halcon.CamConnect[1])
-                        {
-                            hImage[1].Dispose();
-                            HOperatorSet.GrabImage(out hImage[1], Halcon.hv_AcqHandle[1]);              //同步采集
-                            //HOperatorSet.GrabImageAsync(out hImage[0], Halcon.hv_AcqHandle[0],-1);    //异步采集
-                        }
-                        HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Trigger_Detection1, 0);
+
+						try
+						{
+							if (Halcon.CamConnect[1])
+							{
+								hImage[1].Dispose();
+								HOperatorSet.GrabImage(out hImage[1], Halcon.hv_AcqHandle[1]);              //同步采集
+																											//HOperatorSet.GrabImageAsync(out hImage[1], Halcon.hv_AcqHandle[1],-1);    //异步采集
+							}
+						}
+						catch
+						{
+							HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 2);
+							Halcon.CamConnect[1] = false;
+							LogHelper.WriteError("线程2采图异常终止");
+							return;
+						}
+
+						HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Trigger_Detection1, 0);
                         bool DetectionResult = true;
                         HOperatorSet.GetImageSize(hImage[1], out Halcon.hv_Height[1], out Halcon.hv_Width[1]);
                         HOperatorSet.DispObj(hImage[1], hWindows1[0]);
@@ -480,12 +519,16 @@ namespace WY_App
                         }
                         if (DetectionResult)
                         {
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 0);
-                        }
+                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 1);
+							Parameters.counts.Count[1]++;
+							uiDataGridView1.Rows[0].Cells[2].Value = Parameters.counts.Count[1];
+						}
                         else
                         {
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 1);
-                        }
+                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 2);
+							Parameters.counts.Count[1]++;
+							uiDataGridView1.Rows[0].Cells[2].Value = Parameters.counts.Count[1];
+						}
                         stopwatch.Stop(); //  停止监视
                         TimeSpan timespan = stopwatch.Elapsed; //  获取当前实例测量得出的总时间
                         double milliseconds = timespan.TotalMilliseconds;  //  总毫秒数           
@@ -498,8 +541,10 @@ namespace WY_App
         {
             if (MessageBox.Show("确定关闭程序吗？", "软件关闭提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+				Parameters.counts.Count[0] = (int)uiDataGridView1.Rows[0].Cells[1].Value;
+				Parameters.counts.Count[1] = (int)uiDataGridView1.Rows[1].Cells[1].Value;
 
-                XMLHelper.serialize<Parameters.Counts>(Parameters.counts, "Parameter/CountsParams.xml");
+				XMLHelper.serialize<Parameters.Counts>(Parameters.counts, "Parameter/CountsParams.xml");
                 //Parameter.specifications.右短端.value = 10;
                 //XMLHelper.serialize<Parameter.Specifications>(Parameter.specifications, "Specifications.xml");
                 myThread.Abort();
@@ -602,7 +647,20 @@ namespace WY_App
                 lab_Server.Text = "禁用";
                 lab_Server.BackColor = Color.Gray;
             }
-            lab_Product.Text = Parameters.commministion.productName;
+
+			DataGridViewRow row0 = new DataGridViewRow();
+			uiDataGridView1.Rows.Add(row0);
+			DataGridViewRow row1 = new DataGridViewRow();
+			uiDataGridView1.Rows.Add(row1);
+
+			uiDataGridView1.Rows[0].Cells[0].Value = "总NG";
+			uiDataGridView1.Rows[1].Cells[0].Value = "总OK";
+
+			uiDataGridView1.Rows[0].Cells[1].Value = Parameters.counts.Count[0];//总NG
+			uiDataGridView1.Rows[1].Cells[1].Value = Parameters.counts.Count[1];//总OK
+
+
+			lab_Product.Text = Parameters.commministion.productName;
             UpdataUI();
             HOperatorSet.SetPart(hWindows0[0], 0, 0, -1, -1);//设置窗体的规格
             HOperatorSet.SetPart(hWindows0[1], 0, 0, -1, -1);//设置窗体的规格
@@ -864,7 +922,8 @@ namespace WY_App
 
         private void btn_SpecicationSetting_Click(object sender, EventArgs e)
         {
-
-        }
+			FormCamera flg = new FormCamera();
+			flg.ShowDialog();
+		}
     }
 }

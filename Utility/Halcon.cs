@@ -141,13 +141,55 @@ namespace WY_App.Utility
         {
             HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", "On");
         }
-        public static void SetFramegrabberParam(HTuple hv_AcqHandle)
+        public static void SetFramegrabberParam(int i, HTuple hv_AcqHandle)
         {
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "gain", Parameters.cameraParam.CamGain[0]);
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", Parameters.cameraParam.CamShutter[0]);
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]CameraType", "LineScan");
 
-        }
-        public static void GrabImageAsync(HTuple hv_AcqHandle, out HObject himage)
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", Constructor.cameraParams.ExposureTime[i]);
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]ImageHeight", Constructor.cameraParams.Height[i]);
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "AcquisitionLineRate", Constructor.cameraParams.AcquisitionLineRate[i]);
+
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "GammaEnable", Constructor.cameraParams.GammaEnable[i]);
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PRNUCUserEnable", Constructor.cameraParams.PRNUCUserEnable[i]);
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "FPNCUserEnable", Constructor.cameraParams.FPNCUserEnable[i]);
+
+			if (Constructor.cameraParams.DeviceTapGeometry[i] == 0)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "DeviceTapGeometry", "Geometry_1X2");
+			}
+			else if (Constructor.cameraParams.DeviceTapGeometry[i] == 1)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "DeviceTapGeometry", "Geometry_1X4");
+			}
+			else if (Constructor.cameraParams.DeviceTapGeometry[i] == 2)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "DeviceTapGeometry", "Geometry_1X8");
+			}
+			else if (Constructor.cameraParams.DeviceTapGeometry[i] == 3)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "DeviceTapGeometry", "Geometry_1X10");
+			}
+
+			if (Constructor.cameraParams.PreampGain[i] == 0)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PreampGain", "gain_1000x");
+			}
+			else if (Constructor.cameraParams.PreampGain[i] == 1)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PreampGain", "gain_2000x");
+			}
+			else if (Constructor.cameraParams.PreampGain[i] == 2)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PreampGain", "gain_4000x");
+			}
+			else if (Constructor.cameraParams.PreampGain[i] == 3)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PreampGain", "gain_8000x");
+			}
+
+
+		}
+		public static void GrabImageAsync(HTuple hv_AcqHandle, out HObject himage)
         {
             HOperatorSet.GrabImageAsync(out himage, hv_AcqHandle, -1);
         }
