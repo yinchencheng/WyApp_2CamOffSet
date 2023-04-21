@@ -5,10 +5,10 @@
   <BaseRow>0</BaseRow>
   <BaseColumn>0</BaseColumn>
   <RowBase>
-    <double>2501.6694868722934</double>
+    <double>2499.8240975345093</double>
   </RowBase>
   <ColumBase>
-    <double>1295.065431293219</double>
+    <double>1357.3404676892194</double>
   </ColumBase>
   <Row1>
     <double>4331.5683111954459</double>
@@ -31,22 +31,22 @@
     <double>7010.2303754266213</double>
   </Colum2>
   <MeasureLength1>
-    <unsignedInt>500</unsignedInt>
-    <unsignedInt>500</unsignedInt>
-    <unsignedInt>500</unsignedInt>
+    <unsignedInt>100</unsignedInt>
+    <unsignedInt>100</unsignedInt>
+    <unsignedInt>100</unsignedInt>
   </MeasureLength1>
   <MeasureLength2>
-    <unsignedInt>1000</unsignedInt>
+    <unsignedInt>10</unsignedInt>
     <unsignedInt>10</unsignedInt>
     <unsignedInt>10</unsignedInt>
   </MeasureLength2>
   <MeasureSigma>
-    <double>3</double>
+    <double>10</double>
     <double>10</double>
     <double>10</double>
   </MeasureSigma>
   <MeasureThreshold>
-    <unsignedInt>40</unsignedInt>
+    <unsignedInt>10</unsignedInt>
     <unsignedInt>10</unsignedInt>
     <unsignedInt>10</unsignedInt>
   </MeasureThreshold>

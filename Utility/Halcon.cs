@@ -33,12 +33,37 @@ namespace WY_App.Utility
                 HOperatorSet.OpenFramegrabber("GenICamTL", 0, 0, 0, 0, 0, 0, "progressive", -1, "default", -1, "false", "default", CamID, 0, -1, out hv_AcqHandle);
                 HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", "Off");
                 HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSource", "Software");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "grab_timeout", 20000);
-                return true;
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", "On");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSource", "CC1");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "grab_timeout", 20000);
+
+
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]DeviceTemperatureSelector", "Mainboard");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]StreamTriggerEnable", 1);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]StreamTriggerSource", "D485Input1");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]EncoderSelector", "Encoder0");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]EncoderSourceA", "D485Input1");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]EncoderSourceB", "Off");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]LineSelector", "D485InOut1");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]LineMode", "Input");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]LineInputPolarity", "SingleEnded");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]LineDebouncerTime", 300000);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]UserOutputSelector", "UserOutput0");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]UserOutputValue", 0);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]CameraControlEnable", 1);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]CameraControlSource", "Timer0");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerSelector", "Timer0");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerDuration", 5);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerDelay", 5);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerFrequency", 100000);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerTriggerSource", "Continuous");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerTriggerActivation", "RisingEdge");
+
+				return true;
             }
             catch (Exception ex)
-            {
-                LogHelper.Log.WriteError(System.DateTime.Now.ToString() + CamID + "相机链接失败" + ex.Message);
+            {				
+				LogHelper.Log.WriteError(System.DateTime.Now.ToString() + CamID + "相机链接失败" + ex.Message);
                 MainForm.AlarmList.Add(System.DateTime.Now.ToString() + CamID + "相机链接失败" + ex.Message);
                 return false;
             }
@@ -129,10 +154,11 @@ namespace WY_App.Utility
             }
         }
         //        //-----------------------------------------------------------------------------
-        public static void CloseFramegrabber(HTuple hv_AcqHandle)
+        public static bool CloseFramegrabber(HTuple hv_AcqHandle)
         {
             HOperatorSet.CloseFramegrabber(hv_AcqHandle);
-        }
+            return false;
+         }
         public static void TriggerModeOff(HTuple hv_AcqHandle)
         {
             HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", "Off");
@@ -141,13 +167,55 @@ namespace WY_App.Utility
         {
             HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", "On");
         }
-        public static void SetFramegrabberParam(HTuple hv_AcqHandle)
+        public static void SetFramegrabberParam(int i, HTuple hv_AcqHandle)
         {
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "gain", Parameters.cameraParam.CamGain[0]);
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", Parameters.cameraParam.CamShutter[0]);
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]CameraType", "LineScan");
 
-        }
-        public static void GrabImageAsync(HTuple hv_AcqHandle, out HObject himage)
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", Constructor.cameraParams.ExposureTime[i]);
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]ImageHeight", Constructor.cameraParams.Height[i]);
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "AcquisitionLineRate", Constructor.cameraParams.AcquisitionLineRate[i]);
+
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "GammaEnable", Constructor.cameraParams.GammaEnable[i]);
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PRNUCUserEnable", Constructor.cameraParams.PRNUCUserEnable[i]);
+			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "FPNCUserEnable", Constructor.cameraParams.FPNCUserEnable[i]);
+
+			if (Constructor.cameraParams.DeviceTapGeometry[i] == 0)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "DeviceTapGeometry", "Geometry_1X2");
+			}
+			else if (Constructor.cameraParams.DeviceTapGeometry[i] == 1)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "DeviceTapGeometry", "Geometry_1X4");
+			}
+			else if (Constructor.cameraParams.DeviceTapGeometry[i] == 2)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "DeviceTapGeometry", "Geometry_1X8");
+			}
+			else if (Constructor.cameraParams.DeviceTapGeometry[i] == 3)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "DeviceTapGeometry", "Geometry_1X10");
+			}
+
+			if (Constructor.cameraParams.PreampGain[i] == 0)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PreampGain", "gain_1000x");
+			}
+			else if (Constructor.cameraParams.PreampGain[i] == 1)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PreampGain", "gain_2000x");
+			}
+			else if (Constructor.cameraParams.PreampGain[i] == 2)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PreampGain", "gain_4000x");
+			}
+			else if (Constructor.cameraParams.PreampGain[i] == 3)
+			{
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PreampGain", "gain_8000x");
+			}
+
+
+		}
+		public static void GrabImageAsync(HTuple hv_AcqHandle, out HObject himage)
         {
             HOperatorSet.GrabImageAsync(out himage, hv_AcqHandle, -1);
         }
@@ -237,6 +305,29 @@ namespace WY_App.Utility
             HOperatorSet.SetDraw(hWindow, "margin");
             hWindow.DrawLine(out rect1.Row1[index], out rect1.Colum1[index], out rect1.Row2[index], out rect1.Colum2[index]);
             HOperatorSet.DispLine(hWindow, rect1.Row1[index], rect1.Colum1[index], rect1.Row2[index], rect1.Colum2[index]);
+        }
+        public static void DetectionGenRegionAOI(int index, HWindow hWindow, HObject hImage, ref HObject ho_Region)
+        {
+            // Local control variables 
+
+            HTuple hv_Row = new HTuple(), hv_Col = new HTuple();
+            // Initialize local and output iconic variables 
+            HOperatorSet.GenEmptyObj(out ho_Region);
+            hv_Row.Dispose();
+            hv_Row = new HTuple();
+            hv_Row[0] = 0;
+            hv_Row[1] = 100;
+            hv_Row[2] = 200;
+            hv_Row[3] = 100;
+            hv_Col.Dispose();
+            hv_Col = new HTuple();
+            hv_Col[0] = 100;
+            hv_Col[1] = 0;
+            hv_Col[2] = 100;
+            hv_Col[3] = 200;;
+            HOperatorSet.GenRegionPolygonFilled(out ho_Region, hv_Row, hv_Col);
+            hv_Row.Dispose();
+            hv_Col.Dispose();
         }
 
         /// <summary>
@@ -400,7 +491,7 @@ namespace WY_App.Utility
                 {
                     hv_Column = hv_Width[CamNum] - 500;
                 }
-                HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row - 500, hv_Column - 500, hv_Row + 500, hv_Column + 500);               
+                HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row-500, hv_Column-500, 1000, 1000);               
                 detectionResult.Add(detectionResult1);
                 HOperatorSet.SetColor(hWindow[0], "red");
                 HOperatorSet.SetTposition(hWindow[0], hv_Row, hv_Column);
@@ -472,7 +563,7 @@ namespace WY_App.Utility
                     {
                         hv_Column12[i] = hv_Width[CamNum] - 500;
                     }
-                    HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row12[i], hv_Column12[i], 1000, 1000);
+                    HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row12[i]-500, hv_Column12[i] - 500, 1000, 1000);
                     string stfFileNameOut = "CAM" + CamNum + "-Area-" + i + MainForm.productSN + "-" + MainForm.strDateTime;  // 默认的图像保存名称
                     string pathOut = Parameters.commministion.ImageSavePath + "/" + MainForm.strDateTimeDay + "/" + MainForm.productSN + "/";
                     if (!System.IO.Directory.Exists(pathOut))

@@ -6,27 +6,33 @@ namespace WY_App.Utility
     {
         public class CameraParams
         {
-            public double[] Gain = new double[4];
-            public double[] Shutter = new double[4];
-            public double[] Black_Level = new double[4];
-            public double[] Gamma = new double[4];
-            public string[] CameraID = new string[4];
-            public CameraParams()
+			public double[] ExposureTime = new double[4];
+			public int[] GammaEnable = new int[4];
+			public int[] FPNCUserEnable = new int[4];
+			public int[] PRNUCUserEnable = new int[4];
+			public int[] DeviceTapGeometry = new int[4];
+			public int[] Height = new int[4];
+			public int[] AcquisitionLineRate = new int[4];
+			public int[] PreampGain = new int[4];
+			public CameraParams()
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    Gain[i] = 10;
-                    Shutter[i] = 10;
-                    Black_Level[i] = 0;
-                    Gamma[i] = 0;
-                    CameraID[i] = "Cam" + i;
-                }
+					ExposureTime[i] = 50;
+					GammaEnable[i] = 0;
+					FPNCUserEnable[i] = 0;
+					PRNUCUserEnable[i] = 0;
+					DeviceTapGeometry[i] = 0;
+					Height[i] = 16000;
+					AcquisitionLineRate[i] = 50000;
+					PreampGain[i] = 0;
+				}
             }
         }
-       
-        
-       
-        public class Motor
+
+		public static CameraParams cameraParams = new CameraParams();
+
+		public class Motor
         {
             public int HighSpeed;
             public int GoHomeSpeed;

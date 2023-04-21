@@ -109,7 +109,11 @@ namespace WY_App
             txt_Completion_Add1.Text = Parameters.plcParams.Completion1;
             txt_Trigger_Detection2.Text = Parameters.plcParams.Trigger_Detection2;
             txt_Completion_Add2.Text = Parameters.plcParams.Completion2;
-        }
+
+			 uiTextBox25.Text= Parameters.plcParams.预留地址[0];
+			 uiTextBox24.Text= Parameters.plcParams.预留地址[1];
+		     uiTextBox23.Text= Parameters.plcParams.预留地址[2];
+		}
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -138,7 +142,14 @@ namespace WY_App
             txt_Completion_Add0.Enabled = true;
             num_LogSaveDays.Enabled = true;
 
-            txt_ImageSavePath.Enabled = true;
+			txt_Trigger_Detection1.Enabled = true;
+			txt_Completion_Add2.Enabled = true;
+
+			uiTextBox25.Enabled = true;
+			uiTextBox24.Enabled = true;
+			uiTextBox23.Enabled = true;
+
+			txt_ImageSavePath.Enabled = true;
             btn_Save.Enabled = true;
         }
 
@@ -170,11 +181,14 @@ namespace WY_App
             Parameters.plcParams.Completion1 = txt_Completion_Add1.Text;
             Parameters.plcParams.Trigger_Detection2 = txt_Trigger_Detection2.Text;
             Parameters.plcParams.Completion2 = txt_Completion_Add2.Text;
-            XMLHelper.serialize<Parameters.PLCParams>(Parameters.plcParams, "Parameter/PLCParams.xml");
+
+            Parameters.plcParams.预留地址[0] = uiTextBox25.Text;
+			Parameters.plcParams.预留地址[1] = uiTextBox24.Text;
+			Parameters.plcParams.预留地址[2] = uiTextBox23.Text;
+
+			XMLHelper.serialize<Parameters.PLCParams>(Parameters.plcParams, "Parameter/PLCParams.xml");
 
 
-
-           
             XMLHelper.serialize<Parameters.CameraParam>(Parameters.cameraParam, "Parameter/CameraParam.xml");
 
 

@@ -9,8 +9,10 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using System.Xml;
+using WY_App.Utility;
 
 namespace WY_App
 {
@@ -64,7 +66,7 @@ namespace WY_App
             XmlNode xn = xmlDoc.SelectSingleNode("Users");
             //得到根节点的所有子节点
             XmlNodeList xnl = xn.ChildNodes;
-            
+
             foreach (XmlNode item in xnl)
             {
                 Users user = new Users();
@@ -83,7 +85,7 @@ namespace WY_App
             reader.Close(); //读取完数据后需关闭
         }
 
-      
+
         private bool isNumOrAlp(string str)
 
         {
@@ -97,15 +99,17 @@ namespace WY_App
 
         private void btn_Close_System_Click(object sender, EventArgs e)
         {
-            this.Close();
+			timer1.Enabled = false;
+			this.Close();
         }
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-           if( txt_Password.Text == userList[cmb_UserName.SelectedIndex].Password )
+            if (txt_Password.Text == userList[cmb_UserName.SelectedIndex].Password)
             {
-                TransfEvent(cmb_Permission.Text);  
-                this.Close();
+                TransfEvent(cmb_Permission.Text);
+				timer1.Enabled = false;
+				this.Close();
             }
             else
             {
@@ -115,11 +119,11 @@ namespace WY_App
 
         private void txt_Password_TextChanged(object sender, EventArgs e)
         {
-            if(!isNumOrAlp(txt_Password.Text)&& txt_Password.Text!= null)
+            if (!isNumOrAlp(txt_Password.Text) && txt_Password.Text != null)
             {
                 MessageBox.Show("只允许输入数字或字母且不能为空，请重新输入!");
             }
-            
+
         }
 
         private void cmb_UserName_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,17 +142,17 @@ namespace WY_App
 
         private void btn_ChangePassword_Click(object sender, EventArgs e)
         {
-            UpdateXml();           
+            UpdateXml();
         }
 
         private void btn_SignUp_Click(object sender, EventArgs e)
         {
-            if(cmb_UserName.Items.Contains(cmb_UserName.Text))
+            if (cmb_UserName.Items.Contains(cmb_UserName.Text))
             {
                 MessageBox.Show("用户名已存在，请勿重复创建！", "温馨提示");
                 return;
             }
-            if (  txt_PasswordAck.Text == txt_Password.Text)
+            if (txt_PasswordAck.Text == txt_Password.Text)
             {
                 string userName = cmb_UserName.Text.Trim();
                 string password = txt_Password.Text.Trim();
@@ -198,9 +202,48 @@ namespace WY_App
                 label4.Visible = true;
                 txt_PasswordAck.Visible = true;
             }
+            timer1.Enabled = true; 
+
+            Thread th = new Thread(Jurisdiction);
+            th.Start();
         }
 
 
+        private void Jurisdiction( )
+        {
+			Int16 PlcSignal = HslCommunication._NetworkTcpDevice.ReadInt16(Parameters.plcParams.预留地址[4]).Content;
+
+			if (PlcSignal==1)
+            {
+
+				cmb_UserName.Text= userList[1].Name;
+				cmb_Permission.Text = userList[1].Permission;
+                txt_Password.Text = userList[1].Password;
+				this.Close();
+
+			}
+            else if(PlcSignal == 2)
+            {
+				cmb_UserName.Text = userList[2].Name;
+				cmb_Permission.Text = userList[2].Permission;
+				txt_Password.Text = userList[2].Password;
+				this.Close();
+			}
+            else if(PlcSignal == 3)
+            {
+				cmb_UserName.Text = userList[3].Name;
+				cmb_Permission.Text = userList[3].Permission;
+				txt_Password.Text = userList[3].Password;
+				this.Close();
+			}
+            else
+            {
+				cmb_UserName.Text = userList[0].Name;
+				cmb_Permission.Text = userList[0].Permission;
+				txt_Password.Text = userList[0].Password;
+				this.Close();
+			}
+        }
 
         /// <summary>
         /// 创建Xml文件
@@ -296,5 +339,14 @@ namespace WY_App
             }        
         }
 
-    }
+		private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void timer1_Tick(object sender, EventArgs e)
+		{
+
+		}
+	}
 }
