@@ -43,7 +43,7 @@ namespace WY_App
         public static List<string> AlarmList = new List<string>();
         Thread myThread;
         Thread[] MainThread= new Thread[2];
-        Halcon halcon = new Halcon();
+        //Halcon halcon = new Halcon();
         public static Parameters.Rect1[] specifications;
         HWindow[] hWindows0;
         HWindow[] hWindows1;
@@ -321,14 +321,38 @@ namespace WY_App
 
         public static void SaveImages(int i, HObject hObject,string path)
         {
-            string stfFileNameOut = path + i + "CAM-" + productSN + "-" + strDateTime;  // 默认的图像保存名称
-            string pathOut = Parameters.commministion.ImageSavePath + "/" + strDateTimeDay + "/" + productSN + "/";
-            if (!System.IO.Directory.Exists(pathOut))
+            try
             {
-                System.IO.Directory.CreateDirectory(pathOut);//不存在就创建文件夹
+                string stfFileNameOut = path + i + "CAM-" + productSN + "-" + strDateTime;  // 默认的图像保存名称
+                string pathOut = Parameters.commministion.ImageSavePath + "/" + strDateTimeDay + "/" + productSN + "/";
+                if (!System.IO.Directory.Exists(pathOut))
+                {
+                    System.IO.Directory.CreateDirectory(pathOut);//不存在就创建文件夹
+                }
+                HTuple hTuple = new HTuple();
+                if (Halcon.hv_Width[i] > 60000)
+                {
+                    hTuple = 60000;
+                }
+                else
+                {
+                    hTuple = Halcon.hv_Width[i];
+                }
+                HOperatorSet.ZoomImageSize(hObject, out hObject, Halcon.hv_Height[i], hTuple, "bicubic");
+                HOperatorSet.WriteImage(hObject, "jpeg", 0, pathOut + stfFileNameOut + ".jpeg");
             }
-            HOperatorSet.WriteImage(hObject, "jpeg", 0, pathOut + stfFileNameOut + ".jpeg");
-        }
+			catch
+			{
+				string stfFileNameOut = path + i + "CAM-" + productSN + "-" + strDateTime;  // 默认的图像保存名称
+				string pathOut = Parameters.commministion.ImageSavePath + "/" + strDateTimeDay + "/" + productSN + "/";
+				if (!System.IO.Directory.Exists(pathOut))
+				{
+					System.IO.Directory.CreateDirectory(pathOut);//不存在就创建文件夹
+				}
+				HOperatorSet.WriteImage(hObject, "tiff", 0, pathOut + stfFileNameOut + ".tiff");
+			}
+
+		}
         private void MainRun0()
         {
             while (true)
@@ -341,19 +365,18 @@ namespace WY_App
                         DateTime dtNow = System.DateTime.Now;  // 获取系统当前时间
                         strDateTime = dtNow.ToString("yyyyMMddHHmmss");
                         strDateTimeDay = dtNow.ToString("yyyy-MM-dd");
-                        productSN = HslCommunication._NetworkTcpDevice.ReadString(Parameters.plcParams.SNReadAdd, 2).Content;
+                       // productSN = HslCommunication._NetworkTcpDevice.ReadString(Parameters.plcParams.SNReadAdd, 2).Content;
                         System.Diagnostics.Stopwatch stopwatch = new Stopwatch();
                         stopwatch.Start(); //  开始监视代码运行时间
                         AlarmList.Add(System.DateTime.Now.ToString() + "线程1开始");
-
 
                         try
                         {
 							if (Halcon.CamConnect[0])
 							{
 								hImage[0].Dispose();
-								HOperatorSet.GrabImage(out hImage[0], Halcon.hv_AcqHandle[0]);              //同步采集
-								//HOperatorSet.GrabImageAsync(out hImage[0], Halcon.hv_AcqHandle[0],-1);    //异步采集
+								//HOperatorSet.GrabImage(out hImage[0], Halcon.hv_AcqHandle[0]);              //同步采集
+								HOperatorSet.GrabImageAsync(out hImage[0], Halcon.hv_AcqHandle[0],-1);    //异步采集
 							}
 						}
                         catch
@@ -365,21 +388,7 @@ namespace WY_App
 						}
                      
                         HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Trigger_Detection0, 0);
-                        try
-                        {
-                            if (Halcon.CamConnect[0])
-                            {
-                                hImage[0].Dispose();
-                                HOperatorSet.GrabImage(out hImage[0], Halcon.hv_AcqHandle[0]);              //同步采集
-                                //HOperatorSet.GrabImageAsync(out hImage[0], Halcon.hv_AcqHandle[0],-1);    //异步采集
-                            }
-                        }
-                        catch 
-                        {
-                            Halcon.CamConnect[0] = false;
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion0, 1);
-                            return;
-                        }
+                       
                         bool DetectionResult = true;
                         HOperatorSet.GetImageSize(hImage[0], out Halcon.hv_Height[0], out Halcon.hv_Width[0]);
                         HOperatorSet.DispObj(hImage[0], hWindows0[0]);
@@ -387,14 +396,7 @@ namespace WY_App
                         
                         List<DetectionResult> detectionResults=new List<DetectionResult>();
                         相机检测设置.Detection(0, hWindows0, MainForm.hImage[0],ref detectionResults);
-                        if (DetectionResult)
-                        {
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion0, 0);
-                        }
-                        else
-                        {
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion0, 1);
-                        }                      
+                           
                         if (Parameters.specifications.SaveOrigalImage)
                         {
                             setCallBack = SaveImages;
@@ -491,8 +493,8 @@ namespace WY_App
 							if (Halcon.CamConnect[1])
 							{
 								hImage[1].Dispose();
-								HOperatorSet.GrabImage(out hImage[1], Halcon.hv_AcqHandle[1]);              //同步采集
-								//HOperatorSet.GrabImageAsync(out hImage[1], Halcon.hv_AcqHandle[1],-1);    //异步采集
+								//HOperatorSet.GrabImage(out hImage[1], Halcon.hv_AcqHandle[1]);              //同步采集
+								HOperatorSet.GrabImageAsync(out hImage[1], Halcon.hv_AcqHandle[1],-1);    //异步采集
 							}
 						}
 						catch
@@ -503,22 +505,22 @@ namespace WY_App
 							return;
 						}
 
-						HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Trigger_Detection1, 0);
-                        try
-                        {
-                            if (Halcon.CamConnect[1])
-                            {
-                                hImage[1].Dispose();
-                                HOperatorSet.GrabImage(out hImage[1], Halcon.hv_AcqHandle[1]);              //同步采集
-                                //HOperatorSet.GrabImageAsync(out hImage[0], Halcon.hv_AcqHandle[0],-1);    //异步采集
-                            }
-                        }
-                        catch
-                        {
-                            Halcon.CamConnect[1] = false;
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 2);
-                            return;
-                        }
+						//HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Trigger_Detection1, 0);
+      //                  try
+      //                  {
+      //                      if (Halcon.CamConnect[1])
+      //                      {
+      //                          hImage[1].Dispose();
+      //                          HOperatorSet.GrabImage(out hImage[1], Halcon.hv_AcqHandle[1]);              //同步采集
+      //                          //HOperatorSet.GrabImageAsync(out hImage[0], Halcon.hv_AcqHandle[0],-1);    //异步采集
+      //                      }
+      //                  }
+      //                  catch
+      //                  {
+      //                      Halcon.CamConnect[1] = false;
+      //                      HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 2);
+      //                      return;
+      //                  }
                         HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Trigger_Detection1, 0);
 
                         bool DetectionResult = true;
@@ -527,14 +529,7 @@ namespace WY_App
                         HOperatorSet.SetPart(hWindows1[0], 0, 0, -1, -1);
                         List<DetectionResult> detectionResults = new List<DetectionResult>();
                         相机检测设置.Detection(1, hWindows1, MainForm.hImage[1], ref detectionResults);
-                        if (DetectionResult)
-                        {
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 1);
-                        }
-                        else
-                        {
-                            HslCommunication._NetworkTcpDevice.Write(Parameters.plcParams.Completion1, 2);
-                        }                                             
+                            
                         this.Invoke((EventHandler)delegate
                         {
                             for (int i = 0; i < 2; i++)
@@ -768,8 +763,20 @@ namespace WY_App
             HOperatorSet.DispObj(hImage[1], hWindows1[0]);
             //HOperatorSet.DispObj(hImage[1], hWindows1[1]);
             //HOperatorSet.DispObj(hImage[1], hWindows1[2]);
-            Halcon.CamConnect[0] = Halcon.initalCamera("LineCam0", ref hv_AcqHandle[0]);
-            Halcon.CamConnect[1] = Halcon.initalCamera("LineCam1", ref hv_AcqHandle[1]);
+            Halcon.CamConnect[0] = Halcon.initalCamera("LineCam0", ref Halcon.hv_AcqHandle[0]);
+            if (Halcon.CamConnect[0])
+            {
+                Halcon.SetFramegrabberParam(0, Halcon.hv_AcqHandle[0]);
+                
+
+			}
+            Halcon.CamConnect[1] = Halcon.initalCamera("LineCam1", ref Halcon.hv_AcqHandle[1]);
+            if(Halcon.CamConnect[1])
+            {
+				Halcon.SetFramegrabberParam(1, Halcon.hv_AcqHandle[1]);
+				
+			}
+
             LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + "初始化完成");
             MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "初始化完成");
         }
@@ -829,15 +836,16 @@ namespace WY_App
                 return;
             }
 
-            //if (Halcon.CamConnect[0] && Halcon.CamConnect[1] && Halcon.CamConnect[2])
-            //{
-                
-            //}
-            //else
-            //{
-            //    MessageBox.Show("相机链接异常，请检查!");
-            //    return;
-            //}
+            if (Halcon.CamConnect[0] && Halcon.CamConnect[1] && Halcon.CamConnect[2])
+            {
+				HOperatorSet.GrabImageStart(Halcon.hv_AcqHandle[0], -1);
+				HOperatorSet.GrabImageStart(Halcon.hv_AcqHandle[1], -1);
+			}
+            else
+            {
+                MessageBox.Show("相机链接异常，请检查!");
+                return;
+            }
             MainThread[0] = new Thread(MainRun0);
             MainThread[0].IsBackground = true;
             MainThread[0].Start();
@@ -878,14 +886,26 @@ namespace WY_App
             {
                 MessageBox.Show("链接异常，请检查!");
             }
-            for (int i = 0; i < 2; i++)
+			if (Halcon.CamConnect[0] && Halcon.CamConnect[1] && Halcon.CamConnect[2])
+			{
+				Halcon.CamConnect[0] = Halcon.CloseFramegrabber(Halcon.hv_AcqHandle[0]);
+				Halcon.CamConnect[1] = Halcon.CloseFramegrabber(Halcon.hv_AcqHandle[1]);
+				Halcon.CamConnect[0] = Halcon.initalCamera("LineCam0", ref Halcon.hv_AcqHandle[0]);				
+				Halcon.CamConnect[1] = Halcon.initalCamera("LineCam1", ref Halcon.hv_AcqHandle[1]);				
+			}
+			else
+			{
+				MessageBox.Show("相机链接异常，请检查!");
+				return;
+			}
+			for (int i = 0; i < 2; i++)
             {
                 if (MainThread[ i] != null)
                 {
                     MainThread[i].Abort();
                 }
             }           
-            //HivCam.StopGrab(0);
+            
         }
 
         private void btn_Connutius_Click(object sender, EventArgs e)

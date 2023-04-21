@@ -837,11 +837,11 @@
 			// 
 			this.label32.AutoSize = true;
 			this.label32.ForeColor = System.Drawing.SystemColors.Control;
-			this.label32.Location = new System.Drawing.Point(18, 379);
+			this.label32.Location = new System.Drawing.Point(10, 379);
 			this.label32.Name = "label32";
-			this.label32.Size = new System.Drawing.Size(53, 12);
+			this.label32.Size = new System.Drawing.Size(65, 12);
 			this.label32.TabIndex = 77;
-			this.label32.Text = "预留地址";
+			this.label32.Text = "用户ID地址";
 			// 
 			// txt_Completion_Add2
 			// 
@@ -861,11 +861,11 @@
 			// 
 			this.label33.AutoSize = true;
 			this.label33.ForeColor = System.Drawing.SystemColors.Control;
-			this.label33.Location = new System.Drawing.Point(18, 346);
+			this.label33.Location = new System.Drawing.Point(-1, 346);
 			this.label33.Name = "label33";
-			this.label33.Size = new System.Drawing.Size(53, 12);
+			this.label33.Size = new System.Drawing.Size(77, 12);
 			this.label33.TabIndex = 76;
-			this.label33.Text = "预留地址";
+			this.label33.Text = "用户等级地址";
 			// 
 			// txt_Trigger_Detection2
 			// 
