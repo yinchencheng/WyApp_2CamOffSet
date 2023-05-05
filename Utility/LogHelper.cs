@@ -13,7 +13,7 @@ namespace WY_App.Utility
     
     public class LogHelper
     {
-        public static ILogNet Log = new LogNetSingle(Application.StartupPath + "\\Logs\\"+System.DateTime.Now.ToString("yyyyMMddHH")+".txt");
+        public static ILogNet Log = new LogNetSingle(@"D:\\Logs\\"+System.DateTime.Now.ToString("yyyyMMddHH")+".txt");
         public static void WriteError(string log )
         {
            MainForm.AlarmList.Add("Error" + System.DateTime.Now.ToString() + log);

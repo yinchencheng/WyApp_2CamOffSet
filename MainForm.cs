@@ -353,6 +353,32 @@ namespace WY_App
 			}
 
 		}
+        private static void CleanFile(String dir)
+        {
+            DirectoryInfo di = new DirectoryInfo(dir);
+            FileSystemInfo[] fileinfo = di.GetFileSystemInfos();  //返回目录中所有文件和子目录
+            foreach (FileSystemInfo i in fileinfo)
+            {
+                if (i is DirectoryInfo)            //判断是否文件夹
+                {
+                    DirectoryInfo subdir = new DirectoryInfo(i.FullName);
+                    DateTime dates = Convert.ToDateTime(i.CreationTime);
+                    if (dates <= DateTime.Now.AddDays(-Parameters.commministion.LogFileExistDay))
+                    {
+                        subdir.Delete(true);          //删除子目录和文件
+                    }
+                }
+                else
+                {
+                    DateTime dates = Convert.ToDateTime(i.CreationTime);
+                    if (dates <= DateTime.Now.AddDays(-Parameters.commministion.LogFileExistDay))
+                    {
+                        File.Delete(i.FullName);      //删除指定文件
+                    }
+
+                }
+            }
+        }
         private void MainRun0()
         {
             while (true)
@@ -470,6 +496,7 @@ namespace WY_App
                         TimeSpan timespan = stopwatch.Elapsed; //  获取当前实例测量得出的总时间
                         double milliseconds = timespan.TotalMilliseconds;  //  总毫秒数           
                         AlarmList.Add(System.DateTime.Now.ToString() + "检测1时间:" + milliseconds.ToString());
+                        CleanFile(Parameters.commministion.ImageSavePath);
                     }
                 }
             }
