@@ -37,10 +37,8 @@
             this.hWindowControl3 = new HalconDotNet.HWindowControl();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.messageShow0 = new WY_App.UserControls.MessageShow();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.messageShow1 = new WY_App.UserControls.MessageShow();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.hWindowControl2 = new HalconDotNet.HWindowControl();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -49,6 +47,9 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PixelResolutionRow = new System.Windows.Forms.Panel();
+            this.uiButton5 = new Sunny.UI.UIButton();
+            this.uiLabel11 = new Sunny.UI.UILabel();
+            this.uiComboBox1 = new Sunny.UI.UIComboBox();
             this.uiButton4 = new Sunny.UI.UIButton();
             this.uiButton3 = new Sunny.UI.UIButton();
             this.uiButton2 = new Sunny.UI.UIButton();
@@ -56,9 +57,7 @@
             this.btn_OpenTestimage = new Sunny.UI.UIButton();
             this.btn_XBaseSetting = new Sunny.UI.UIButton();
             this.chk_MeanImageEnabled = new System.Windows.Forms.CheckBox();
-            this.btn_DrawAOI = new Sunny.UI.UIButton();
             this.btn_MeanImageTest = new Sunny.UI.UIButton();
-            this.btn_SaveAOI = new Sunny.UI.UIButton();
             this.num_AreaHigh = new Sunny.UI.UIDoubleUpDown();
             this.btn_Y1BaseSetting = new Sunny.UI.UIButton();
             this.num_AreaLow = new Sunny.UI.UIDoubleUpDown();
@@ -100,6 +99,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.hWindowControl4 = new HalconDotNet.HWindowControl();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.uiLabel12 = new Sunny.UI.UILabel();
+            this.messageShow3 = new WY_App.UserControls.MessageShow();
+            this.messageShow4 = new WY_App.UserControls.MessageShow();
+            this.uiDoubleUpDown1 = new Sunny.UI.UIDoubleUpDown();
+            this.uiDoubleUpDown2 = new Sunny.UI.UIDoubleUpDown();
+            this.uiLabel13 = new Sunny.UI.UILabel();
+            this.uiLabel14 = new Sunny.UI.UILabel();
+            this.uiLabel15 = new Sunny.UI.UILabel();
+            this.uiLabel16 = new Sunny.UI.UILabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -209,7 +217,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.messageShow0);
+            this.groupBox5.Controls.Add(this.messageShow3);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.ForeColor = System.Drawing.Color.White;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
@@ -218,14 +226,6 @@
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "瑕疵信息显示1";
-            // 
-            // messageShow0
-            // 
-            this.messageShow0.BackColor = System.Drawing.Color.Black;
-            this.messageShow0.Location = new System.Drawing.Point(85, 21);
-            this.messageShow0.Name = "messageShow0";
-            this.messageShow0.Size = new System.Drawing.Size(210, 96);
-            this.messageShow0.TabIndex = 0;
             // 
             // panel5
             // 
@@ -238,7 +238,7 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.messageShow1);
+            this.groupBox6.Controls.Add(this.messageShow4);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.ForeColor = System.Drawing.Color.White;
             this.groupBox6.Location = new System.Drawing.Point(0, 0);
@@ -247,14 +247,6 @@
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "瑕疵信息显示1";
-            // 
-            // messageShow1
-            // 
-            this.messageShow1.BackColor = System.Drawing.Color.Black;
-            this.messageShow1.Location = new System.Drawing.Point(85, 20);
-            this.messageShow1.Name = "messageShow1";
-            this.messageShow1.Size = new System.Drawing.Size(232, 108);
-            this.messageShow1.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -314,6 +306,8 @@
             this.hWindowControl1.Size = new System.Drawing.Size(596, 1074);
             this.hWindowControl1.TabIndex = 0;
             this.hWindowControl1.WindowSize = new System.Drawing.Size(596, 1074);
+            this.hWindowControl1.HMouseDown += new HalconDotNet.HMouseEventHandler(this.hWindowControl1_HMouseDown);
+            this.hWindowControl1.HMouseWheel += new HalconDotNet.HMouseEventHandler(this.hWindowControl1_HMouseWheel);
             // 
             // tableLayoutPanel5
             // 
@@ -347,6 +341,16 @@
             // 
             // PixelResolutionRow
             // 
+            this.PixelResolutionRow.Controls.Add(this.uiLabel16);
+            this.PixelResolutionRow.Controls.Add(this.uiLabel15);
+            this.PixelResolutionRow.Controls.Add(this.uiDoubleUpDown1);
+            this.PixelResolutionRow.Controls.Add(this.uiDoubleUpDown2);
+            this.PixelResolutionRow.Controls.Add(this.uiLabel13);
+            this.PixelResolutionRow.Controls.Add(this.uiLabel14);
+            this.PixelResolutionRow.Controls.Add(this.uiLabel12);
+            this.PixelResolutionRow.Controls.Add(this.uiButton5);
+            this.PixelResolutionRow.Controls.Add(this.uiLabel11);
+            this.PixelResolutionRow.Controls.Add(this.uiComboBox1);
             this.PixelResolutionRow.Controls.Add(this.uiButton4);
             this.PixelResolutionRow.Controls.Add(this.uiButton3);
             this.PixelResolutionRow.Controls.Add(this.uiButton2);
@@ -354,9 +358,7 @@
             this.PixelResolutionRow.Controls.Add(this.btn_OpenTestimage);
             this.PixelResolutionRow.Controls.Add(this.btn_XBaseSetting);
             this.PixelResolutionRow.Controls.Add(this.chk_MeanImageEnabled);
-            this.PixelResolutionRow.Controls.Add(this.btn_DrawAOI);
             this.PixelResolutionRow.Controls.Add(this.btn_MeanImageTest);
-            this.PixelResolutionRow.Controls.Add(this.btn_SaveAOI);
             this.PixelResolutionRow.Controls.Add(this.num_AreaHigh);
             this.PixelResolutionRow.Controls.Add(this.btn_Y1BaseSetting);
             this.PixelResolutionRow.Controls.Add(this.num_AreaLow);
@@ -400,19 +402,73 @@
             this.PixelResolutionRow.TabIndex = 6;
             this.PixelResolutionRow.Paint += new System.Windows.Forms.PaintEventHandler(this.PixelResolutionRow_Paint);
             // 
+            // uiButton5
+            // 
+            this.uiButton5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton5.FillColor = System.Drawing.Color.Black;
+            this.uiButton5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton5.Location = new System.Drawing.Point(223, 160);
+            this.uiButton5.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton5.Name = "uiButton5";
+            this.uiButton5.Radius = 10;
+            this.uiButton5.Size = new System.Drawing.Size(69, 24);
+            this.uiButton5.Style = Sunny.UI.UIStyle.Custom;
+            this.uiButton5.TabIndex = 87;
+            this.uiButton5.Text = "相移设置";
+            this.uiButton5.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton5.Click += new System.EventHandler(this.uiButton5_Click);
+            // 
+            // uiLabel11
+            // 
+            this.uiLabel11.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel11.ForeColor = System.Drawing.Color.White;
+            this.uiLabel11.Location = new System.Drawing.Point(20, 278);
+            this.uiLabel11.Name = "uiLabel11";
+            this.uiLabel11.Size = new System.Drawing.Size(61, 18);
+            this.uiLabel11.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel11.TabIndex = 86;
+            this.uiLabel11.Text = "检测区域";
+            this.uiLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiComboBox1
+            // 
+            this.uiComboBox1.DataSource = null;
+            this.uiComboBox1.FillColor = System.Drawing.Color.Black;
+            this.uiComboBox1.FillDisableColor = System.Drawing.Color.Silver;
+            this.uiComboBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiComboBox1.ForeColor = System.Drawing.Color.White;
+            this.uiComboBox1.ItemForeColor = System.Drawing.Color.Black;
+            this.uiComboBox1.Items.AddRange(new object[] {
+            "检测区域一",
+            "检测区域二",
+            "检测区域三",
+            "检测区域四"});
+            this.uiComboBox1.ItemSelectBackColor = System.Drawing.Color.Black;
+            this.uiComboBox1.ItemSelectForeColor = System.Drawing.Color.White;
+            this.uiComboBox1.Location = new System.Drawing.Point(88, 274);
+            this.uiComboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiComboBox1.MinimumSize = new System.Drawing.Size(63, 0);
+            this.uiComboBox1.Name = "uiComboBox1";
+            this.uiComboBox1.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.uiComboBox1.Size = new System.Drawing.Size(115, 24);
+            this.uiComboBox1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiComboBox1.TabIndex = 78;
+            this.uiComboBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiComboBox1.SelectedIndexChanged += new System.EventHandler(this.uiComboBox1_SelectedIndexChanged);
+            // 
             // uiButton4
             // 
             this.uiButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton4.FillColor = System.Drawing.Color.Black;
             this.uiButton4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton4.Location = new System.Drawing.Point(26, 408);
+            this.uiButton4.Location = new System.Drawing.Point(6, 160);
             this.uiButton4.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton4.Name = "uiButton4";
             this.uiButton4.Radius = 20;
-            this.uiButton4.Size = new System.Drawing.Size(60, 29);
+            this.uiButton4.Size = new System.Drawing.Size(83, 24);
             this.uiButton4.Style = Sunny.UI.UIStyle.Custom;
             this.uiButton4.TabIndex = 85;
-            this.uiButton4.Text = "基准";
+            this.uiButton4.Text = "显示基准";
             this.uiButton4.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton4.Click += new System.EventHandler(this.uiButton4_Click);
             // 
@@ -421,7 +477,7 @@
             this.uiButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton3.FillColor = System.Drawing.Color.Black;
             this.uiButton3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton3.Location = new System.Drawing.Point(200, 670);
+            this.uiButton3.Location = new System.Drawing.Point(200, 649);
             this.uiButton3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton3.Name = "uiButton3";
             this.uiButton3.Radius = 20;
@@ -437,7 +493,7 @@
             this.uiButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton2.FillColor = System.Drawing.Color.Black;
             this.uiButton2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton2.Location = new System.Drawing.Point(104, 670);
+            this.uiButton2.Location = new System.Drawing.Point(104, 649);
             this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton2.Name = "uiButton2";
             this.uiButton2.Radius = 20;
@@ -453,7 +509,7 @@
             this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton1.FillColor = System.Drawing.Color.Black;
             this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton1.Location = new System.Drawing.Point(12, 670);
+            this.uiButton1.Location = new System.Drawing.Point(12, 649);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
             this.uiButton1.Radius = 20;
@@ -485,11 +541,11 @@
             this.btn_XBaseSetting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_XBaseSetting.FillColor = System.Drawing.Color.Black;
             this.btn_XBaseSetting.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_XBaseSetting.Location = new System.Drawing.Point(220, 46);
+            this.btn_XBaseSetting.Location = new System.Drawing.Point(223, 46);
             this.btn_XBaseSetting.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_XBaseSetting.Name = "btn_XBaseSetting";
             this.btn_XBaseSetting.Radius = 10;
-            this.btn_XBaseSetting.Size = new System.Drawing.Size(84, 24);
+            this.btn_XBaseSetting.Size = new System.Drawing.Size(69, 24);
             this.btn_XBaseSetting.Style = Sunny.UI.UIStyle.Custom;
             this.btn_XBaseSetting.TabIndex = 8;
             this.btn_XBaseSetting.Text = "设置";
@@ -501,7 +557,7 @@
             this.chk_MeanImageEnabled.AutoSize = true;
             this.chk_MeanImageEnabled.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chk_MeanImageEnabled.ForeColor = System.Drawing.Color.White;
-            this.chk_MeanImageEnabled.Location = new System.Drawing.Point(26, 191);
+            this.chk_MeanImageEnabled.Location = new System.Drawing.Point(21, 250);
             this.chk_MeanImageEnabled.Name = "chk_MeanImageEnabled";
             this.chk_MeanImageEnabled.Size = new System.Drawing.Size(60, 16);
             this.chk_MeanImageEnabled.TabIndex = 81;
@@ -509,28 +565,12 @@
             this.chk_MeanImageEnabled.UseVisualStyleBackColor = true;
             this.chk_MeanImageEnabled.CheckedChanged += new System.EventHandler(this.chk_MeanImageEnabled_CheckedChanged);
             // 
-            // btn_DrawAOI
-            // 
-            this.btn_DrawAOI.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DrawAOI.FillColor = System.Drawing.Color.Black;
-            this.btn_DrawAOI.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_DrawAOI.Location = new System.Drawing.Point(110, 151);
-            this.btn_DrawAOI.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_DrawAOI.Name = "btn_DrawAOI";
-            this.btn_DrawAOI.Radius = 20;
-            this.btn_DrawAOI.Size = new System.Drawing.Size(98, 24);
-            this.btn_DrawAOI.Style = Sunny.UI.UIStyle.Custom;
-            this.btn_DrawAOI.TabIndex = 71;
-            this.btn_DrawAOI.Text = "绘制检测区域";
-            this.btn_DrawAOI.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_DrawAOI.Click += new System.EventHandler(this.btn_DrawAOI_Click);
-            // 
             // btn_MeanImageTest
             // 
             this.btn_MeanImageTest.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_MeanImageTest.FillColor = System.Drawing.Color.Black;
             this.btn_MeanImageTest.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_MeanImageTest.Location = new System.Drawing.Point(225, 184);
+            this.btn_MeanImageTest.Location = new System.Drawing.Point(223, 240);
             this.btn_MeanImageTest.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_MeanImageTest.Name = "btn_MeanImageTest";
             this.btn_MeanImageTest.Radius = 19;
@@ -541,22 +581,6 @@
             this.btn_MeanImageTest.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_MeanImageTest.Click += new System.EventHandler(this.btn_MeanImageTest_Click);
             // 
-            // btn_SaveAOI
-            // 
-            this.btn_SaveAOI.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SaveAOI.FillColor = System.Drawing.Color.Black;
-            this.btn_SaveAOI.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_SaveAOI.Location = new System.Drawing.Point(220, 151);
-            this.btn_SaveAOI.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_SaveAOI.Name = "btn_SaveAOI";
-            this.btn_SaveAOI.Radius = 20;
-            this.btn_SaveAOI.Size = new System.Drawing.Size(84, 24);
-            this.btn_SaveAOI.Style = Sunny.UI.UIStyle.Custom;
-            this.btn_SaveAOI.TabIndex = 72;
-            this.btn_SaveAOI.Text = "保存检测区域";
-            this.btn_SaveAOI.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_SaveAOI.Click += new System.EventHandler(this.btn_SaveAOI_Click);
-            // 
             // num_AreaHigh
             // 
             this.num_AreaHigh.Decimal = 3;
@@ -565,7 +589,7 @@
             this.num_AreaHigh.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.num_AreaHigh.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.num_AreaHigh.ForeColor = System.Drawing.Color.White;
-            this.num_AreaHigh.Location = new System.Drawing.Point(95, 371);
+            this.num_AreaHigh.Location = new System.Drawing.Point(88, 460);
             this.num_AreaHigh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.num_AreaHigh.MinimumSize = new System.Drawing.Size(100, 0);
             this.num_AreaHigh.Name = "num_AreaHigh";
@@ -583,11 +607,11 @@
             this.btn_Y1BaseSetting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Y1BaseSetting.FillColor = System.Drawing.Color.Black;
             this.btn_Y1BaseSetting.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_Y1BaseSetting.Location = new System.Drawing.Point(220, 81);
+            this.btn_Y1BaseSetting.Location = new System.Drawing.Point(223, 81);
             this.btn_Y1BaseSetting.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_Y1BaseSetting.Name = "btn_Y1BaseSetting";
             this.btn_Y1BaseSetting.Radius = 10;
-            this.btn_Y1BaseSetting.Size = new System.Drawing.Size(84, 24);
+            this.btn_Y1BaseSetting.Size = new System.Drawing.Size(69, 24);
             this.btn_Y1BaseSetting.Style = Sunny.UI.UIStyle.Custom;
             this.btn_Y1BaseSetting.TabIndex = 13;
             this.btn_Y1BaseSetting.Text = "设置";
@@ -602,7 +626,7 @@
             this.num_AreaLow.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.num_AreaLow.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.num_AreaLow.ForeColor = System.Drawing.Color.White;
-            this.num_AreaLow.Location = new System.Drawing.Point(95, 341);
+            this.num_AreaLow.Location = new System.Drawing.Point(88, 430);
             this.num_AreaLow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.num_AreaLow.MinimumSize = new System.Drawing.Size(100, 0);
             this.num_AreaLow.Name = "num_AreaLow";
@@ -620,11 +644,11 @@
             this.btn_Y2BaseSetting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Y2BaseSetting.FillColor = System.Drawing.Color.Black;
             this.btn_Y2BaseSetting.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_Y2BaseSetting.Location = new System.Drawing.Point(220, 116);
+            this.btn_Y2BaseSetting.Location = new System.Drawing.Point(223, 116);
             this.btn_Y2BaseSetting.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_Y2BaseSetting.Name = "btn_Y2BaseSetting";
             this.btn_Y2BaseSetting.Radius = 10;
-            this.btn_Y2BaseSetting.Size = new System.Drawing.Size(84, 24);
+            this.btn_Y2BaseSetting.Size = new System.Drawing.Size(69, 24);
             this.btn_Y2BaseSetting.Style = Sunny.UI.UIStyle.Custom;
             this.btn_Y2BaseSetting.TabIndex = 14;
             this.btn_Y2BaseSetting.Text = "设置";
@@ -637,7 +661,7 @@
             this.num_ThresholdHigh.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.num_ThresholdHigh.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.num_ThresholdHigh.ForeColor = System.Drawing.Color.White;
-            this.num_ThresholdHigh.Location = new System.Drawing.Point(95, 311);
+            this.num_ThresholdHigh.Location = new System.Drawing.Point(88, 400);
             this.num_ThresholdHigh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.num_ThresholdHigh.MinimumSize = new System.Drawing.Size(100, 0);
             this.num_ThresholdHigh.Name = "num_ThresholdHigh";
@@ -655,11 +679,11 @@
             this.btn_DrawXbase.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_DrawXbase.FillColor = System.Drawing.Color.Black;
             this.btn_DrawXbase.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_DrawXbase.Location = new System.Drawing.Point(110, 46);
+            this.btn_DrawXbase.Location = new System.Drawing.Point(109, 46);
             this.btn_DrawXbase.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_DrawXbase.Name = "btn_DrawXbase";
             this.btn_DrawXbase.Radius = 20;
-            this.btn_DrawXbase.Size = new System.Drawing.Size(98, 24);
+            this.btn_DrawXbase.Size = new System.Drawing.Size(85, 24);
             this.btn_DrawXbase.Style = Sunny.UI.UIStyle.Custom;
             this.btn_DrawXbase.TabIndex = 1;
             this.btn_DrawXbase.Text = "绘制X基准";
@@ -672,7 +696,7 @@
             this.num_ThresholdLow.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.num_ThresholdLow.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.num_ThresholdLow.ForeColor = System.Drawing.Color.White;
-            this.num_ThresholdLow.Location = new System.Drawing.Point(95, 281);
+            this.num_ThresholdLow.Location = new System.Drawing.Point(88, 370);
             this.num_ThresholdLow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.num_ThresholdLow.MinimumSize = new System.Drawing.Size(100, 0);
             this.num_ThresholdLow.Name = "num_ThresholdLow";
@@ -690,14 +714,14 @@
             this.btn_ShowAOI.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ShowAOI.FillColor = System.Drawing.Color.Black;
             this.btn_ShowAOI.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_ShowAOI.Location = new System.Drawing.Point(6, 151);
+            this.btn_ShowAOI.Location = new System.Drawing.Point(223, 272);
             this.btn_ShowAOI.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_ShowAOI.Name = "btn_ShowAOI";
             this.btn_ShowAOI.Radius = 20;
-            this.btn_ShowAOI.Size = new System.Drawing.Size(98, 24);
+            this.btn_ShowAOI.Size = new System.Drawing.Size(73, 24);
             this.btn_ShowAOI.Style = Sunny.UI.UIStyle.Custom;
             this.btn_ShowAOI.TabIndex = 70;
-            this.btn_ShowAOI.Text = "显示检测区域";
+            this.btn_ShowAOI.Text = "显示区域";
             this.btn_ShowAOI.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_ShowAOI.Click += new System.EventHandler(this.btn_ShowAOI_Click);
             // 
@@ -717,7 +741,7 @@
             "高斯滤波"});
             this.cmb_MeanImageList.ItemSelectBackColor = System.Drawing.Color.Black;
             this.cmb_MeanImageList.ItemSelectForeColor = System.Drawing.Color.White;
-            this.cmb_MeanImageList.Location = new System.Drawing.Point(94, 183);
+            this.cmb_MeanImageList.Location = new System.Drawing.Point(88, 240);
             this.cmb_MeanImageList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmb_MeanImageList.MinimumSize = new System.Drawing.Size(63, 0);
             this.cmb_MeanImageList.Name = "cmb_MeanImageList";
@@ -733,11 +757,11 @@
             this.btn_DrawY1base.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_DrawY1base.FillColor = System.Drawing.Color.Black;
             this.btn_DrawY1base.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_DrawY1base.Location = new System.Drawing.Point(110, 81);
+            this.btn_DrawY1base.Location = new System.Drawing.Point(109, 81);
             this.btn_DrawY1base.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_DrawY1base.Name = "btn_DrawY1base";
             this.btn_DrawY1base.Radius = 20;
-            this.btn_DrawY1base.Size = new System.Drawing.Size(98, 24);
+            this.btn_DrawY1base.Size = new System.Drawing.Size(85, 24);
             this.btn_DrawY1base.Style = Sunny.UI.UIStyle.Custom;
             this.btn_DrawY1base.TabIndex = 11;
             this.btn_DrawY1base.Text = "绘制Y1基准";
@@ -750,7 +774,7 @@
             this.num_lengthWidthRatio.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.num_lengthWidthRatio.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.num_lengthWidthRatio.ForeColor = System.Drawing.Color.White;
-            this.num_lengthWidthRatio.Location = new System.Drawing.Point(95, 251);
+            this.num_lengthWidthRatio.Location = new System.Drawing.Point(88, 340);
             this.num_lengthWidthRatio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.num_lengthWidthRatio.MinimumSize = new System.Drawing.Size(100, 0);
             this.num_lengthWidthRatio.Name = "num_lengthWidthRatio";
@@ -768,11 +792,11 @@
             this.btn_DrawY2base.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_DrawY2base.FillColor = System.Drawing.Color.Black;
             this.btn_DrawY2base.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_DrawY2base.Location = new System.Drawing.Point(110, 116);
+            this.btn_DrawY2base.Location = new System.Drawing.Point(109, 116);
             this.btn_DrawY2base.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_DrawY2base.Name = "btn_DrawY2base";
             this.btn_DrawY2base.Radius = 20;
-            this.btn_DrawY2base.Size = new System.Drawing.Size(98, 24);
+            this.btn_DrawY2base.Size = new System.Drawing.Size(85, 24);
             this.btn_DrawY2base.Style = Sunny.UI.UIStyle.Custom;
             this.btn_DrawY2base.TabIndex = 12;
             this.btn_DrawY2base.Text = "绘制Y2基准";
@@ -784,7 +808,7 @@
             this.btnn_IndicationTest.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnn_IndicationTest.FillColor = System.Drawing.Color.Black;
             this.btnn_IndicationTest.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnn_IndicationTest.Location = new System.Drawing.Point(226, 218);
+            this.btnn_IndicationTest.Location = new System.Drawing.Point(224, 306);
             this.btnn_IndicationTest.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnn_IndicationTest.Name = "btnn_IndicationTest";
             this.btnn_IndicationTest.Radius = 19;
@@ -804,7 +828,7 @@
             this.btn_showY2Base.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_showY2Base.Name = "btn_showY2Base";
             this.btn_showY2Base.Radius = 20;
-            this.btn_showY2Base.Size = new System.Drawing.Size(98, 24);
+            this.btn_showY2Base.Size = new System.Drawing.Size(83, 24);
             this.btn_showY2Base.Style = Sunny.UI.UIStyle.Custom;
             this.btn_showY2Base.TabIndex = 10;
             this.btn_showY2Base.Text = "显示Y2基准";
@@ -815,7 +839,7 @@
             // 
             this.uiLabel10.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel10.ForeColor = System.Drawing.Color.White;
-            this.uiLabel10.Location = new System.Drawing.Point(23, 373);
+            this.uiLabel10.Location = new System.Drawing.Point(16, 462);
             this.uiLabel10.Name = "uiLabel10";
             this.uiLabel10.Size = new System.Drawing.Size(75, 18);
             this.uiLabel10.Style = Sunny.UI.UIStyle.Custom;
@@ -832,7 +856,7 @@
             this.btn_showXBase.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_showXBase.Name = "btn_showXBase";
             this.btn_showXBase.Radius = 20;
-            this.btn_showXBase.Size = new System.Drawing.Size(98, 24);
+            this.btn_showXBase.Size = new System.Drawing.Size(83, 24);
             this.btn_showXBase.Style = Sunny.UI.UIStyle.Custom;
             this.btn_showXBase.TabIndex = 0;
             this.btn_showXBase.Text = "显示X基准";
@@ -843,7 +867,7 @@
             // 
             this.uiLabel9.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel9.ForeColor = System.Drawing.Color.White;
-            this.uiLabel9.Location = new System.Drawing.Point(23, 343);
+            this.uiLabel9.Location = new System.Drawing.Point(16, 432);
             this.uiLabel9.Name = "uiLabel9";
             this.uiLabel9.Size = new System.Drawing.Size(75, 18);
             this.uiLabel9.Style = Sunny.UI.UIStyle.Custom;
@@ -860,7 +884,7 @@
             this.btn_showYBase.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_showYBase.Name = "btn_showYBase";
             this.btn_showYBase.Radius = 20;
-            this.btn_showYBase.Size = new System.Drawing.Size(98, 24);
+            this.btn_showYBase.Size = new System.Drawing.Size(83, 24);
             this.btn_showYBase.Style = Sunny.UI.UIStyle.Custom;
             this.btn_showYBase.TabIndex = 9;
             this.btn_showYBase.Text = "显示Y1基准";
@@ -871,7 +895,7 @@
             // 
             this.uiLabel8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel8.ForeColor = System.Drawing.Color.White;
-            this.uiLabel8.Location = new System.Drawing.Point(23, 253);
+            this.uiLabel8.Location = new System.Drawing.Point(16, 342);
             this.uiLabel8.Name = "uiLabel8";
             this.uiLabel8.Size = new System.Drawing.Size(75, 18);
             this.uiLabel8.Style = Sunny.UI.UIStyle.Custom;
@@ -883,7 +907,7 @@
             // 
             this.uiLabel6.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel6.ForeColor = System.Drawing.Color.White;
-            this.uiLabel6.Location = new System.Drawing.Point(23, 283);
+            this.uiLabel6.Location = new System.Drawing.Point(16, 372);
             this.uiLabel6.Name = "uiLabel6";
             this.uiLabel6.Size = new System.Drawing.Size(65, 18);
             this.uiLabel6.Style = Sunny.UI.UIStyle.Custom;
@@ -895,7 +919,7 @@
             // 
             this.uiLabel2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel2.ForeColor = System.Drawing.Color.White;
-            this.uiLabel2.Location = new System.Drawing.Point(23, 313);
+            this.uiLabel2.Location = new System.Drawing.Point(16, 402);
             this.uiLabel2.Name = "uiLabel2";
             this.uiLabel2.Size = new System.Drawing.Size(75, 18);
             this.uiLabel2.Style = Sunny.UI.UIStyle.Custom;
@@ -907,7 +931,7 @@
             // 
             this.uiLabel3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel3.ForeColor = System.Drawing.Color.White;
-            this.uiLabel3.Location = new System.Drawing.Point(9, 734);
+            this.uiLabel3.Location = new System.Drawing.Point(9, 713);
             this.uiLabel3.Name = "uiLabel3";
             this.uiLabel3.Size = new System.Drawing.Size(85, 25);
             this.uiLabel3.Style = Sunny.UI.UIStyle.Custom;
@@ -919,7 +943,7 @@
             // 
             this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel1.ForeColor = System.Drawing.Color.White;
-            this.uiLabel1.Location = new System.Drawing.Point(23, 222);
+            this.uiLabel1.Location = new System.Drawing.Point(21, 310);
             this.uiLabel1.Name = "uiLabel1";
             this.uiLabel1.Size = new System.Drawing.Size(65, 18);
             this.uiLabel1.Style = Sunny.UI.UIStyle.Custom;
@@ -945,7 +969,7 @@
             "其他"});
             this.cmb_Indication.ItemSelectBackColor = System.Drawing.Color.Black;
             this.cmb_Indication.ItemSelectForeColor = System.Drawing.Color.White;
-            this.cmb_Indication.Location = new System.Drawing.Point(95, 217);
+            this.cmb_Indication.Location = new System.Drawing.Point(88, 306);
             this.cmb_Indication.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmb_Indication.MinimumSize = new System.Drawing.Size(63, 0);
             this.cmb_Indication.Name = "cmb_Indication";
@@ -964,7 +988,7 @@
             this.txt_PixelResolutionColumn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.txt_PixelResolutionColumn.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txt_PixelResolutionColumn.ForeColor = System.Drawing.Color.White;
-            this.txt_PixelResolutionColumn.Location = new System.Drawing.Point(101, 739);
+            this.txt_PixelResolutionColumn.Location = new System.Drawing.Point(101, 718);
             this.txt_PixelResolutionColumn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_PixelResolutionColumn.MinimumSize = new System.Drawing.Size(1, 16);
             this.txt_PixelResolutionColumn.Name = "txt_PixelResolutionColumn";
@@ -984,11 +1008,11 @@
             this.btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Save.FillColor = System.Drawing.Color.Black;
             this.btn_Save.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_Save.Location = new System.Drawing.Point(226, 408);
+            this.btn_Save.Location = new System.Drawing.Point(109, 160);
             this.btn_Save.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Radius = 20;
-            this.btn_Save.Size = new System.Drawing.Size(73, 29);
+            this.btn_Save.Size = new System.Drawing.Size(85, 24);
             this.btn_Save.Style = Sunny.UI.UIStyle.Custom;
             this.btn_Save.TabIndex = 17;
             this.btn_Save.Text = "保存";
@@ -1000,7 +1024,7 @@
             this.btn_Detection.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Detection.FillColor = System.Drawing.Color.Black;
             this.btn_Detection.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_Detection.Location = new System.Drawing.Point(112, 408);
+            this.btn_Detection.Location = new System.Drawing.Point(102, 498);
             this.btn_Detection.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_Detection.Name = "btn_Detection";
             this.btn_Detection.Radius = 20;
@@ -1043,7 +1067,7 @@
             this.txt_PixelResolutionRow.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.txt_PixelResolutionRow.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txt_PixelResolutionRow.ForeColor = System.Drawing.Color.White;
-            this.txt_PixelResolutionRow.Location = new System.Drawing.Point(101, 764);
+            this.txt_PixelResolutionRow.Location = new System.Drawing.Point(101, 743);
             this.txt_PixelResolutionRow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_PixelResolutionRow.MinimumSize = new System.Drawing.Size(1, 16);
             this.txt_PixelResolutionRow.Name = "txt_PixelResolutionRow";
@@ -1075,7 +1099,7 @@
             this.chk_SaveDefeatImage.AutoSize = true;
             this.chk_SaveDefeatImage.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chk_SaveDefeatImage.ForeColor = System.Drawing.Color.White;
-            this.chk_SaveDefeatImage.Location = new System.Drawing.Point(112, 715);
+            this.chk_SaveDefeatImage.Location = new System.Drawing.Point(112, 694);
             this.chk_SaveDefeatImage.Name = "chk_SaveDefeatImage";
             this.chk_SaveDefeatImage.Size = new System.Drawing.Size(96, 16);
             this.chk_SaveDefeatImage.TabIndex = 62;
@@ -1088,7 +1112,7 @@
             this.chk_SaveCropImage.AutoSize = true;
             this.chk_SaveCropImage.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chk_SaveCropImage.ForeColor = System.Drawing.Color.White;
-            this.chk_SaveCropImage.Location = new System.Drawing.Point(216, 715);
+            this.chk_SaveCropImage.Location = new System.Drawing.Point(216, 694);
             this.chk_SaveCropImage.Name = "chk_SaveCropImage";
             this.chk_SaveCropImage.Size = new System.Drawing.Size(96, 16);
             this.chk_SaveCropImage.TabIndex = 63;
@@ -1100,7 +1124,7 @@
             // 
             this.uiLabel4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel4.ForeColor = System.Drawing.Color.White;
-            this.uiLabel4.Location = new System.Drawing.Point(9, 759);
+            this.uiLabel4.Location = new System.Drawing.Point(9, 738);
             this.uiLabel4.Name = "uiLabel4";
             this.uiLabel4.Size = new System.Drawing.Size(85, 25);
             this.uiLabel4.Style = Sunny.UI.UIStyle.Custom;
@@ -1113,7 +1137,7 @@
             this.chk_SaveOrigalImage.AutoSize = true;
             this.chk_SaveOrigalImage.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chk_SaveOrigalImage.ForeColor = System.Drawing.Color.White;
-            this.chk_SaveOrigalImage.Location = new System.Drawing.Point(8, 715);
+            this.chk_SaveOrigalImage.Location = new System.Drawing.Point(8, 694);
             this.chk_SaveOrigalImage.Name = "chk_SaveOrigalImage";
             this.chk_SaveOrigalImage.Size = new System.Drawing.Size(96, 16);
             this.chk_SaveOrigalImage.TabIndex = 61;
@@ -1213,11 +1237,132 @@
             this.hWindowControl4.TabIndex = 0;
             this.hWindowControl4.WindowSize = new System.Drawing.Size(596, 1074);
             this.hWindowControl4.HMouseDown += new HalconDotNet.HMouseEventHandler(this.hWindowControl4_HMouseDown);
+            this.hWindowControl4.HMouseWheel += new HalconDotNet.HMouseEventHandler(this.hWindowControl4_HMouseWheel);
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
+            // 
+            // uiLabel12
+            // 
+            this.uiLabel12.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel12.ForeColor = System.Drawing.Color.White;
+            this.uiLabel12.Location = new System.Drawing.Point(85, 201);
+            this.uiLabel12.Name = "uiLabel12";
+            this.uiLabel12.Size = new System.Drawing.Size(299, 18);
+            this.uiLabel12.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel12.TabIndex = 88;
+            this.uiLabel12.Text = "设置好基准参数后再检测";
+            this.uiLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // messageShow3
+            // 
+            this.messageShow3.BackColor = System.Drawing.Color.Black;
+            this.messageShow3.Location = new System.Drawing.Point(85, 21);
+            this.messageShow3.Name = "messageShow3";
+            this.messageShow3.Size = new System.Drawing.Size(210, 96);
+            this.messageShow3.TabIndex = 0;
+            // 
+            // messageShow4
+            // 
+            this.messageShow4.BackColor = System.Drawing.Color.Black;
+            this.messageShow4.Location = new System.Drawing.Point(85, 20);
+            this.messageShow4.Name = "messageShow4";
+            this.messageShow4.Size = new System.Drawing.Size(232, 108);
+            this.messageShow4.TabIndex = 0;
+            // 
+            // uiDoubleUpDown1
+            // 
+            this.uiDoubleUpDown1.Decimal = 0;
+            this.uiDoubleUpDown1.DecimalPlaces = 0;
+            this.uiDoubleUpDown1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.uiDoubleUpDown1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.uiDoubleUpDown1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDoubleUpDown1.ForeColor = System.Drawing.Color.White;
+            this.uiDoubleUpDown1.Location = new System.Drawing.Point(101, 798);
+            this.uiDoubleUpDown1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDoubleUpDown1.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDoubleUpDown1.Name = "uiDoubleUpDown1";
+            this.uiDoubleUpDown1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(92)))));
+            this.uiDoubleUpDown1.ShowText = false;
+            this.uiDoubleUpDown1.Size = new System.Drawing.Size(155, 20);
+            this.uiDoubleUpDown1.Step = 1D;
+            this.uiDoubleUpDown1.Style = Sunny.UI.UIStyle.Black;
+            this.uiDoubleUpDown1.TabIndex = 92;
+            this.uiDoubleUpDown1.Text = "uiDoubleUpDown1";
+            this.uiDoubleUpDown1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiDoubleUpDown2
+            // 
+            this.uiDoubleUpDown2.Decimal = 0;
+            this.uiDoubleUpDown2.DecimalPlaces = 0;
+            this.uiDoubleUpDown2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.uiDoubleUpDown2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.uiDoubleUpDown2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDoubleUpDown2.ForeColor = System.Drawing.Color.White;
+            this.uiDoubleUpDown2.Location = new System.Drawing.Point(101, 768);
+            this.uiDoubleUpDown2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDoubleUpDown2.Maximum = 20000D;
+            this.uiDoubleUpDown2.Minimum = 0D;
+            this.uiDoubleUpDown2.MinimumSize = new System.Drawing.Size(100, 0);
+            this.uiDoubleUpDown2.Name = "uiDoubleUpDown2";
+            this.uiDoubleUpDown2.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(92)))));
+            this.uiDoubleUpDown2.ShowText = false;
+            this.uiDoubleUpDown2.Size = new System.Drawing.Size(154, 20);
+            this.uiDoubleUpDown2.Step = 1D;
+            this.uiDoubleUpDown2.Style = Sunny.UI.UIStyle.Black;
+            this.uiDoubleUpDown2.TabIndex = 91;
+            this.uiDoubleUpDown2.Text = "uiDoubleUpDown1";
+            this.uiDoubleUpDown2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiLabel13
+            // 
+            this.uiLabel13.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel13.ForeColor = System.Drawing.Color.White;
+            this.uiLabel13.Location = new System.Drawing.Point(3, 770);
+            this.uiLabel13.Name = "uiLabel13";
+            this.uiLabel13.Size = new System.Drawing.Size(92, 18);
+            this.uiLabel13.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel13.TabIndex = 90;
+            this.uiLabel13.Text = "原点坐X标修正";
+            this.uiLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel14
+            // 
+            this.uiLabel14.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel14.ForeColor = System.Drawing.Color.White;
+            this.uiLabel14.Location = new System.Drawing.Point(3, 798);
+            this.uiLabel14.Name = "uiLabel14";
+            this.uiLabel14.Size = new System.Drawing.Size(89, 18);
+            this.uiLabel14.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel14.TabIndex = 89;
+            this.uiLabel14.Text = "原点坐Y标修正阈值";
+            this.uiLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel15
+            // 
+            this.uiLabel15.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel15.ForeColor = System.Drawing.Color.White;
+            this.uiLabel15.Location = new System.Drawing.Point(258, 767);
+            this.uiLabel15.Name = "uiLabel15";
+            this.uiLabel15.Size = new System.Drawing.Size(98, 25);
+            this.uiLabel15.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel15.TabIndex = 93;
+            this.uiLabel15.Text = "mm";
+            this.uiLabel15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel16
+            // 
+            this.uiLabel16.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel16.ForeColor = System.Drawing.Color.White;
+            this.uiLabel16.Location = new System.Drawing.Point(258, 795);
+            this.uiLabel16.Name = "uiLabel16";
+            this.uiLabel16.Size = new System.Drawing.Size(98, 25);
+            this.uiLabel16.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel16.TabIndex = 94;
+            this.uiLabel16.Text = "mm";
+            this.uiLabel16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // 相机检测设置
             // 
@@ -1273,8 +1418,6 @@
         private Sunny.UI.UILabel uiLabel3;
         private Sunny.UI.UIButton btn_OpenTestimage;
         private Sunny.UI.UIButton btn_XBaseSetting;
-        private Sunny.UI.UIButton btn_DrawAOI;
-        private Sunny.UI.UIButton btn_SaveAOI;
         private Sunny.UI.UIButton btn_Y1BaseSetting;
         private Sunny.UI.UIButton btn_Y2BaseSetting;
         private Sunny.UI.UILabel uiLabel4;
@@ -1314,14 +1457,24 @@
         private HalconDotNet.HWindowControl hWindowControl2;
         private HalconDotNet.HWindowControl hWindowControl1;
         private HalconDotNet.HWindowControl hWindowControl4;
-        private UserControls.MessageShow messageShow0;
-        private UserControls.MessageShow messageShow1;
+        private UserControls.MessageShow messageShow3;
+        private UserControls.MessageShow messageShow4;
         private Sunny.UI.UITextBox txt_PixelResolutionColumn;
         private Sunny.UI.UITextBox txt_PixelResolutionRow;
         private Sunny.UI.UIButton uiButton1;
         private Sunny.UI.UIButton uiButton2;
         private Sunny.UI.UIButton uiButton3;
         private Sunny.UI.UIButton uiButton4;
+        private Sunny.UI.UILabel uiLabel11;
+        private Sunny.UI.UIComboBox uiComboBox1;
+        private Sunny.UI.UIButton uiButton5;
+        private Sunny.UI.UILabel uiLabel12;
+        private Sunny.UI.UILabel uiLabel16;
+        private Sunny.UI.UILabel uiLabel15;
+        private Sunny.UI.UIDoubleUpDown uiDoubleUpDown1;
+        private Sunny.UI.UIDoubleUpDown uiDoubleUpDown2;
+        private Sunny.UI.UILabel uiLabel13;
+        private Sunny.UI.UILabel uiLabel14;
     }
 }
 

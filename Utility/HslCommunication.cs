@@ -28,8 +28,8 @@ namespace WY_App
         public static OperateResult _connected ;
         public static NetworkDeviceBase _NetworkTcpDevice;
         static ISyncGpasciiCommunicationInterface communication = null;
-        deviceProperties currentDeviceProp = new deviceProperties();
-        deviceProperties currentDevProp = new deviceProperties();
+        //deviceProperties currentDeviceProp = new deviceProperties();
+        //deviceProperties currentDevProp = new deviceProperties();
         string commands = String.Empty;
         public static string response = String.Empty;
 
@@ -60,26 +60,25 @@ namespace WY_App
         {
             if (!Authorization.SetAuthorizationCode("f562cc4c-4772-4b32-bdcd-f3e122c534e3"))
             {
-                LogHelper.Log.WriteError("HslCommunication 组件认证失败，组件只能使用8小时!");
-                MainForm.AlarmList.Add("HslCommunication 组件认证失败，组件只能使用8小时!");
+                LogHelper.WriteError("HslCommunication 组件认证失败，组件只能使用8小时!");
             }           
             while (!plc_connect_result)
             {              
                 try
                 {
-                    //欧姆龙PLC Omron.PMAC.CK3M通讯
-                    if ("Omron.PMAC.CK3M".Equals(Parameters.commministion.PlcType))
-                    {
-                        currentDevProp.IPAddress = Parameters.commministion.PlcIpAddress;
-                        currentDevProp.Password = "deltatau";
-                        currentDevProp.PortNumber = Parameters.commministion.PlcIpPort;
-                        currentDevProp.User = "root";
-                        currentDevProp.Protocol = CommunicationGlobals.ConnectionTypes.SSH;
-                        communication = Connect.CreateSyncGpascii(currentDevProp.Protocol, communication);
-                        plc_connect_result = communication.ConnectGpAscii(currentDevProp.IPAddress, currentDevProp.PortNumber, currentDevProp.User, currentDevProp.Password);                                              
-                    }
+                    ////欧姆龙PLC Omron.PMAC.CK3M通讯
+                    //if ("Omron.PMAC.CK3M".Equals(Parameters.commministion.PlcType))
+                    //{
+                    //    currentDevProp.IPAddress = Parameters.commministion.PlcIpAddress;
+                    //    currentDevProp.Password = "deltatau";
+                    //    currentDevProp.PortNumber = Parameters.commministion.PlcIpPort;
+                    //    currentDevProp.User = "root";
+                    //    currentDevProp.Protocol = CommunicationGlobals.ConnectionTypes.SSH;
+                    //    communication = Connect.CreateSyncGpascii(currentDevProp.Protocol, communication);
+                    //    plc_connect_result = communication.ConnectGpAscii(currentDevProp.IPAddress, currentDevProp.PortNumber, currentDevProp.User, currentDevProp.Password);                                              
+                    //}
                     //欧姆龙PLC OmronFinsNet通讯
-                    else if ("Omron.OmronFinsNet".Equals(Parameters.commministion.PlcType))
+                     if ("Omron.OmronFinsNet".Equals(Parameters.commministion.PlcType))
                     {
                         OmronFinsNet Client = new OmronFinsNet();
                         Client.IpAddress = Parameters.commministion.PlcIpAddress;
@@ -160,14 +159,12 @@ namespace WY_App
                         }
                         if (plc_connect_result)
                         {
-                            LogHelper.Log.WriteInfo(Parameters.commministion.PlcType + "串口" + Parameters.commministion.PlcIpAddress + "打开成功,波特率:" + Parameters.commministion.PlcIpPort);
-                            MainForm.AlarmList.Add(Parameters.commministion.PlcType + "串口" + Parameters.commministion.PlcIpAddress + "打开成功,波特率:" + Parameters.commministion.PlcIpPort);
+                            LogHelper.WriteInfo(Parameters.commministion.PlcType + "串口" + Parameters.commministion.PlcIpAddress + "打开成功,波特率:" + Parameters.commministion.PlcIpPort);        
                             plc_connect_result = true;
                         }
                         else
                         {
-                            LogHelper.Log.WriteError(Parameters.commministion.PlcType + "串口" + Parameters.commministion.PlcIpAddress + "打开失败,波特率:" + Parameters.commministion.PlcIpPort);
-                            MainForm.AlarmList.Add(Parameters.commministion.PlcType + "串口" + Parameters.commministion.PlcIpAddress + "打开失败,波特率:" + Parameters.commministion.PlcIpPort);
+                            LogHelper.WriteError(Parameters.commministion.PlcType + "串口" + Parameters.commministion.PlcIpAddress + "打开失败,波特率:" + Parameters.commministion.PlcIpPort);      
                             plc_connect_result = false;
                         }
                         return;
@@ -175,28 +172,24 @@ namespace WY_App
                     //Parameter.PlcType字符错误或未定义
                     else
                     {
-                        LogHelper.Log.WriteError(Parameters.commministion.PlcType + "类型未定义!!!");
-                        MainForm.AlarmList.Add(Parameters.commministion.PlcType + "类型未定义!!!");
+                        LogHelper.WriteError(Parameters.commministion.PlcType + "类型未定义!!!");
                         plc_connect_result = false;
                     }
                    
                     if (plc_connect_result)
                     {
-                        LogHelper.Log.WriteInfo(Parameters.commministion.PlcType + "连接成功:IP" + Parameters.commministion.PlcIpAddress + "  Port:" + Parameters.commministion.PlcIpPort);
-                        MainForm.AlarmList.Add(Parameters.commministion.PlcType + "连接成功:IP" + Parameters.commministion.PlcIpAddress + "  Port:" + Parameters.commministion.PlcIpPort);
+                        LogHelper.WriteInfo(Parameters.commministion.PlcType + "连接成功:IP" + Parameters.commministion.PlcIpAddress + "  Port:" + Parameters.commministion.PlcIpPort);                        
                         plc_connect_result = true;
                     }
                     else
                     {
-                        LogHelper.Log.WriteError(Parameters.commministion.PlcType + "连接失败:IP" + Parameters.commministion.PlcIpAddress + "  Port:" + Parameters.commministion.PlcIpPort);
-                        MainForm.AlarmList.Add(Parameters.commministion.PlcType + "连接失败:IP" + Parameters.commministion.PlcIpAddress + "  Port:" + Parameters.commministion.PlcIpPort);
+                        LogHelper.WriteError(Parameters.commministion.PlcType + "连接失败:IP" + Parameters.commministion.PlcIpAddress + "  Port:" + Parameters.commministion.PlcIpPort);
                         plc_connect_result = false;
                     }
                 }
                 catch (Exception ex)
                 {
-                    LogHelper.Log.WriteError(Parameters.commministion.PlcType + "初始化失败:", ex.Message);
-                    MainForm.AlarmList.Add(Parameters.commministion.PlcType + "初始化失败:"+ ex.Message);
+                    LogHelper.WriteError(Parameters.commministion.PlcType + "初始化失败:"+ ex.Message);
                     plc_connect_result = false;
                 }
             }

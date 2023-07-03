@@ -31,40 +31,38 @@ namespace WY_App.Utility
             {
                 //获取相机句柄
                 HOperatorSet.OpenFramegrabber("GenICamTL", 0, 0, 0, 0, 0, 0, "progressive", -1, "default", -1, "false", "default", CamID, 0, -1, out hv_AcqHandle);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", "Off");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSource", "Software");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ScanMode", "LineScan");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSelector", "LineStart");
 				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", "On");
 				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerSource", "CC1");
 				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "grab_timeout", 20000);
 
-
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]DeviceTemperatureSelector", "Mainboard");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]StreamTriggerEnable", 1);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]StreamTriggerSource", "D485Input1");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]EncoderSelector", "Encoder0");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]EncoderSourceA", "D485Input1");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]EncoderSourceB", "Off");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]LineSelector", "D485InOut1");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]LineMode", "Input");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]LineInputPolarity", "SingleEnded");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]LineDebouncerTime", 300000);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]UserOutputSelector", "UserOutput0");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]UserOutputValue", 0);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]CameraControlEnable", 1);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]CameraControlSource", "Timer0");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerSelector", "Timer0");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerDuration", 5);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerDelay", 5);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerFrequency", 100000);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerTriggerSource", "Continuous");
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerTriggerActivation", "RisingEdge");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]DeviceTemperatureSelector", "Mainboard");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]StreamTriggerEnable", 1);
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]StreamTriggerSource", "D485Input1");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]EncoderSelector", "Encoder0");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]EncoderSourceA", "D485Input1");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]EncoderSourceB", "Off");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]LineSelector", "D485InOut1");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]LineMode", "Input");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]LineInputPolarity", "SingleEnded");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]LineDebouncerTime", 300000);
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]UserOutputSelector", "UserOutput0");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]UserOutputValue", 0);
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]CameraControlEnable", 1);
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]CameraControlSource", "Timer0");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerSelector", "Timer0");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerDuration", 5);
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerDelay", 5);
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerFrequency", 100000);
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerTriggerSource", "Continuous");
+				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]TimerTriggerActivation", "RisingEdge");
 
 				return true;
             }
             catch (Exception ex)
-            {				
-				LogHelper.Log.WriteError(System.DateTime.Now.ToString() + CamID + "相机链接失败" + ex.Message);
-                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + CamID + "相机链接失败" + ex.Message);
+            {
+                LogHelper.WriteError(System.DateTime.Now.ToString() + CamID + "相机链接失败" + ex.Message);               
                 return false;
             }
 
@@ -83,7 +81,7 @@ namespace WY_App.Utility
         {
             while (true)
             {
-                Thread.Sleep(5000);
+                //Thread.Sleep(5000);
                 while (!CamConnect[0])
                 {
                     Thread.Sleep(5000);
@@ -93,8 +91,7 @@ namespace WY_App.Utility
                     }
                     else
                     {
-                        LogHelper.Log.WriteError(System.DateTime.Now.ToString() + "相机1链接成功");
-                        MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "相机1链接成功");
+                        LogHelper.WriteInfo(System.DateTime.Now.ToString() + "相机1链接成功");                       
                     }
                 }
                 while (!CamConnect[1])
@@ -106,22 +103,9 @@ namespace WY_App.Utility
                     }
                     else
                     {
-                        LogHelper.Log.WriteError(System.DateTime.Now.ToString() + "相机2链接成功");
-                        MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "相机2链接成功");
+                        LogHelper.WriteInfo(System.DateTime.Now.ToString() + "相机2链接成功");
                     }
-                } while (!CamConnect[2])
-                {
-                    Thread.Sleep(5000);
-                    if (!CamConnect[2])
-                    {
-                        CamConnect[2] = initalCamera("LineCam2", ref hv_AcqHandle[2]);                       
-                    }
-                    else
-                    {
-                        LogHelper.Log.WriteError(System.DateTime.Now.ToString() + "相机3链接成功");
-                        MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "相机3链接成功");
-                    }
-                }
+                } 
             }
         }
         public static bool ImgDisplay(int index,string imgPath, HWindow Hwindow1, HWindow Hwindow2)
@@ -153,13 +137,13 @@ namespace WY_App.Utility
                 return false;
             }
         }
-        //        //-----------------------------------------------------------------------------
-        public static bool CloseFramegrabber(HTuple hv_AcqHandle)
-        {
-            HOperatorSet.CloseFramegrabber(hv_AcqHandle);
-            return false;
-         }
-        public static void TriggerModeOff(HTuple hv_AcqHandle)
+		//        //-----------------------------------------------------------------------------
+		public static bool CloseFramegrabber(HTuple hv_AcqHandle)
+		{
+			HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+			return false;
+		}
+		public static void TriggerModeOff(HTuple hv_AcqHandle)
         {
             HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", "Off");
         }
@@ -167,9 +151,8 @@ namespace WY_App.Utility
         {
             HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "TriggerMode", "On");
         }
-        public static void SetFramegrabberParam(int i, HTuple hv_AcqHandle)
+        public static void SetFramegrabberParam(int i,HTuple hv_AcqHandle)
         {
-			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]CameraType", "LineScan");
 
 			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", Constructor.cameraParams.ExposureTime[i]);
 			HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "[Interface]ImageHeight", Constructor.cameraParams.Height[i]);
@@ -212,10 +195,8 @@ namespace WY_App.Utility
 			{
 				HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "PreampGain", "gain_8000x");
 			}
-
-
 		}
-		public static void GrabImageAsync(HTuple hv_AcqHandle, out HObject himage)
+        public static void GrabImageAsync(HTuple hv_AcqHandle, out HObject himage)
         {
             HOperatorSet.GrabImageAsync(out himage, hv_AcqHandle, -1);
         }
@@ -223,7 +204,84 @@ namespace WY_App.Utility
         {
             HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
         }
+        public static void ImgZoom(HObject L_Img, HTuple Hwindow, int Delta = 1)
+        {
+            HTuple Zoom = new HTuple(), Row = new HTuple(), Col = new HTuple(), L_Button = new HTuple();
+            HTuple hv_Width = new HTuple(), hv_Height = new HTuple();
+            HTuple Row0 = new HTuple(), Column0 = new HTuple(), Row00 = new HTuple(), Column00 = new HTuple(), Ht = new HTuple(), Wt = new HTuple();
+            HTuple[] Now_Pos = new HTuple[4];
+            try
+            {
 
+                if (Delta > 0)//鼠标滚动格值，一般120
+                {
+                    Zoom = 1.01;//向上滚动,放大倍数
+                }
+                else
+                {
+                    Zoom = 0.99;//向下滚动,缩小倍数
+                }
+                HOperatorSet.GetMposition(Hwindow, out Row, out Col, out L_Button);//获取当前鼠标的位置
+                HOperatorSet.GetPart(Hwindow, out Row0, out Column0, out Row00, out Column00);//获取当前窗体的大小规格
+                HOperatorSet.GetImageSize(L_Img, out hv_Width, out hv_Height);//获取图片大小规格
+                Ht = Row00 - Row0;
+                Wt = Column00 - Column0;
+                if (Ht * Wt < 32000 * 32000 || Zoom == 1.2)
+                {
+                    Now_Pos[0] = (Row0 + ((1 - (1.0 / Zoom)) * (Row - Row0)));
+                    Now_Pos[1] = (Column0 + ((1 - (1.0 / Zoom)) * (Col - Column0)));
+                    Now_Pos[2] = Now_Pos[0] + (Ht / Zoom);
+                    Now_Pos[3] = Now_Pos[1] + (Wt / Zoom);
+                    HOperatorSet.SetPart(Hwindow, Now_Pos[0], Now_Pos[1], Now_Pos[2], Now_Pos[3]);
+                    HOperatorSet.ClearWindow(Hwindow);
+                    HOperatorSet.DispObj(L_Img, Hwindow);
+                    Now_Pos[0].Dispose();
+                    Now_Pos[1].Dispose();
+                    Now_Pos[2].Dispose();
+                    Now_Pos[3].Dispose();
+                }
+                else
+                {
+                    ImgIsNotStretchDisplay(L_Img, Hwindow);//不拉伸显示
+                }
+                Zoom.Dispose();
+                Row.Dispose(); Col.Dispose(); L_Button.Dispose();
+                hv_Width.Dispose(); hv_Height.Dispose();
+                Row0.Dispose(); Column0.Dispose(); Row00.Dispose(); Column00.Dispose(); Ht.Dispose(); Wt.Dispose();
+
+            }
+            catch
+            {
+                Zoom.Dispose();
+                Row.Dispose(); Col.Dispose(); L_Button.Dispose();
+                hv_Width.Dispose(); hv_Height.Dispose();
+                Row0.Dispose(); Column0.Dispose(); Row00.Dispose(); Column00.Dispose(); Ht.Dispose(); Wt.Dispose();
+            }
+        }
+        public static void ImgIsNotStretchDisplay(HObject L_Img, HTuple Hwindow)
+        {
+            HTuple hv_Width, hv_Height;
+            HTuple win_Width, win_Height, win_Col, win_Row, cwin_Width, cwin_Height;
+            HOperatorSet.ClearWindow(Hwindow);
+            HOperatorSet.GetImageSize(L_Img, out hv_Width, out hv_Height);//获取图片大小规格
+            HOperatorSet.GetWindowExtents(Hwindow, out win_Row, out win_Col, out win_Width, out win_Height);//获取窗体大小规格
+            cwin_Height = 1.0 * win_Height / win_Width * hv_Width;//宽不变计算高          
+            if (cwin_Height > hv_Height)//宽不变高能容纳
+            {
+                cwin_Height = 1.0 * (cwin_Height - hv_Height) / 2;
+                HOperatorSet.SetPart(Hwindow, -cwin_Height, 0, cwin_Height + hv_Height, hv_Width);//设置窗体的规格
+            }
+            else//高不变宽能容纳
+            {
+                cwin_Width = 1.0 * win_Width / win_Height * hv_Height;//高不变计算宽
+                cwin_Width = 1.0 * (cwin_Width - hv_Width) / 2;
+                HOperatorSet.SetPart(Hwindow, 0, -cwin_Width, hv_Height, cwin_Width + hv_Width);//设置窗体的规格
+                cwin_Width.Dispose();
+            }
+            HOperatorSet.DispObj(L_Img, Hwindow);//显示图片
+            hv_Width.Dispose(); hv_Height.Dispose();
+            win_Width.Dispose(); win_Height.Dispose(); win_Col.Dispose(); win_Row.Dispose(); cwin_Height.Dispose();
+        }
         public static void DetectionShowAOI(int CamNum, HWindow hWindow, out HObject hv_Region)
         {
             HOperatorSet.ReadRegion(out hv_Region, Parameters.commministion.productName + "/halcon/hoRegion" + CamNum + ".tiff");
@@ -306,29 +364,6 @@ namespace WY_App.Utility
             hWindow.DrawLine(out rect1.Row1[index], out rect1.Colum1[index], out rect1.Row2[index], out rect1.Colum2[index]);
             HOperatorSet.DispLine(hWindow, rect1.Row1[index], rect1.Colum1[index], rect1.Row2[index], rect1.Colum2[index]);
         }
-        public static void DetectionGenRegionAOI(int index, HWindow hWindow, HObject hImage, ref HObject ho_Region)
-        {
-            // Local control variables 
-
-            HTuple hv_Row = new HTuple(), hv_Col = new HTuple();
-            // Initialize local and output iconic variables 
-            HOperatorSet.GenEmptyObj(out ho_Region);
-            hv_Row.Dispose();
-            hv_Row = new HTuple();
-            hv_Row[0] = 0;
-            hv_Row[1] = 100;
-            hv_Row[2] = 200;
-            hv_Row[3] = 100;
-            hv_Col.Dispose();
-            hv_Col = new HTuple();
-            hv_Col[0] = 100;
-            hv_Col[1] = 0;
-            hv_Col[2] = 100;
-            hv_Col[3] = 200;;
-            HOperatorSet.GenRegionPolygonFilled(out ho_Region, hv_Row, hv_Col);
-            hv_Row.Dispose();
-            hv_Col.Dispose();
-        }
 
         /// <summary>
         /// 直线卡尺工具
@@ -338,10 +373,10 @@ namespace WY_App.Utility
         /// <param name="rect1"></param>
         /// <param name="PointXY"></param>
         /// <returns></returns>
-        public static bool DetectionHalconLine(int CamNum,int BaseNum ,HWindow hWindow, HObject hImage, Parameters.DetectionSpec rect1, ref HRect1 PointXY)
+        public static bool DetectionHalconLine(int CamNum, int BaseNum, HWindow hWindow, HObject hImage, Parameters.DetectionSpec rect1, ref HRect1 PointXY)
         {
 
-            HObject ho_Contours, ho_Cross, ho_Contour;
+            HObject ho_Contours=new HObject() , ho_Cross = new HObject(), ho_Contour = new HObject();
 
             // Local control variables 
 
@@ -352,59 +387,87 @@ namespace WY_App.Utility
 
             HTuple hv_Nc = new HTuple(), hv_Dist = new HTuple(), hv_Nr = new HTuple();
             // Initialize local and output iconic variables 
-
-            HOperatorSet.SetLineWidth(hWindow, 1);
-            //HOperatorSet.DispObj(hImage, hWindow);
-            //标记测量位置         
-            using (HDevDisposeHelper dh = new HDevDisposeHelper())
+            try
             {
-                hv_shapeParam = new HTuple();
-                hv_shapeParam = hv_shapeParam.TupleConcat(rect1.Row1[BaseNum], rect1.Colum1[BaseNum], rect1.Row2[BaseNum], rect1.Colum2[BaseNum]);
+                HOperatorSet.SetLineWidth(hWindow, 1);
+                //HOperatorSet.DispObj(hImage, hWindow);
+                //标记测量位置         
+                using (HDevDisposeHelper dh = new HDevDisposeHelper())
+                {
+                    hv_shapeParam = new HTuple();
+                    hv_shapeParam = hv_shapeParam.TupleConcat(rect1.Row1[BaseNum], rect1.Colum1[BaseNum], rect1.Row2[BaseNum], rect1.Colum2[BaseNum]);
+                }
+                //创建测量句柄
+                HOperatorSet.CreateMetrologyModel(out hv_MetrologyHandle);
+                //添加测量对象
+                HOperatorSet.SetMetrologyModelImageSize(hv_MetrologyHandle, hv_Width[CamNum], hv_Height[CamNum]);
+                hv_Index.Dispose();
+                HOperatorSet.AddMetrologyObjectGeneric(hv_MetrologyHandle, "line", hv_shapeParam, rect1.MeasureLength1[BaseNum], rect1.MeasureLength2[BaseNum], rect1.MeasureSigma[BaseNum], rect1.MeasureThreshold[BaseNum], new HTuple(), new HTuple(), out hv_Index);
+
+                //执行测量，获取边缘点集
+                HOperatorSet.SetColor(hWindow, "yellow");
+                HOperatorSet.ApplyMetrologyModel(hImage, hv_MetrologyHandle);
+                hv_Row.Dispose(); hv_Column.Dispose();
+                HOperatorSet.GetMetrologyObjectMeasures(out ho_Contours, hv_MetrologyHandle, "all", "all", out hv_Row, out hv_Column);
+                //HOperatorSet.DispObj(ho_Contours, hWindow);
+                HOperatorSet.SetColor(hWindow, "red");
+                HOperatorSet.GenCrossContourXld(out ho_Cross, hv_Row, hv_Column, 1, 0.785398);
+                //获取最终测量数据和轮廓线
+                HOperatorSet.SetColor(hWindow, "green");
+                HOperatorSet.SetLineWidth(hWindow, 1);
+                hv_Parameter.Dispose();
+                HOperatorSet.GetMetrologyObjectResult(hv_MetrologyHandle, "all", "all", "result_type", "all_param", out hv_Parameter);
+                HOperatorSet.GetMetrologyObjectResultContour(out ho_Contour, hv_MetrologyHandle, "all", "all", 15);
+                HOperatorSet.FitLineContourXld(ho_Contour, "tukey", -1, 0, 5, 2, out PointXY.Row1, out PointXY.Colum1, out PointXY.Row2, out PointXY.Colum2, out hv_Nr, out hv_Nc, out hv_Dist);
+
+                HOperatorSet.DispObj(ho_Cross, hWindow);
+                HOperatorSet.SetColor(hWindow, "blue");
+                HOperatorSet.DispObj(ho_Contour, hWindow);
+                //释放测量句柄
+                HOperatorSet.ClearMetrologyModel(hv_MetrologyHandle);
+                ho_Contours.Dispose();
+                ho_Cross.Dispose();
+                ho_Contour.Dispose();
+                hv_shapeParam.Dispose();
+                hv_MetrologyHandle.Dispose();
+                hv_Index.Dispose();
+                hv_Row.Dispose();
+                hv_Column.Dispose();
+                hv_Parameter.Dispose();
+
+
+                return true;
             }
-            //创建测量句柄
-            HOperatorSet.CreateMetrologyModel(out hv_MetrologyHandle);
-            //添加测量对象
-            HOperatorSet.SetMetrologyModelImageSize(hv_MetrologyHandle, hv_Width[CamNum], hv_Height[CamNum]);
-            hv_Index.Dispose();
-            HOperatorSet.AddMetrologyObjectGeneric(hv_MetrologyHandle, "line", hv_shapeParam, rect1.MeasureLength1[BaseNum], rect1.MeasureLength2[BaseNum], rect1.MeasureSigma[BaseNum], rect1.MeasureThreshold[BaseNum], new HTuple(), new HTuple(), out hv_Index);
-
-            //执行测量，获取边缘点集
-            HOperatorSet.SetColor(hWindow, "yellow");
-            HOperatorSet.ApplyMetrologyModel(hImage, hv_MetrologyHandle);
-            hv_Row.Dispose(); hv_Column.Dispose();
-            HOperatorSet.GetMetrologyObjectMeasures(out ho_Contours, hv_MetrologyHandle, "all", "all", out hv_Row, out hv_Column);
-            HOperatorSet.DispObj(ho_Contours, hWindow);
-            HOperatorSet.SetColor(hWindow, "red");
-            HOperatorSet.GenCrossContourXld(out ho_Cross, hv_Row, hv_Column, 1, 0.785398);
-            //获取最终测量数据和轮廓线
-            HOperatorSet.SetColor(hWindow, "green");
-            HOperatorSet.SetLineWidth(hWindow, 1);
-            hv_Parameter.Dispose();
-            HOperatorSet.GetMetrologyObjectResult(hv_MetrologyHandle, "all", "all", "result_type", "all_param", out hv_Parameter);
-            HOperatorSet.GetMetrologyObjectResultContour(out ho_Contour, hv_MetrologyHandle, "all", "all", 15);
-            HOperatorSet.FitLineContourXld(ho_Contour, "tukey", -1, 0, 5, 2, out PointXY.Row1, out PointXY.Colum1, out PointXY.Row2, out PointXY.Colum2, out hv_Nr, out hv_Nc, out hv_Dist);
-            HOperatorSet.DispObj(ho_Cross, hWindow);
-            HOperatorSet.SetColor(hWindow, "blue");
-            HOperatorSet.DispObj(ho_Contour, hWindow);
-            //释放测量句柄
-            HOperatorSet.ClearMetrologyModel(hv_MetrologyHandle); ;
-            ho_Contours.Dispose();
-            ho_Cross.Dispose();
-            ho_Contour.Dispose();
-            hv_shapeParam.Dispose();
-            hv_MetrologyHandle.Dispose();
-            hv_Index.Dispose();
-            hv_Row.Dispose();
-            hv_Column.Dispose();
-            hv_Parameter.Dispose();
+            catch
+            {
+                ho_Contours.Dispose();
+                ho_Cross.Dispose();
+                ho_Contour.Dispose();
+                hv_shapeParam.Dispose();
+                hv_MetrologyHandle.Dispose();
+                hv_Index.Dispose();
+                hv_Row.Dispose();
+                hv_Column.Dispose();
+                hv_Parameter.Dispose();
 
 
-            return true;
+                return false;
+            }
+            
+            
         }
-        
+
 
         public static bool DetectionHalconRegion(int CamNum, int BaseNum, HWindow[] hWindow, HObject hImage, Parameters.DetectionSpec spec , HObject hObject ,ref List<DetectionResult>  detectionResult)
         {
+            if (Parameters.detectionSpec[CamNum].ThresholdLow[BaseNum] == 0 && Parameters.detectionSpec[CamNum].ThresholdHigh[BaseNum] == 0
+               || Parameters.detectionSpec[CamNum].AreaLow[BaseNum] == 0 && Parameters.detectionSpec[CamNum].AreaHigh[BaseNum] == 0
+               ||(Parameters.detectionSpec[CamNum].ThresholdLow[BaseNum] != 0 || Parameters.detectionSpec[CamNum].ThresholdHigh[BaseNum]!= 0)&& 
+               (Parameters.detectionSpec[CamNum].AreaLow[BaseNum] == 0 || Parameters.detectionSpec[CamNum].AreaHigh[BaseNum] == 0))
+            {
+                LogHelper.WriteWarn("检测参数未设定，请检查");
+                return true;
+            }
             // Local iconic variables             
             HObject ho_ImageReduced, ho_Region, ho_ConnectedRegions;
             HObject ho_SelectedRegions1, ho_ObjectSelected, ho_SelectedRegions;
@@ -466,15 +529,15 @@ namespace WY_App.Utility
                 HOperatorSet.GrayFeatures(ho_SelectedRegions1, hImage, "mean", out Mean);
                 detectionResult1.ResultdateTime = DateTime.Now;
                 detectionResult1.ResultGray = Mean.D;
-                detectionResult1.ResultLevel = BaseNum;
+                detectionResult1.ResultLevel = BaseNum&7+1;
                 detectionResult1.ResultKind = (ImageErrorKind)BaseNum;
                 detectionResult1.ResultSize = hv_Value.TupleSelect(0).D * Parameters.detectionSpec[CamNum].PixelResolutionRow * Parameters.detectionSpec[CamNum].PixelResolutionColum;
-                detectionResult1.ResultYPosition = hv_Value.TupleSelect(1).D * Parameters.detectionSpec[CamNum].PixelResolutionRow * Parameters.detectionSpec[CamNum].PixelResolutionColum;
-                detectionResult1.ResultXPosition = hv_Value.TupleSelect(2).D * Parameters.detectionSpec[CamNum].PixelResolutionRow * Parameters.detectionSpec[CamNum].PixelResolutionColum;
-                detectionResult1.ResultWidth = hv_Value.TupleSelect(3).D * Parameters.detectionSpec[CamNum].PixelResolutionRow * Parameters.detectionSpec[CamNum].PixelResolutionColum;
-                detectionResult1.ResultHeight = hv_Value.TupleSelect(4).D * Parameters.detectionSpec[CamNum].PixelResolutionRow * Parameters.detectionSpec[CamNum].PixelResolutionColum;
-                detectionResult1.ResultRa = hv_Value.TupleSelect(5).D * Parameters.detectionSpec[CamNum].PixelResolutionRow * Parameters.detectionSpec[CamNum].PixelResolutionColum;
-                detectionResult1.ResultRb = hv_Value.TupleSelect(6).D * Parameters.detectionSpec[CamNum].PixelResolutionRow * Parameters.detectionSpec[CamNum].PixelResolutionColum;
+                detectionResult1.ResultYPosition = hv_Value.TupleSelect(1).D * Parameters.detectionSpec[CamNum].PixelResolutionRow - Parameters.detectionSpec[CamNum].RowBase[0] + Parameters.detectionSpec[CamNum].RowBase[1]; ;
+                detectionResult1.ResultXPosition = hv_Value.TupleSelect(2).D * Parameters.detectionSpec[CamNum].PixelResolutionColum - Parameters.detectionSpec[CamNum].ColumBase[0] + Parameters.detectionSpec[CamNum].ColumBase[1]; ;
+                detectionResult1.ResultWidth = hv_Value.TupleSelect(3).D * Parameters.detectionSpec[CamNum].PixelResolutionColum;
+                detectionResult1.ResultHeight = hv_Value.TupleSelect(4).D * Parameters.detectionSpec[CamNum].PixelResolutionRow;
+                detectionResult1.ResultRa = hv_Value.TupleSelect(5).D;
+                detectionResult1.ResultRb = hv_Value.TupleSelect(6).D;
                 if (hv_Row < 500)
                 {
                     hv_Row = 500;
@@ -491,7 +554,7 @@ namespace WY_App.Utility
                 {
                     hv_Column = hv_Width[CamNum] - 500;
                 }
-                HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row-500, hv_Column-500, 1000, 1000);               
+                HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row - 500, hv_Column -500, 1000, 1000);               
                 detectionResult.Add(detectionResult1);
                 HOperatorSet.SetColor(hWindow[0], "red");
                 HOperatorSet.SetTposition(hWindow[0], hv_Row, hv_Column);
@@ -538,15 +601,15 @@ namespace WY_App.Utility
                     HOperatorSet.GrayFeatures(ho_SelectedRegions, hImage, "mean", out Mean);
                     detectionResult1.ResultdateTime = DateTime.Now;
                     detectionResult1.ResultGray = Mean.TupleSelect(i).D;
-                    detectionResult1.ResultLevel = BaseNum;
+                    detectionResult1.ResultLevel = BaseNum%7+1;
                     detectionResult1.ResultKind = (ImageErrorKind)BaseNum;
-                    detectionResult1.ResultSize = hv_Value.TupleSelect(0 + i * 7).D * Parameters.detectionSpec[CamNum].PixelResolutionRow * Parameters.detectionSpec[CamNum].PixelResolutionColum;
-                    detectionResult1.ResultYPosition = hv_Value.TupleSelect(1 + i * 7).D * Parameters.detectionSpec[CamNum].PixelResolutionRow;
-                    detectionResult1.ResultXPosition = hv_Value.TupleSelect(2 + i * 7).D * Parameters.detectionSpec[CamNum].PixelResolutionColum;
-                    detectionResult1.ResultWidth = hv_Value.TupleSelect(3 + i * 7).D * Parameters.detectionSpec[CamNum].PixelResolutionColum;
-                    detectionResult1.ResultHeight = hv_Value.TupleSelect(4 + i * 7).D * Parameters.detectionSpec[CamNum].PixelResolutionRow;
-                    detectionResult1.ResultRa = hv_Value.TupleSelect(5 + i * 7).D * Parameters.detectionSpec[CamNum].PixelResolutionRow;
-                    detectionResult1.ResultRb = hv_Value.TupleSelect(6 + i * 7).D * Parameters.detectionSpec[CamNum].PixelResolutionColum;
+                    detectionResult1.ResultSize = hv_Value.TupleSelect(0).D * Parameters.detectionSpec[CamNum].PixelResolutionRow * Parameters.detectionSpec[CamNum].PixelResolutionColum;
+                    detectionResult1.ResultYPosition = hv_Value.TupleSelect(1).D * Parameters.detectionSpec[CamNum].PixelResolutionRow - Parameters.detectionSpec[CamNum].RowBase[0]+ Parameters.detectionSpec[CamNum].RowBase[1];
+                    detectionResult1.ResultXPosition = hv_Value.TupleSelect(2).D * Parameters.detectionSpec[CamNum].PixelResolutionColum - Parameters.detectionSpec[CamNum].ColumBase[0]+ Parameters.detectionSpec[CamNum].ColumBase[1];
+                    detectionResult1.ResultWidth = hv_Value.TupleSelect(3).D * Parameters.detectionSpec[CamNum].PixelResolutionColum;
+                    detectionResult1.ResultHeight = hv_Value.TupleSelect(4).D * Parameters.detectionSpec[CamNum].PixelResolutionRow;
+                    detectionResult1.ResultRa = hv_Value.TupleSelect(5).D;
+                    detectionResult1.ResultRb = hv_Value.TupleSelect(6).D;
                     if (hv_Row12[i] < 500)
                     {
                         hv_Row12[i] = 500;
@@ -563,7 +626,7 @@ namespace WY_App.Utility
                     {
                         hv_Column12[i] = hv_Width[CamNum] - 500;
                     }
-                    HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row12[i]-500, hv_Column12[i] - 500, 1000, 1000);
+                    HOperatorSet.CropPart(hImage, out detectionResult1.NGAreahObject, hv_Row12[i] - 500, hv_Column12[i]-500, 1000, 1000);
                     string stfFileNameOut = "CAM" + CamNum + "-Area-" + i + MainForm.productSN + "-" + MainForm.strDateTime;  // 默认的图像保存名称
                     string pathOut = Parameters.commministion.ImageSavePath + "/" + MainForm.strDateTimeDay + "/" + MainForm.productSN + "/";
                     if (!System.IO.Directory.Exists(pathOut))

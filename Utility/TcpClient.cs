@@ -32,9 +32,8 @@ namespace WY_App.Utility
                 try
                 {
                     socketSend.Connect(point);
-                    LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":TcpClientIP:" + Parameters.commministion.TcpClientIpAddress +"Port:"+ Parameters.commministion.TcpClientIpPort+ "链接成功");
+                    LogHelper.WriteInfo(System.DateTime.Now.ToString() + ":TcpClientIP:" + Parameters.commministion.TcpClientIpAddress +"Port:"+ Parameters.commministion.TcpClientIpPort+ "链接成功");
                     string str = TcpClient.tcpClientSend("Tcp客户端接入");
-                    MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":TcpClientIP:" + Parameters.commministion.TcpClientIpAddress + "Port:" + Parameters.commministion.TcpClientIpPort + "链接成功");
                     TcpClientConnectResult = true;
                     Thread th = new Thread(ReciveMessagr);
                     th.IsBackground = true;
@@ -43,8 +42,7 @@ namespace WY_App.Utility
                 }
                 catch (Exception ex)
                 {
-                    LogHelper.Log.WriteError(System.DateTime.Now.ToString() + "TcpClientIP:" + Parameters.commministion.TcpClientIpAddress + "Port:" + Parameters.commministion.TcpClientIpPort +"链接失败:", ex.Message);
-                    MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "TcpClientIP:" + Parameters.commministion.TcpClientIpAddress + "Port:" + Parameters.commministion.TcpClientIpPort + "链接失败:" + ex.Message);
+                    LogHelper.WriteError(System.DateTime.Now.ToString() + "TcpClientIP:" + Parameters.commministion.TcpClientIpAddress + "Port:" + Parameters.commministion.TcpClientIpPort +"链接失败:" + ex.Message);                  
                     TcpClientConnectResult = false;
                 }
             }          
@@ -55,11 +53,9 @@ namespace WY_App.Utility
             //Task.Run(() => { });
             byte[] buffer = System.Text.Encoding.UTF8.GetBytes(sendstr);
             socketSend.Send(buffer);
-            LogHelper.Log.WriteInfo(System.DateTime.Now.ToString()+ socketSend.RemoteEndPoint + "发送数据:" + sendstr);
-            MainForm.AlarmList.Add(System.DateTime.Now.ToString() + socketSend.RemoteEndPoint + "发送数据:" + sendstr);
+            LogHelper.WriteInfo(System.DateTime.Now.ToString()+ socketSend.RemoteEndPoint + "发送数据:" + sendstr);
             reciveStr = Recive();
-            LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + socketSend.RemoteEndPoint + "接收数据:" + reciveStr);
-            MainForm.AlarmList.Add(System.DateTime.Now.ToString() + socketSend.RemoteEndPoint + "接收数据:" + reciveStr);
+            LogHelper.WriteInfo(System.DateTime.Now.ToString() + socketSend.RemoteEndPoint + "接收数据:" + reciveStr);
             return reciveStr;
 
         }
@@ -103,7 +99,7 @@ namespace WY_App.Utility
                     {
                        
                     }
-                    MainForm.AlarmList.Add(System.DateTime.Now.ToString() + socketSend.RemoteEndPoint + "接收数据:" + s);
+                    LogHelper.WriteInfo("接收端口:" + socketSend.RemoteEndPoint + "数据:" + s);
                 }
                 catch (Exception)
                 {

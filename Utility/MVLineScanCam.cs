@@ -166,8 +166,7 @@ namespace WY_App.Utility
                 }
                 catch (Exception ex)
                 {
-                    LogHelper.Log.WriteError(System.DateTime.Now.ToString() + "相机链接失败:", ex.Message);
-                    MainForm.AlarmList.Add(System.DateTime.Now.ToString() + "相机链接失败:" + ex.Message);
+                    LogHelper.WriteError("相机链接失败:" + ex.Message);
                 }
                 Thread.Sleep(3000);
             }
@@ -184,8 +183,7 @@ namespace WY_App.Utility
                 ref bChanged);
             if (CErrorCode.MV_FG_SUCCESS != nRet)
             {
-                LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":枚举采集卡失败，故障码: " + nRet.ToString("X"));
-                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":枚举采集卡失败，故障码: " + nRet.ToString("X"));
+                LogHelper.WriteInfo("枚举采集卡失败，故障码: " + nRet.ToString("X"));
                 return;
             }
             m_nInterfaceNum = 0;
@@ -194,14 +192,12 @@ namespace WY_App.Utility
             nRet = m_cSystem.GetNumInterfaces(ref m_nInterfaceNum);
             if (CErrorCode.MV_FG_SUCCESS != nRet)
             {
-                LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":获取采集卡数量失败，故障码:" + nRet.ToString("X"));
-                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":获取采集卡数量失败，故障码:" + nRet.ToString("X"));
+                LogHelper.WriteInfo("获取采集卡数量失败，故障码:" + nRet.ToString("X"));
                 return;
             }
             if (0 == m_nInterfaceNum)
             {
-                LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":未发现采集卡");
-                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":未发现采集卡");
+                LogHelper.WriteInfo("未发现采集卡");                
                 return;
             }
 
@@ -215,8 +211,7 @@ namespace WY_App.Utility
                     nRet = m_cSystem.GetInterfaceInfo(i, ref stIfInfo);
                     if (CErrorCode.MV_FG_SUCCESS != nRet)
                     {
-                        LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
-                        MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
+                        LogHelper.WriteInfo("获取采集卡信息失败，故障码:" + nRet.ToString("X"));
                         return;
                     }
 
@@ -266,8 +261,7 @@ namespace WY_App.Utility
             int nRet = m_cSystem.OpenInterface(Convert.ToUInt32(index), out m_cInterface[index]);
             if (CErrorCode.MV_FG_SUCCESS != nRet)
             {
-                LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
-                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
+                LogHelper.WriteInfo("获取采集卡信息失败，故障码:" + nRet.ToString("X"));
                 return;
             }
             m_bIsIFOpen[index] = true;
@@ -306,8 +300,7 @@ namespace WY_App.Utility
                 nRet = m_cInterface[index].UpdateDeviceList(ref bChanged);
                 if (CErrorCode.MV_FG_SUCCESS != nRet)
                 {
-                    LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
-                    MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
+                    LogHelper.WriteInfo("获取采集卡信息失败，故障码:" + nRet.ToString("X"));
                     return;
                 }
 
@@ -315,14 +308,12 @@ namespace WY_App.Utility
                 nRet = m_cInterface[index].GetNumDevices(ref nDeviceNum);
                 if (CErrorCode.MV_FG_SUCCESS != nRet)
                 {
-                    LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
-                    MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
+                    LogHelper.WriteInfo("获取采集卡信息失败，故障码:" + nRet.ToString("X"));
                     return;
                 }
                 if (0 == nDeviceNum)
                 {
-                    LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
-                    MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
+                    LogHelper.WriteInfo("获取采集卡信息失败，故障码:" + nRet.ToString("X"));
                     return;
                 }
 
@@ -338,8 +329,7 @@ namespace WY_App.Utility
                         if (CErrorCode.MV_FG_SUCCESS != nRet)
                         {
                             cmbDeviceList.Clear();
-                            LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
-                            MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
+                            LogHelper.WriteInfo("获取采集卡信息失败，故障码:" + nRet.ToString("X"));
                             return;
                         }
 
@@ -382,8 +372,7 @@ namespace WY_App.Utility
             }
             else
             {
-                LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":采集卡未打开");
-                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":采集卡未打开");
+                LogHelper.WriteInfo("采集卡未打开");
             }
         }
         
@@ -398,8 +387,7 @@ namespace WY_App.Utility
                 int nRet = m_cInterface[index].OpenDevice(0, out m_cDevice[index]);
                 if (CErrorCode.MV_FG_SUCCESS != nRet)
                 {
-                    LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":打开相机设备" + index + "失败，故障代码: " + nRet.ToString("X"));
-                    MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":打开相机设备" + index + "失败，故障代码: " + nRet.ToString("X"));
+                    LogHelper.WriteInfo("打开相机设备" + index + "失败，故障代码: " + nRet.ToString("X"));
                     m_bIsDeviceOpen[index] = false;
                     return;
                 }
@@ -465,14 +453,12 @@ namespace WY_App.Utility
             int nRet = m_cDevice[index].GetNumStreams(ref nStreamNum);
             if (CErrorCode.MV_FG_SUCCESS != nRet)
             {
-                LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":获取流通道数量失败，故障码:" + nRet.ToString("X"));
-                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":获取流通道数量失败，故障码:" + nRet.ToString("X"));
+                LogHelper.WriteInfo("获取流通道数量失败，故障码:" + nRet.ToString("X"));
                 return;
             }
             if (0 == nStreamNum)
             {
-                LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":没有可用的数据通道");
-                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":没有可用的数据通道");
+                LogHelper.WriteInfo("没有可用的数据通道");
                 return;
             }
 
@@ -480,8 +466,7 @@ namespace WY_App.Utility
             nRet = m_cDevice[index].OpenStream(0, out m_cStream[index]);
             if (CErrorCode.MV_FG_SUCCESS != nRet)
             {
-                LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":打开流通道失败，故障码:" + nRet.ToString("X"));
-                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":打开流通道失败，故障码:" + nRet.ToString("X"));
+                LogHelper.WriteInfo("打开流通道失败，故障码:" + nRet.ToString("X"));
                 return;
             }
 
@@ -490,8 +475,7 @@ namespace WY_App.Utility
             nRet = m_cStream[index].SetBufferNum(nBufNum);
             if (CErrorCode.MV_FG_SUCCESS != nRet)
             {
-                LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":设置缓存数量失败，故障码:" + nRet.ToString("X"));
-                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":设置缓存数量失败，故障码:" + nRet.ToString("X"));
+                LogHelper.WriteInfo(":设置缓存数量失败，故障码:" + nRet.ToString("X"));;
                 return;
             }
 
@@ -504,8 +488,7 @@ namespace WY_App.Utility
             if (CErrorCode.MV_FG_SUCCESS != nRet)
             {
                 m_bThreadState[index] = false;
-                LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":开始取流失败，故障码:" + nRet.ToString("X"));
-                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":开始取流失败，故障码:" + nRet.ToString("X"));
+                LogHelper.WriteInfo("开始取流失败，故障码:" + nRet.ToString("X"));
                 return;
             }
             m_bIsGrabbing[index] = true;
@@ -719,8 +702,7 @@ namespace WY_App.Utility
             int nRet = SaveImage(index, SAVE_IAMGE_TYPE.Image_Bmp);
             if (CErrorCode.MV_FG_SUCCESS != nRet)
             {
-                LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
-                MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ":获取采集卡信息失败，故障码:" + nRet.ToString("X"));
+                LogHelper.WriteInfo("获取采集卡信息失败，故障码:" + nRet.ToString("X"));
                 return;
             }            
         }

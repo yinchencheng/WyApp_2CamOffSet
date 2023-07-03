@@ -128,55 +128,56 @@ namespace WY_App.Utility
             ///Y方向放大比例
             /// </summary>
             public double PixelResolutionRow;
+            //public bool doubleYBaseEnabled;
             /// <summary>
             ///X方向放大比例
             /// </summary>
             public double PixelResolutionColum;
-            public double BaseRow;
-            public double BaseColumn;
-            public double[] RowBase = new double[3];
-            public double[] ColumBase = new double[3];
+            public double[] RowBase = new double[4];
+            public double[] ColumBase = new double[4];
 
-            public double[] Row1 = new double[3];
-            public double[] Colum1 = new double[3];
-            public double[] Row2 = new double[3];
-            public double[] Colum2 = new double[3];
+            public double[] Row1 = new double[4];
+            public double[] Colum1 = new double[4];
+            public double[] Row2 = new double[4];
+            public double[] Colum2 = new double[4];
+            public uint[] OffSet = new uint[4];
 
-            public uint[] MeasureLength1 = new uint[3];
-            public uint[] MeasureLength2 = new uint[3];
-            public double[] MeasureSigma = new double[3];
-            public uint[] MeasureThreshold = new uint[3];
-            public string[] MeasureTransition = new string[3];
+            public uint[] MeasureLength1 = new uint[4];
+            public uint[] MeasureLength2 = new uint[4];
+            public double[] MeasureSigma = new double[4];
+            public uint[] MeasureThreshold = new uint[4];
+            public string[] MeasureTransition = new string[4];
 
-            public double[] lengthWidthRatio = new double[8];
-            public double[] min = new double[8];
-            public double[] max = new double[8];
-            public double[] adjust = new double[8];
-            public double[] ThresholdLow = new double[8];
-            public double[] ThresholdHigh = new double[8];
-            public double[] AreaLow = new double[8];
-            public double[] AreaHigh = new double[8];
+            public double[] lengthWidthRatio = new double[28];
+            public double[] min = new double[28];
+            public double[] max = new double[28];
+            public double[] adjust = new double[28];
+            public double[] ThresholdLow = new double[28];
+            public double[] ThresholdHigh = new double[25];
+            public double[] AreaLow = new double[28];
+            public double[] AreaHigh = new double[28];
 
             public DetectionSpec()
             {
                 PixelResolutionRow = 1;
                 PixelResolutionColum = 1;
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 4; i++)
                 {
-                    RowBase[i] = 100;
-                    ColumBase[i] = 200;
+                    RowBase[i] = 0;
+                    ColumBase[i] = 0;
                     Row1[i] = i;
                     Colum1[i] = i;
                     Row2[i] = 500;
                     Colum2[i] = 1000;
-                    MeasureLength1[i] = 100;
-                    MeasureLength2[i] = 10;
-                    MeasureSigma[i] = 10;
-                    MeasureThreshold[i] = 10;
+                    OffSet[i] = 0;
+                    MeasureLength1[i] = 1000;
+                    MeasureLength2[i] = 5;
+                    MeasureSigma[i] = 3;
+                    MeasureThreshold[i] = 40;
                     MeasureTransition[i] = "all";
                 }
 
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 24; i++)
                 {
                     lengthWidthRatio[i] = 0;
                     max[i] = 0;
@@ -240,12 +241,12 @@ namespace WY_App.Utility
 
             public bool MeanImageEnabled;
 
-            public int meanImageEnum { get; set; }
-
 			public int ImageWidth;
 			public int ImageHeigth;
 
-			public Specifications()
+			public int meanImageEnum { get; set; }
+
+            public Specifications()
             {
                 SaveOrigalImage = false;
                 SaveDefeatImage = false;
@@ -253,6 +254,7 @@ namespace WY_App.Utility
                 CropImagelength = 500;
                 MeanImageEnabled = false;
                 meanImageEnum = 0;
+
 				ImageWidth = 1000;
 				ImageHeigth = 800;
 			}

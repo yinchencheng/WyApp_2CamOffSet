@@ -146,7 +146,6 @@
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(367, 185);
 			this.tableLayoutPanel3.TabIndex = 1;
-			this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
 			// 
 			// panel1
 			// 
@@ -302,7 +301,7 @@
 			// 
 			// timer1
 			// 
-			this.timer1.Interval = 1000;
+			this.timer1.Interval = 3000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
 			// 登陆界面

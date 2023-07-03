@@ -110,10 +110,53 @@ namespace WY_App
             txt_Trigger_Detection2.Text = Parameters.plcParams.Trigger_Detection2;
             txt_Completion_Add2.Text = Parameters.plcParams.Completion2;
 
-			 uiTextBox25.Text= Parameters.plcParams.预留地址[0];
-			 uiTextBox24.Text= Parameters.plcParams.预留地址[1];
-		     uiTextBox23.Text= Parameters.plcParams.预留地址[2];
-		}
+			uiTextBox25.Text = Parameters.plcParams.预留地址[0];
+			uiTextBox24.Text = Parameters.plcParams.预留地址[1];
+			uiTextBox23.Text = Parameters.plcParams.预留地址[2];
+			uiTextBox22.Text = Parameters.plcParams.预留地址[1];
+			uiTextBox21.Text = Parameters.plcParams.预留地址[2];
+
+            uiTextBox13.Text = Parameters.plcParams.预留地址[5] ;
+            uiTextBox15.Text = Parameters.plcParams.预留地址[6] ;
+            uiTextBox14.Text = Parameters.plcParams.预留地址[7] ;
+            uiTextBox12.Text = Parameters.plcParams.预留地址[8] ;
+            uiTextBox11.Text = Parameters.plcParams.预留地址[9] ;
+            uiTextBox10.Text = Parameters.plcParams.预留地址[10] ;
+            uiTextBox6.Text = Parameters.plcParams.预留地址[11] ;
+            uiTextBox1.Text = Parameters.plcParams.预留地址[12];
+            uiTextBox20.Text = Parameters.plcParams.预留地址[13];
+            uiTextBox19.Text = Parameters.plcParams.预留地址[14];
+
+            uiTextBox26.Text = Parameters.plcParams.预留地址[15];
+            uiTextBox27.Text = Parameters.plcParams.预留地址[16];
+            uiTextBox28.Text = Parameters.plcParams.预留地址[17];
+            uiTextBox29.Text = Parameters.plcParams.预留地址[18];
+            uiTextBox30.Text = Parameters.plcParams.预留地址[19];
+            uiTextBox35.Text = Parameters.plcParams.预留地址[20];
+            uiTextBox34.Text = Parameters.plcParams.预留地址[21];
+            uiTextBox33.Text = Parameters.plcParams.预留地址[22];
+            uiTextBox32.Text = Parameters.plcParams.预留地址[23];
+            uiTextBox31.Text = Parameters.plcParams.预留地址[24];
+
+            uiTextBox51.Text = Parameters.plcParams.预留地址[25];
+            uiTextBox50.Text = Parameters.plcParams.预留地址[26];
+            uiTextBox49.Text = Parameters.plcParams.预留地址[27];
+            uiTextBox48.Text = Parameters.plcParams.预留地址[28];
+            uiTextBox47.Text = Parameters.plcParams.预留地址[29];
+            uiTextBox46.Text = Parameters.plcParams.预留地址[30];
+            uiTextBox45.Text = Parameters.plcParams.预留地址[31];
+            uiTextBox44.Text = Parameters.plcParams.预留地址[32];
+            uiTextBox43.Text = Parameters.plcParams.预留地址[33];
+            uiTextBox42.Text = Parameters.plcParams.预留地址[34];
+
+
+            uiTextBox18.Text = Parameters.plcParams.预留地址[35] ;
+            uiTextBox17.Text = Parameters.plcParams.预留地址[36] ;
+            uiTextBox38.Text = Parameters.plcParams.预留地址[37] ;
+            uiTextBox37.Text = Parameters.plcParams.预留地址[38] ;
+            uiTextBox41.Text = Parameters.plcParams.预留地址[39] ;
+            uiTextBox40.Text = Parameters.plcParams.预留地址[40] ;
+        }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -143,13 +186,58 @@ namespace WY_App
             num_LogSaveDays.Enabled = true;
 
 			txt_Trigger_Detection1.Enabled = true;
+			txt_Completion_Add1.Enabled = true;
+
+			txt_Trigger_Detection2.Enabled = true;
 			txt_Completion_Add2.Enabled = true;
 
 			uiTextBox25.Enabled = true;
 			uiTextBox24.Enabled = true;
 			uiTextBox23.Enabled = true;
+			uiTextBox22.Enabled = true;
+			uiTextBox21.Enabled = true;
 
-			txt_ImageSavePath.Enabled = true;
+            uiTextBox13.Enabled = true;
+            uiTextBox15.Enabled = true;
+            uiTextBox14.Enabled = true;
+            uiTextBox12.Enabled = true;
+            uiTextBox11.Enabled = true;
+            uiTextBox10.Enabled = true;
+            uiTextBox6.Enabled = true;
+            uiTextBox1.Enabled = true;
+            uiTextBox20.Enabled = true;
+            uiTextBox19.Enabled = true;
+
+            uiTextBox26.Enabled = true;
+            uiTextBox27.Enabled = true;
+            uiTextBox28.Enabled = true;
+            uiTextBox29.Enabled = true;
+            uiTextBox30.Enabled = true;
+            uiTextBox35.Enabled = true;
+            uiTextBox34.Enabled = true;
+            uiTextBox33.Enabled = true;
+            uiTextBox32.Enabled = true;
+            uiTextBox31.Enabled = true;
+
+            uiTextBox51.Enabled = true;
+            uiTextBox50.Enabled = true;
+            uiTextBox49.Enabled = true;
+            uiTextBox48.Enabled = true;
+            uiTextBox47.Enabled = true;
+            uiTextBox46.Enabled = true;
+            uiTextBox45.Enabled = true;
+            uiTextBox44.Enabled = true;
+            uiTextBox43.Enabled = true;
+            uiTextBox42.Enabled = true;
+
+            uiTextBox18.Enabled = true;
+            uiTextBox17.Enabled = true;
+            uiTextBox38.Enabled = true;
+            uiTextBox37.Enabled = true;
+            uiTextBox41.Enabled = true;
+            uiTextBox40.Enabled = true;
+
+            txt_ImageSavePath.Enabled = true;
             btn_Save.Enabled = true;
         }
 
@@ -182,18 +270,74 @@ namespace WY_App
             Parameters.plcParams.Trigger_Detection2 = txt_Trigger_Detection2.Text;
             Parameters.plcParams.Completion2 = txt_Completion_Add2.Text;
 
-            Parameters.plcParams.预留地址[0] = uiTextBox25.Text;
+			Parameters.plcParams.预留地址[0] = uiTextBox25.Text;
 			Parameters.plcParams.预留地址[1] = uiTextBox24.Text;
 			Parameters.plcParams.预留地址[2] = uiTextBox23.Text;
+			Parameters.plcParams.预留地址[3] = uiTextBox22.Text;
+			Parameters.plcParams.预留地址[4] = uiTextBox21.Text;
 
-			XMLHelper.serialize<Parameters.PLCParams>(Parameters.plcParams, "Parameter/PLCParams.xml");
+            Parameters.plcParams.预留地址[5] = uiTextBox13.Text;
+            Parameters.plcParams.预留地址[6] = uiTextBox15.Text;
+            Parameters.plcParams.预留地址[7] = uiTextBox14.Text;
+            Parameters.plcParams.预留地址[8] = uiTextBox12.Text;
+            Parameters.plcParams.预留地址[9] = uiTextBox11.Text;
+            Parameters.plcParams.预留地址[10] = uiTextBox10.Text;
+            Parameters.plcParams.预留地址[11] = uiTextBox6.Text;
+            Parameters.plcParams.预留地址[12] = uiTextBox1.Text;
+            Parameters.plcParams.预留地址[13] = uiTextBox20.Text;
+            Parameters.plcParams.预留地址[14] = uiTextBox19.Text;
+
+            Parameters.plcParams.预留地址[15] = uiTextBox26.Text;
+            Parameters.plcParams.预留地址[16] = uiTextBox27.Text;
+            Parameters.plcParams.预留地址[17] = uiTextBox28.Text;
+            Parameters.plcParams.预留地址[18] = uiTextBox29.Text;
+            Parameters.plcParams.预留地址[19] = uiTextBox30.Text;
+            Parameters.plcParams.预留地址[20] = uiTextBox35.Text;
+            Parameters.plcParams.预留地址[21] = uiTextBox34.Text;
+            Parameters.plcParams.预留地址[22] = uiTextBox33.Text;
+            Parameters.plcParams.预留地址[23] = uiTextBox32.Text;
+            Parameters.plcParams.预留地址[24] = uiTextBox31.Text;
+
+            Parameters.plcParams.预留地址[25] = uiTextBox51.Text;
+            Parameters.plcParams.预留地址[26] = uiTextBox50.Text;
+            Parameters.plcParams.预留地址[27] = uiTextBox49.Text;
+            Parameters.plcParams.预留地址[28] = uiTextBox48.Text;
+            Parameters.plcParams.预留地址[29] = uiTextBox47.Text;
+            Parameters.plcParams.预留地址[30] = uiTextBox46.Text;
+            Parameters.plcParams.预留地址[31] = uiTextBox45.Text;
+            Parameters.plcParams.预留地址[32] = uiTextBox44.Text;
+            Parameters.plcParams.预留地址[33] = uiTextBox43.Text;
+            Parameters.plcParams.预留地址[34] = uiTextBox42.Text;
 
 
+            Parameters.plcParams.预留地址[35] = uiTextBox18.Text;
+            Parameters.plcParams.预留地址[36] = uiTextBox17.Text;
+            Parameters.plcParams.预留地址[37] = uiTextBox38.Text;
+            Parameters.plcParams.预留地址[38] = uiTextBox37.Text;
+            Parameters.plcParams.预留地址[39] = uiTextBox41.Text;
+            Parameters.plcParams.预留地址[40] = uiTextBox40.Text;
+
+
+            XMLHelper.serialize<Parameters.PLCParams>(Parameters.plcParams, "Parameter/PLCParams.xml");
+
+
+
+           
             XMLHelper.serialize<Parameters.CameraParam>(Parameters.cameraParam, "Parameter/CameraParam.xml");
 
 
             MessageBox.Show("系统参数修改，请重启软件");
             this.Close();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label44_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

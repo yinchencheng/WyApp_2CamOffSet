@@ -37,8 +37,7 @@ namespace WY_App.Utility
                     socketWatch.Bind(point);
                     socketWatch.SendTimeout = 1000;
                     socketWatch.ReceiveTimeout = 1000;
-                    LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + ";TcpServerIP:" + Parameters.commministion.TcpServerIpAddress + "端口号:" + Parameters.commministion.TcpServerIpPort + "监听成功");
-                    MainForm.AlarmList.Add(System.DateTime.Now.ToString() + ";TcpServerIP:" + Parameters.commministion.TcpServerIpAddress + "端口号:" + Parameters.commministion.TcpServerIpPort + "监听成功");
+                    LogHelper.WriteInfo(System.DateTime.Now.ToString() + ";TcpServerIP:" + Parameters.commministion.TcpServerIpAddress + "端口号:" + Parameters.commministion.TcpServerIpPort + "监听成功");
                     //开始监听：设置最大可以同时连接多少个请求
                     socketWatch.Listen(10);
 
@@ -52,7 +51,7 @@ namespace WY_App.Utility
                 catch (Exception ex)
                 {
                     //TcpServerConnectResult = false;
-                    LogHelper.Log.WriteError(System.DateTime.Now.ToString() + ";TcpServerIP:" + Parameters.commministion.TcpServerIpAddress + "端口号:" + Parameters.commministion.TcpServerIpPort + "服务器创建失败！", ex.Message);
+                    LogHelper.WriteError(System.DateTime.Now.ToString() + ";TcpServerIP:" + Parameters.commministion.TcpServerIpAddress + "端口号:" + Parameters.commministion.TcpServerIpPort + "服务器创建失败！" + ex.Message);
                 }
             }
                  
@@ -74,8 +73,7 @@ namespace WY_App.Utility
                     }
                     TcpServerConnectResult = true;
                     TcpServerReceiveMsg = Encoding.UTF8.GetString(buffer, 0, count);
-                    LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + socketSend.RemoteEndPoint + ":" + TcpServerReceiveMsg);
-                    MainForm.AlarmList.Add(System.DateTime.Now.ToString() + socketSend.RemoteEndPoint + ":" + TcpServerReceiveMsg);
+                    LogHelper.WriteInfo(System.DateTime.Now.ToString() + socketSend.RemoteEndPoint + ":" + TcpServerReceiveMsg);
                 }
                 catch (Exception)
                 {
@@ -94,8 +92,7 @@ namespace WY_App.Utility
                 {
                     //等待客户端的链接，并且创建一个用于通信的Socket
                     socketSend = socketWatch.Accept();
-                    LogHelper.Log.WriteInfo(System.DateTime.Now.ToString() + socketSend.RemoteEndPoint + ":" + "接入成功");
-                    MainForm.AlarmList.Add(System.DateTime.Now.ToString() + socketSend.RemoteEndPoint + ":" + "接入成功");
+                    LogHelper.WriteInfo(System.DateTime.Now.ToString() + socketSend.RemoteEndPoint + ":" + "接入成功");
                     TcpServerConnectResult = true;
                     Thread th = new Thread(Recive);
                     th.IsBackground = true;

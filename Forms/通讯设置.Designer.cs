@@ -145,6 +145,58 @@
             this.uiTextBox3 = new Sunny.UI.UITextBox();
             this.uiTextBox2 = new Sunny.UI.UITextBox();
             this.txt_PointMoveStepAdd = new Sunny.UI.UITextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.uiTextBox26 = new Sunny.UI.UITextBox();
+            this.uiTextBox27 = new Sunny.UI.UITextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.uiTextBox28 = new Sunny.UI.UITextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.uiTextBox29 = new Sunny.UI.UITextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.uiTextBox30 = new Sunny.UI.UITextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.uiTextBox31 = new Sunny.UI.UITextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.uiTextBox32 = new Sunny.UI.UITextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.uiTextBox33 = new Sunny.UI.UITextBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.uiTextBox34 = new Sunny.UI.UITextBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.uiTextBox35 = new Sunny.UI.UITextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.uiTextBox36 = new Sunny.UI.UITextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.uiTextBox37 = new Sunny.UI.UITextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.uiTextBox38 = new Sunny.UI.UITextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.uiTextBox39 = new Sunny.UI.UITextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.uiTextBox40 = new Sunny.UI.UITextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.uiTextBox41 = new Sunny.UI.UITextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.uiTextBox42 = new Sunny.UI.UITextBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.uiTextBox43 = new Sunny.UI.UITextBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.uiTextBox44 = new Sunny.UI.UITextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.uiTextBox45 = new Sunny.UI.UITextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.uiTextBox46 = new Sunny.UI.UITextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.uiTextBox47 = new Sunny.UI.UITextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.uiTextBox48 = new Sunny.UI.UITextBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.uiTextBox49 = new Sunny.UI.UITextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.uiTextBox50 = new Sunny.UI.UITextBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.uiTextBox51 = new Sunny.UI.UITextBox();
+            this.label62 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -168,19 +220,70 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(589, 540);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(987, 540);
             this.tableLayoutPanel1.TabIndex = 1;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.uiTextBox39);
+            this.groupBox1.Controls.Add(this.label50);
+            this.groupBox1.Controls.Add(this.uiTextBox40);
+            this.groupBox1.Controls.Add(this.label51);
+            this.groupBox1.Controls.Add(this.uiTextBox41);
+            this.groupBox1.Controls.Add(this.label52);
+            this.groupBox1.Controls.Add(this.uiTextBox42);
+            this.groupBox1.Controls.Add(this.label53);
+            this.groupBox1.Controls.Add(this.uiTextBox43);
+            this.groupBox1.Controls.Add(this.label54);
+            this.groupBox1.Controls.Add(this.uiTextBox44);
+            this.groupBox1.Controls.Add(this.label55);
+            this.groupBox1.Controls.Add(this.uiTextBox45);
+            this.groupBox1.Controls.Add(this.label56);
+            this.groupBox1.Controls.Add(this.uiTextBox46);
+            this.groupBox1.Controls.Add(this.label57);
+            this.groupBox1.Controls.Add(this.uiTextBox47);
+            this.groupBox1.Controls.Add(this.label58);
+            this.groupBox1.Controls.Add(this.uiTextBox48);
+            this.groupBox1.Controls.Add(this.label59);
+            this.groupBox1.Controls.Add(this.uiTextBox49);
+            this.groupBox1.Controls.Add(this.label60);
+            this.groupBox1.Controls.Add(this.uiTextBox50);
+            this.groupBox1.Controls.Add(this.label61);
+            this.groupBox1.Controls.Add(this.uiTextBox51);
+            this.groupBox1.Controls.Add(this.label62);
+            this.groupBox1.Controls.Add(this.uiTextBox36);
+            this.groupBox1.Controls.Add(this.label47);
+            this.groupBox1.Controls.Add(this.uiTextBox37);
+            this.groupBox1.Controls.Add(this.label48);
+            this.groupBox1.Controls.Add(this.uiTextBox38);
+            this.groupBox1.Controls.Add(this.label49);
+            this.groupBox1.Controls.Add(this.uiTextBox31);
+            this.groupBox1.Controls.Add(this.label42);
+            this.groupBox1.Controls.Add(this.uiTextBox32);
+            this.groupBox1.Controls.Add(this.label43);
+            this.groupBox1.Controls.Add(this.uiTextBox33);
+            this.groupBox1.Controls.Add(this.label44);
+            this.groupBox1.Controls.Add(this.uiTextBox34);
+            this.groupBox1.Controls.Add(this.label45);
+            this.groupBox1.Controls.Add(this.uiTextBox35);
+            this.groupBox1.Controls.Add(this.label46);
+            this.groupBox1.Controls.Add(this.uiTextBox30);
+            this.groupBox1.Controls.Add(this.label41);
+            this.groupBox1.Controls.Add(this.uiTextBox29);
+            this.groupBox1.Controls.Add(this.label40);
+            this.groupBox1.Controls.Add(this.uiTextBox28);
+            this.groupBox1.Controls.Add(this.label39);
+            this.groupBox1.Controls.Add(this.uiTextBox27);
+            this.groupBox1.Controls.Add(this.label38);
+            this.groupBox1.Controls.Add(this.uiTextBox26);
+            this.groupBox1.Controls.Add(this.label37);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.btn_Save);
             this.groupBox1.Controls.Add(this.btn_ChangePassword);
@@ -194,10 +297,11 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Size = new System.Drawing.Size(588, 486);
+            this.groupBox1.Size = new System.Drawing.Size(984, 486);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "参数设置";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // panel1
             // 
@@ -237,7 +341,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.ForeColor = System.Drawing.SystemColors.Control;
-            this.label27.Location = new System.Drawing.Point(16, 379);
+            this.label27.Location = new System.Drawing.Point(4, 382);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(53, 12);
             this.label27.TabIndex = 77;
@@ -247,41 +351,41 @@
             // 
             this.label28.AutoSize = true;
             this.label28.ForeColor = System.Drawing.SystemColors.Control;
-            this.label28.Location = new System.Drawing.Point(16, 346);
+            this.label28.Location = new System.Drawing.Point(4, 346);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(53, 12);
+            this.label28.Size = new System.Drawing.Size(65, 12);
             this.label28.TabIndex = 76;
-            this.label28.Text = "预留地址";
+            this.label28.Text = "一检测结束";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.ForeColor = System.Drawing.SystemColors.Control;
-            this.label29.Location = new System.Drawing.Point(16, 314);
+            this.label29.Location = new System.Drawing.Point(4, 314);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(53, 12);
+            this.label29.Size = new System.Drawing.Size(65, 12);
             this.label29.TabIndex = 75;
-            this.label29.Text = "预留地址";
+            this.label29.Text = "一检测开始";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.ForeColor = System.Drawing.SystemColors.Control;
-            this.label30.Location = new System.Drawing.Point(16, 285);
+            this.label30.Location = new System.Drawing.Point(4, 285);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(53, 12);
+            this.label30.Size = new System.Drawing.Size(71, 12);
             this.label30.TabIndex = 74;
-            this.label30.Text = "预留地址";
+            this.label30.Text = "相机一缺陷2";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.ForeColor = System.Drawing.SystemColors.Control;
-            this.label31.Location = new System.Drawing.Point(16, 256);
+            this.label31.Location = new System.Drawing.Point(4, 256);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(53, 12);
             this.label31.TabIndex = 73;
-            this.label31.Text = "预留地址";
+            this.label31.Text = "相机一Y2";
             // 
             // uiTextBox16
             // 
@@ -344,7 +448,7 @@
             this.uiTextBox20.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.uiTextBox20.Enabled = false;
             this.uiTextBox20.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTextBox20.Location = new System.Drawing.Point(76, 253);
+            this.uiTextBox20.Location = new System.Drawing.Point(76, 254);
             this.uiTextBox20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTextBox20.MinimumSize = new System.Drawing.Size(1, 16);
             this.uiTextBox20.Name = "uiTextBox20";
@@ -357,71 +461,71 @@
             // 
             this.label26.AutoSize = true;
             this.label26.ForeColor = System.Drawing.SystemColors.Control;
-            this.label26.Location = new System.Drawing.Point(16, 227);
+            this.label26.Location = new System.Drawing.Point(4, 224);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(53, 12);
             this.label26.TabIndex = 67;
-            this.label26.Text = "预留地址";
+            this.label26.Text = "相机一X2";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.ForeColor = System.Drawing.SystemColors.Control;
-            this.label25.Location = new System.Drawing.Point(16, 194);
+            this.label25.Location = new System.Drawing.Point(4, 192);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(53, 12);
+            this.label25.Size = new System.Drawing.Size(71, 12);
             this.label25.TabIndex = 66;
-            this.label25.Text = "预留地址";
+            this.label25.Text = "相机一大小2";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.ForeColor = System.Drawing.SystemColors.Control;
-            this.label24.Location = new System.Drawing.Point(16, 162);
+            this.label24.Location = new System.Drawing.Point(4, 163);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(53, 12);
+            this.label24.Size = new System.Drawing.Size(71, 12);
             this.label24.TabIndex = 65;
-            this.label24.Text = "预留地址";
+            this.label24.Text = "相机一结果2";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.ForeColor = System.Drawing.SystemColors.Control;
-            this.label21.Location = new System.Drawing.Point(16, 133);
+            this.label21.Location = new System.Drawing.Point(3, 129);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(53, 12);
+            this.label21.Size = new System.Drawing.Size(65, 12);
             this.label21.TabIndex = 64;
-            this.label21.Text = "预留地址";
+            this.label21.Text = "相机一缺陷";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.ForeColor = System.Drawing.SystemColors.Control;
-            this.label19.Location = new System.Drawing.Point(16, 101);
+            this.label19.Location = new System.Drawing.Point(4, 98);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(53, 12);
+            this.label19.Size = new System.Drawing.Size(47, 12);
             this.label19.TabIndex = 63;
-            this.label19.Text = "预留地址";
+            this.label19.Text = "相机一Y";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.SystemColors.Control;
-            this.label17.Location = new System.Drawing.Point(16, 72);
+            this.label17.Location = new System.Drawing.Point(4, 72);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(53, 12);
+            this.label17.Size = new System.Drawing.Size(47, 12);
             this.label17.TabIndex = 62;
-            this.label17.Text = "预留地址";
+            this.label17.Text = "相机一X";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.SystemColors.Control;
-            this.label15.Location = new System.Drawing.Point(16, 41);
+            this.label15.Location = new System.Drawing.Point(4, 41);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 12);
+            this.label15.Size = new System.Drawing.Size(65, 12);
             this.label15.TabIndex = 61;
-            this.label15.Text = "预留地址";
+            this.label15.Text = "相机一大小";
             // 
             // uiTextBox1
             // 
@@ -539,11 +643,11 @@
             // 
             this.label23.AutoSize = true;
             this.label23.ForeColor = System.Drawing.SystemColors.Control;
-            this.label23.Location = new System.Drawing.Point(16, 13);
+            this.label23.Location = new System.Drawing.Point(4, 13);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(53, 12);
+            this.label23.Size = new System.Drawing.Size(65, 12);
             this.label23.TabIndex = 31;
-            this.label23.Text = "预留地址";
+            this.label23.Text = "相机一结果";
             // 
             // btn_Save
             // 
@@ -717,9 +821,9 @@
             this.label20.ForeColor = System.Drawing.SystemColors.Control;
             this.label20.Location = new System.Drawing.Point(7, 39);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(53, 12);
+            this.label20.Size = new System.Drawing.Size(77, 12);
             this.label20.TabIndex = 45;
-            this.label20.Text = "保存天数";
+            this.label20.Text = "日志保存天数";
             // 
             // panel6
             // 
@@ -837,7 +941,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.ForeColor = System.Drawing.SystemColors.Control;
-            this.label32.Location = new System.Drawing.Point(10, 379);
+            this.label32.Location = new System.Drawing.Point(6, 379);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(65, 12);
             this.label32.TabIndex = 77;
@@ -861,7 +965,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.ForeColor = System.Drawing.SystemColors.Control;
-            this.label33.Location = new System.Drawing.Point(-1, 346);
+            this.label33.Location = new System.Drawing.Point(-2, 346);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(77, 12);
             this.label33.TabIndex = 76;
@@ -885,7 +989,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.ForeColor = System.Drawing.SystemColors.Control;
-            this.label34.Location = new System.Drawing.Point(19, 314);
+            this.label34.Location = new System.Drawing.Point(18, 314);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(53, 12);
             this.label34.TabIndex = 75;
@@ -933,7 +1037,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.ForeColor = System.Drawing.SystemColors.Control;
-            this.label36.Location = new System.Drawing.Point(11, 256);
+            this.label36.Location = new System.Drawing.Point(9, 256);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(65, 12);
             this.label36.TabIndex = 73;
@@ -1099,7 +1203,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(18, 41);
+            this.label7.Location = new System.Drawing.Point(24, 41);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 32;
@@ -1109,7 +1213,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(17, 13);
+            this.label8.Location = new System.Drawing.Point(24, 13);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 31;
@@ -1302,7 +1406,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(589, 40);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(987, 40);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btn_Close_System
@@ -1314,7 +1418,7 @@
             this.btn_Close_System.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_Close_System.FillSelectedColor = System.Drawing.Color.Red;
             this.btn_Close_System.Font = new System.Drawing.Font("楷体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_Close_System.Location = new System.Drawing.Point(552, 3);
+            this.btn_Close_System.Location = new System.Drawing.Point(950, 3);
             this.btn_Close_System.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_Close_System.Name = "btn_Close_System";
             this.btn_Close_System.RectColor = System.Drawing.Color.Red;
@@ -1335,7 +1439,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(549, 40);
+            this.panel4.Size = new System.Drawing.Size(947, 40);
             this.panel4.TabIndex = 11;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
             this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseMove);
@@ -1718,11 +1822,636 @@
             this.txt_PointMoveStepAdd.TabIndex = 58;
             this.txt_PointMoveStepAdd.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.ForeColor = System.Drawing.SystemColors.Control;
+            this.label37.Location = new System.Drawing.Point(592, 41);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(65, 12);
+            this.label37.TabIndex = 62;
+            this.label37.Text = "相机二结果";
+            // 
+            // uiTextBox26
+            // 
+            this.uiTextBox26.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox26.Enabled = false;
+            this.uiTextBox26.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox26.Location = new System.Drawing.Point(664, 32);
+            this.uiTextBox26.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox26.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox26.Name = "uiTextBox26";
+            this.uiTextBox26.ShowText = false;
+            this.uiTextBox26.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox26.TabIndex = 63;
+            this.uiTextBox26.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiTextBox27
+            // 
+            this.uiTextBox27.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox27.Enabled = false;
+            this.uiTextBox27.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox27.Location = new System.Drawing.Point(664, 61);
+            this.uiTextBox27.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox27.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox27.Name = "uiTextBox27";
+            this.uiTextBox27.ShowText = false;
+            this.uiTextBox27.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox27.TabIndex = 65;
+            this.uiTextBox27.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.ForeColor = System.Drawing.SystemColors.Control;
+            this.label38.Location = new System.Drawing.Point(592, 70);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(65, 12);
+            this.label38.TabIndex = 64;
+            this.label38.Text = "相机二大小";
+            // 
+            // uiTextBox28
+            // 
+            this.uiTextBox28.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox28.Enabled = false;
+            this.uiTextBox28.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox28.Location = new System.Drawing.Point(664, 92);
+            this.uiTextBox28.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox28.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox28.Name = "uiTextBox28";
+            this.uiTextBox28.ShowText = false;
+            this.uiTextBox28.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox28.TabIndex = 67;
+            this.uiTextBox28.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.ForeColor = System.Drawing.SystemColors.Control;
+            this.label39.Location = new System.Drawing.Point(592, 101);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(47, 12);
+            this.label39.TabIndex = 66;
+            this.label39.Text = "相机二X";
+            // 
+            // uiTextBox29
+            // 
+            this.uiTextBox29.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox29.Enabled = false;
+            this.uiTextBox29.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox29.Location = new System.Drawing.Point(664, 123);
+            this.uiTextBox29.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox29.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox29.Name = "uiTextBox29";
+            this.uiTextBox29.ShowText = false;
+            this.uiTextBox29.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox29.TabIndex = 65;
+            this.uiTextBox29.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.ForeColor = System.Drawing.SystemColors.Control;
+            this.label40.Location = new System.Drawing.Point(592, 132);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(47, 12);
+            this.label40.TabIndex = 64;
+            this.label40.Text = "相机二Y";
+            // 
+            // uiTextBox30
+            // 
+            this.uiTextBox30.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox30.Enabled = false;
+            this.uiTextBox30.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox30.Location = new System.Drawing.Point(664, 154);
+            this.uiTextBox30.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox30.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox30.Name = "uiTextBox30";
+            this.uiTextBox30.ShowText = false;
+            this.uiTextBox30.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox30.TabIndex = 65;
+            this.uiTextBox30.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.ForeColor = System.Drawing.SystemColors.Control;
+            this.label41.Location = new System.Drawing.Point(592, 160);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(65, 12);
+            this.label41.TabIndex = 64;
+            this.label41.Text = "相机二缺陷";
+            // 
+            // uiTextBox31
+            // 
+            this.uiTextBox31.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox31.Enabled = false;
+            this.uiTextBox31.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox31.Location = new System.Drawing.Point(664, 306);
+            this.uiTextBox31.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox31.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox31.Name = "uiTextBox31";
+            this.uiTextBox31.ShowText = false;
+            this.uiTextBox31.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox31.TabIndex = 73;
+            this.uiTextBox31.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.ForeColor = System.Drawing.SystemColors.Control;
+            this.label42.Location = new System.Drawing.Point(592, 307);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(71, 12);
+            this.label42.TabIndex = 70;
+            this.label42.Text = "相机二缺陷2";
+            // 
+            // uiTextBox32
+            // 
+            this.uiTextBox32.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox32.Enabled = false;
+            this.uiTextBox32.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox32.Location = new System.Drawing.Point(664, 278);
+            this.uiTextBox32.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox32.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox32.Name = "uiTextBox32";
+            this.uiTextBox32.ShowText = false;
+            this.uiTextBox32.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox32.TabIndex = 74;
+            this.uiTextBox32.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.ForeColor = System.Drawing.SystemColors.Control;
+            this.label43.Location = new System.Drawing.Point(592, 282);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(53, 12);
+            this.label43.TabIndex = 71;
+            this.label43.Text = "相机二Y2";
+            // 
+            // uiTextBox33
+            // 
+            this.uiTextBox33.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox33.Enabled = false;
+            this.uiTextBox33.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox33.Location = new System.Drawing.Point(664, 246);
+            this.uiTextBox33.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox33.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox33.Name = "uiTextBox33";
+            this.uiTextBox33.ShowText = false;
+            this.uiTextBox33.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox33.TabIndex = 77;
+            this.uiTextBox33.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.ForeColor = System.Drawing.SystemColors.Control;
+            this.label44.Location = new System.Drawing.Point(592, 249);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(53, 12);
+            this.label44.TabIndex = 76;
+            this.label44.Text = "相机二X2";
+            this.label44.Click += new System.EventHandler(this.label44_Click);
+            // 
+            // uiTextBox34
+            // 
+            this.uiTextBox34.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox34.Enabled = false;
+            this.uiTextBox34.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox34.Location = new System.Drawing.Point(664, 216);
+            this.uiTextBox34.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox34.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox34.Name = "uiTextBox34";
+            this.uiTextBox34.ShowText = false;
+            this.uiTextBox34.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox34.TabIndex = 75;
+            this.uiTextBox34.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.ForeColor = System.Drawing.SystemColors.Control;
+            this.label45.Location = new System.Drawing.Point(592, 217);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(71, 12);
+            this.label45.TabIndex = 72;
+            this.label45.Text = "相机二大小2";
+            // 
+            // uiTextBox35
+            // 
+            this.uiTextBox35.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox35.Enabled = false;
+            this.uiTextBox35.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox35.Location = new System.Drawing.Point(664, 185);
+            this.uiTextBox35.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox35.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox35.Name = "uiTextBox35";
+            this.uiTextBox35.ShowText = false;
+            this.uiTextBox35.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox35.TabIndex = 69;
+            this.uiTextBox35.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.ForeColor = System.Drawing.SystemColors.Control;
+            this.label46.Location = new System.Drawing.Point(592, 188);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(71, 12);
+            this.label46.TabIndex = 68;
+            this.label46.Text = "相机二结果2";
+            // 
+            // uiTextBox36
+            // 
+            this.uiTextBox36.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox36.Enabled = false;
+            this.uiTextBox36.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox36.Location = new System.Drawing.Point(664, 395);
+            this.uiTextBox36.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox36.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox36.Name = "uiTextBox36";
+            this.uiTextBox36.ShowText = false;
+            this.uiTextBox36.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox36.TabIndex = 80;
+            this.uiTextBox36.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.ForeColor = System.Drawing.SystemColors.Control;
+            this.label47.Location = new System.Drawing.Point(592, 404);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(53, 12);
+            this.label47.TabIndex = 78;
+            this.label47.Text = "预留地址";
+            // 
+            // uiTextBox37
+            // 
+            this.uiTextBox37.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox37.Enabled = false;
+            this.uiTextBox37.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox37.Location = new System.Drawing.Point(664, 367);
+            this.uiTextBox37.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox37.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox37.Name = "uiTextBox37";
+            this.uiTextBox37.ShowText = false;
+            this.uiTextBox37.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox37.TabIndex = 81;
+            this.uiTextBox37.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.ForeColor = System.Drawing.SystemColors.Control;
+            this.label48.Location = new System.Drawing.Point(592, 371);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(65, 12);
+            this.label48.TabIndex = 79;
+            this.label48.Text = "二检测结束";
+            // 
+            // uiTextBox38
+            // 
+            this.uiTextBox38.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox38.Enabled = false;
+            this.uiTextBox38.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox38.Location = new System.Drawing.Point(664, 336);
+            this.uiTextBox38.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox38.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox38.Name = "uiTextBox38";
+            this.uiTextBox38.ShowText = false;
+            this.uiTextBox38.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox38.TabIndex = 83;
+            this.uiTextBox38.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.ForeColor = System.Drawing.SystemColors.Control;
+            this.label49.Location = new System.Drawing.Point(592, 339);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(65, 12);
+            this.label49.TabIndex = 82;
+            this.label49.Text = "二检测开始";
+            // 
+            // uiTextBox39
+            // 
+            this.uiTextBox39.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox39.Enabled = false;
+            this.uiTextBox39.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox39.Location = new System.Drawing.Point(847, 395);
+            this.uiTextBox39.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox39.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox39.Name = "uiTextBox39";
+            this.uiTextBox39.ShowText = false;
+            this.uiTextBox39.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox39.TabIndex = 106;
+            this.uiTextBox39.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.ForeColor = System.Drawing.SystemColors.Control;
+            this.label50.Location = new System.Drawing.Point(775, 404);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(53, 12);
+            this.label50.TabIndex = 104;
+            this.label50.Text = "预留地址";
+            // 
+            // uiTextBox40
+            // 
+            this.uiTextBox40.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox40.Enabled = false;
+            this.uiTextBox40.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox40.Location = new System.Drawing.Point(847, 367);
+            this.uiTextBox40.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox40.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox40.Name = "uiTextBox40";
+            this.uiTextBox40.ShowText = false;
+            this.uiTextBox40.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox40.TabIndex = 107;
+            this.uiTextBox40.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.ForeColor = System.Drawing.SystemColors.Control;
+            this.label51.Location = new System.Drawing.Point(775, 376);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(65, 12);
+            this.label51.TabIndex = 105;
+            this.label51.Text = "三检测结束";
+            // 
+            // uiTextBox41
+            // 
+            this.uiTextBox41.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox41.Enabled = false;
+            this.uiTextBox41.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox41.Location = new System.Drawing.Point(847, 336);
+            this.uiTextBox41.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox41.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox41.Name = "uiTextBox41";
+            this.uiTextBox41.ShowText = false;
+            this.uiTextBox41.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox41.TabIndex = 109;
+            this.uiTextBox41.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.ForeColor = System.Drawing.SystemColors.Control;
+            this.label52.Location = new System.Drawing.Point(775, 345);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(65, 12);
+            this.label52.TabIndex = 108;
+            this.label52.Text = "三检测开始";
+            // 
+            // uiTextBox42
+            // 
+            this.uiTextBox42.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox42.Enabled = false;
+            this.uiTextBox42.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox42.Location = new System.Drawing.Point(847, 298);
+            this.uiTextBox42.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox42.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox42.Name = "uiTextBox42";
+            this.uiTextBox42.ShowText = false;
+            this.uiTextBox42.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox42.TabIndex = 99;
+            this.uiTextBox42.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.ForeColor = System.Drawing.SystemColors.Control;
+            this.label53.Location = new System.Drawing.Point(775, 307);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(71, 12);
+            this.label53.TabIndex = 96;
+            this.label53.Text = "相机三缺陷2";
+            // 
+            // uiTextBox43
+            // 
+            this.uiTextBox43.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox43.Enabled = false;
+            this.uiTextBox43.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox43.Location = new System.Drawing.Point(847, 270);
+            this.uiTextBox43.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox43.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox43.Name = "uiTextBox43";
+            this.uiTextBox43.ShowText = false;
+            this.uiTextBox43.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox43.TabIndex = 100;
+            this.uiTextBox43.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.ForeColor = System.Drawing.SystemColors.Control;
+            this.label54.Location = new System.Drawing.Point(775, 279);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(53, 12);
+            this.label54.TabIndex = 97;
+            this.label54.Text = "相机三Y2";
+            // 
+            // uiTextBox44
+            // 
+            this.uiTextBox44.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox44.Enabled = false;
+            this.uiTextBox44.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox44.Location = new System.Drawing.Point(847, 239);
+            this.uiTextBox44.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox44.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox44.Name = "uiTextBox44";
+            this.uiTextBox44.ShowText = false;
+            this.uiTextBox44.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox44.TabIndex = 103;
+            this.uiTextBox44.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.ForeColor = System.Drawing.SystemColors.Control;
+            this.label55.Location = new System.Drawing.Point(775, 248);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(53, 12);
+            this.label55.TabIndex = 102;
+            this.label55.Text = "相机三X2";
+            // 
+            // uiTextBox45
+            // 
+            this.uiTextBox45.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox45.Enabled = false;
+            this.uiTextBox45.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox45.Location = new System.Drawing.Point(847, 208);
+            this.uiTextBox45.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox45.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox45.Name = "uiTextBox45";
+            this.uiTextBox45.ShowText = false;
+            this.uiTextBox45.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox45.TabIndex = 101;
+            this.uiTextBox45.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.ForeColor = System.Drawing.SystemColors.Control;
+            this.label56.Location = new System.Drawing.Point(775, 217);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(71, 12);
+            this.label56.TabIndex = 98;
+            this.label56.Text = "相机三大小2";
+            // 
+            // uiTextBox46
+            // 
+            this.uiTextBox46.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox46.Enabled = false;
+            this.uiTextBox46.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox46.Location = new System.Drawing.Point(847, 179);
+            this.uiTextBox46.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox46.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox46.Name = "uiTextBox46";
+            this.uiTextBox46.ShowText = false;
+            this.uiTextBox46.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox46.TabIndex = 95;
+            this.uiTextBox46.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.ForeColor = System.Drawing.SystemColors.Control;
+            this.label57.Location = new System.Drawing.Point(775, 188);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(71, 12);
+            this.label57.TabIndex = 94;
+            this.label57.Text = "相机三结果2";
+            // 
+            // uiTextBox47
+            // 
+            this.uiTextBox47.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox47.Enabled = false;
+            this.uiTextBox47.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox47.Location = new System.Drawing.Point(847, 151);
+            this.uiTextBox47.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox47.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox47.Name = "uiTextBox47";
+            this.uiTextBox47.ShowText = false;
+            this.uiTextBox47.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox47.TabIndex = 90;
+            this.uiTextBox47.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.ForeColor = System.Drawing.SystemColors.Control;
+            this.label58.Location = new System.Drawing.Point(775, 160);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(65, 12);
+            this.label58.TabIndex = 87;
+            this.label58.Text = "相机三缺陷";
+            // 
+            // uiTextBox48
+            // 
+            this.uiTextBox48.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox48.Enabled = false;
+            this.uiTextBox48.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox48.Location = new System.Drawing.Point(847, 123);
+            this.uiTextBox48.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox48.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox48.Name = "uiTextBox48";
+            this.uiTextBox48.ShowText = false;
+            this.uiTextBox48.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox48.TabIndex = 89;
+            this.uiTextBox48.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.ForeColor = System.Drawing.SystemColors.Control;
+            this.label59.Location = new System.Drawing.Point(775, 132);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(47, 12);
+            this.label59.TabIndex = 88;
+            this.label59.Text = "相机三Y";
+            // 
+            // uiTextBox49
+            // 
+            this.uiTextBox49.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox49.Enabled = false;
+            this.uiTextBox49.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox49.Location = new System.Drawing.Point(847, 92);
+            this.uiTextBox49.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox49.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox49.Name = "uiTextBox49";
+            this.uiTextBox49.ShowText = false;
+            this.uiTextBox49.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox49.TabIndex = 93;
+            this.uiTextBox49.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.ForeColor = System.Drawing.SystemColors.Control;
+            this.label60.Location = new System.Drawing.Point(775, 101);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(47, 12);
+            this.label60.TabIndex = 92;
+            this.label60.Text = "相机三X";
+            // 
+            // uiTextBox50
+            // 
+            this.uiTextBox50.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox50.Enabled = false;
+            this.uiTextBox50.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox50.Location = new System.Drawing.Point(847, 61);
+            this.uiTextBox50.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox50.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox50.Name = "uiTextBox50";
+            this.uiTextBox50.ShowText = false;
+            this.uiTextBox50.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox50.TabIndex = 91;
+            this.uiTextBox50.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.ForeColor = System.Drawing.SystemColors.Control;
+            this.label61.Location = new System.Drawing.Point(775, 70);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(65, 12);
+            this.label61.TabIndex = 86;
+            this.label61.Text = "相机三大小";
+            // 
+            // uiTextBox51
+            // 
+            this.uiTextBox51.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox51.Enabled = false;
+            this.uiTextBox51.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox51.Location = new System.Drawing.Point(847, 32);
+            this.uiTextBox51.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox51.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox51.Name = "uiTextBox51";
+            this.uiTextBox51.ShowText = false;
+            this.uiTextBox51.Size = new System.Drawing.Size(91, 21);
+            this.uiTextBox51.TabIndex = 85;
+            this.uiTextBox51.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.ForeColor = System.Drawing.SystemColors.Control;
+            this.label62.Location = new System.Drawing.Point(775, 41);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(65, 12);
+            this.label62.TabIndex = 84;
+            this.label62.Text = "相机三结果";
+            // 
             // 通讯设置
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 540);
+            this.ClientSize = new System.Drawing.Size(987, 540);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "通讯设置";
@@ -1730,6 +2459,7 @@
             this.Load += new System.EventHandler(this.ParamSettings_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -1865,5 +2595,57 @@
         private Sunny.UI.UITextBox uiTextBox23;
         private Sunny.UI.UITextBox uiTextBox24;
         private Sunny.UI.UITextBox uiTextBox25;
+        private Sunny.UI.UITextBox uiTextBox39;
+        private System.Windows.Forms.Label label50;
+        private Sunny.UI.UITextBox uiTextBox40;
+        private System.Windows.Forms.Label label51;
+        private Sunny.UI.UITextBox uiTextBox41;
+        private System.Windows.Forms.Label label52;
+        private Sunny.UI.UITextBox uiTextBox42;
+        private System.Windows.Forms.Label label53;
+        private Sunny.UI.UITextBox uiTextBox43;
+        private System.Windows.Forms.Label label54;
+        private Sunny.UI.UITextBox uiTextBox44;
+        private System.Windows.Forms.Label label55;
+        private Sunny.UI.UITextBox uiTextBox45;
+        private System.Windows.Forms.Label label56;
+        private Sunny.UI.UITextBox uiTextBox46;
+        private System.Windows.Forms.Label label57;
+        private Sunny.UI.UITextBox uiTextBox47;
+        private System.Windows.Forms.Label label58;
+        private Sunny.UI.UITextBox uiTextBox48;
+        private System.Windows.Forms.Label label59;
+        private Sunny.UI.UITextBox uiTextBox49;
+        private System.Windows.Forms.Label label60;
+        private Sunny.UI.UITextBox uiTextBox50;
+        private System.Windows.Forms.Label label61;
+        private Sunny.UI.UITextBox uiTextBox51;
+        private System.Windows.Forms.Label label62;
+        private Sunny.UI.UITextBox uiTextBox36;
+        private System.Windows.Forms.Label label47;
+        private Sunny.UI.UITextBox uiTextBox37;
+        private System.Windows.Forms.Label label48;
+        private Sunny.UI.UITextBox uiTextBox38;
+        private System.Windows.Forms.Label label49;
+        private Sunny.UI.UITextBox uiTextBox31;
+        private System.Windows.Forms.Label label42;
+        private Sunny.UI.UITextBox uiTextBox32;
+        private System.Windows.Forms.Label label43;
+        private Sunny.UI.UITextBox uiTextBox33;
+        private System.Windows.Forms.Label label44;
+        private Sunny.UI.UITextBox uiTextBox34;
+        private System.Windows.Forms.Label label45;
+        private Sunny.UI.UITextBox uiTextBox35;
+        private System.Windows.Forms.Label label46;
+        private Sunny.UI.UITextBox uiTextBox30;
+        private System.Windows.Forms.Label label41;
+        private Sunny.UI.UITextBox uiTextBox29;
+        private System.Windows.Forms.Label label40;
+        private Sunny.UI.UITextBox uiTextBox28;
+        private System.Windows.Forms.Label label39;
+        private Sunny.UI.UITextBox uiTextBox27;
+        private System.Windows.Forms.Label label38;
+        private Sunny.UI.UITextBox uiTextBox26;
+        private System.Windows.Forms.Label label37;
     }
 }
