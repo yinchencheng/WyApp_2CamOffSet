@@ -265,7 +265,6 @@ namespace WY_App
             {
                 Halcon.DetectionHalconLine(indexCam, 0, hWindows[0], hImage, Parameters.detectionSpec[indexCam], ref BaseReault[indexCam, 0]);
                 Halcon.DetectionHalconLine(indexCam, 1, hWindows[0], hImage, Parameters.detectionSpec[indexCam], ref BaseReault[indexCam, 1]);
-
                 Halcon.DetectionHalconLine(indexCam, 2, hWindows[0], hImage, Parameters.detectionSpec[indexCam], ref BaseReault[indexCam, 2]);                        
             }
             catch
