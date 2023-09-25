@@ -25,7 +25,9 @@ namespace WY_App
             num_MeasureThreshold.Value = Parameters.detectionSpec[MainForm.CamNum].MeasureThreshold[MainForm.baseNum];
             num_MeasureTransition.Text = Parameters.detectionSpec[MainForm.CamNum].MeasureTransition[MainForm.baseNum];
             num_OffSet.Value= Parameters.detectionSpec[MainForm.CamNum].OffSet[MainForm.baseNum];
-        }
+			num_MeasureDirection.Text= Parameters.detectionSpec[MainForm.CamNum].MeasureDirection[MainForm.baseNum];
+
+		}
 
         private void btn_Close_System_Click(object sender, EventArgs e)
         {
@@ -54,16 +56,23 @@ namespace WY_App
 
 			if (Parameters.detectionSpec[MainForm.CamNum].MeasureThreshold[MainForm.baseNum] != (uint)num_MeasureThreshold.Value)
 			{
-				LogHelper.WriteWarn(" " + MainForm.UserName + "MeasureSigma:" + Parameters.detectionSpec[MainForm.CamNum].MeasureThreshold[MainForm.baseNum] + "=>" + (uint)num_MeasureThreshold.Value);
+				LogHelper.WriteWarn(" " + MainForm.UserName + "MeasureThreshold:" + Parameters.detectionSpec[MainForm.CamNum].MeasureThreshold[MainForm.baseNum] + "=>" + (uint)num_MeasureThreshold.Value);
 				Parameters.detectionSpec[MainForm.CamNum].MeasureThreshold[MainForm.baseNum] = (uint)num_MeasureThreshold.Value;
 			}
 
-			if (Parameters.detectionSpec[MainForm.CamNum].MeasureTransition[MainForm.baseNum] != num_MeasureTransition.SelectedText)
+            if (Parameters.detectionSpec[MainForm.CamNum].MeasureTransition[MainForm.baseNum] != num_MeasureTransition.SelectedItem.ToString())
+            {
+                LogHelper.WriteWarn(" " + MainForm.UserName + "MeasureTransition:" + Parameters.detectionSpec[MainForm.CamNum].MeasureTransition[MainForm.baseNum] + "=>" + num_MeasureTransition.Text);
+                Parameters.detectionSpec[MainForm.CamNum].MeasureTransition[MainForm.baseNum] = num_MeasureTransition.Text;
+            }
+
+			if (Parameters.detectionSpec[MainForm.CamNum].MeasureDirection[MainForm.baseNum] != num_MeasureDirection.SelectedItem.ToString())
 			{
-				LogHelper.WriteWarn(" " + MainForm.UserName + "MeasureSigma:" + Parameters.detectionSpec[MainForm.CamNum].MeasureTransition[MainForm.baseNum] + "=>" + num_MeasureTransition.SelectedText);
-				Parameters.detectionSpec[MainForm.CamNum].MeasureTransition[MainForm.baseNum] = num_MeasureTransition.SelectedText;
+				LogHelper.WriteWarn(" " + MainForm.UserName + "MeasureDirection:" + Parameters.detectionSpec[MainForm.CamNum].MeasureDirection[MainForm.baseNum] + "=>" + num_MeasureDirection.Text);
+				Parameters.detectionSpec[MainForm.CamNum].MeasureDirection[MainForm.baseNum] = num_MeasureDirection.Text;
 			}
-            XMLHelper.serialize<Parameters.DetectionSpec>(Parameters.detectionSpec[MainForm.CamNum], Parameters.commministion.productName + "/DetectionSpec" + MainForm.CamNum + ".xml");
+
+			XMLHelper.serialize<Parameters.DetectionSpec>(Parameters.detectionSpec[MainForm.CamNum], Parameters.commministion.productName + "/DetectionSpec" + MainForm.CamNum + ".xml");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -102,6 +111,7 @@ namespace WY_App
             num_MeasureThreshold.Enabled = true;
             num_MeasureTransition.Enabled = true;
             num_OffSet.Enabled = true;
+            num_MeasureDirection.Enabled = true;
         }
 
         private void num_MeasureLength2_ValueChanged(object sender, EventArgs e)
@@ -121,12 +131,17 @@ namespace WY_App
 
         private void num_MeasureTransition_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Parameters.detectionSpec[MainForm.CamNum].MeasureTransition[MainForm.baseNum] = num_MeasureTransition.SelectedText;
+            Parameters.detectionSpec[MainForm.CamNum].MeasureTransition[MainForm.baseNum] = num_MeasureTransition.Text;
         }
 
         private void num_OffSet_ValueChanged(object sender, EventArgs e)
         {
             Parameters.detectionSpec[MainForm.CamNum].OffSet[MainForm.baseNum] = (uint)num_OffSet.Value;
         }
-    }
+
+		private void num_MeasureDirection_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			Parameters.detectionSpec[MainForm.CamNum].MeasureDirection[MainForm.baseNum] = num_MeasureDirection.Text;
+		}
+	}
 }

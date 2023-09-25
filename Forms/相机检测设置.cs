@@ -23,6 +23,9 @@ using System.Runtime.CompilerServices;
 using System.Data.SqlTypes;
 using OpenCvSharp.Flann;
 using Sunny.UI;
+using TheArtOfDev.HtmlRenderer.Adapters;
+using System.Web.UI.WebControls;
+using WY_App.Forms;
 
 namespace WY_App
 {
@@ -31,7 +34,8 @@ namespace WY_App
         static HWindow[] hWindows;       
         HWindow hWindow = new HWindow();
         static HRect1[,] BaseReault = new HRect1[3,4];
-        public 相机检测设置()
+		int mouse_X0, mouse_X1, mouse_Y0, mouse_Y1;   //用来记录按下/抬起鼠标时的坐标位置
+		public 相机检测设置()
         {
             InitializeComponent();
             hWindow = hWindowControl4.HalconWindow;
@@ -69,7 +73,8 @@ namespace WY_App
 
         private void btn_Close_System_Click(object sender, EventArgs e)
         {
-            this.Close();
+			MainForm.RefreshPara();
+			this.Close();
         }
 
         
@@ -86,7 +91,19 @@ namespace WY_App
             HOperatorSet.DispObj(MainForm.hImage[MainForm.CamNum], hWindows[0]);
             HOperatorSet.SetPart(hWindow, 0, 0, -1, -1);//设置窗体的规格
             HOperatorSet.DispObj(MainForm.hImage[MainForm.CamNum], hWindow);
-            uiComboBox1.SelectedIndex = 0;
+			HOperatorSet.CropPart(MainForm.hImage[MainForm.CamNum], out AreahObject, 0, 0, 400, 400);
+			HOperatorSet.DispObj(AreahObject, hWindows[1]);
+
+			HTuple X = new HTuple();
+			HTuple Y = new HTuple();
+			HOperatorSet.CropPart(MainForm.hImage[MainForm.CamNum], out AreahObject, 0, 0, 400, 400);
+			hWindows[1].SetPart(0, 0, 400, 400);
+			HOperatorSet.GetImageSize(AreahObject, out X, out Y);
+			hWindowControl3.Size = new System.Drawing.Size(X, Y);
+			hWindowControl3.ImagePart = new System.Drawing.Rectangle(0, 0, X, Y);
+			HOperatorSet.DispObj(AreahObject, hWindows[1]);
+
+			uiComboBox1.SelectedIndex = 0;
             cmb_Indication.SelectedIndex = 0;
             chk_MeanImageEnabled.Checked = Parameters.specifications.MeanImageEnabled;
             cmb_MeanImageList.DataSource = Enum.GetNames(typeof(Parameters.MeanImageEnum));
@@ -99,7 +116,8 @@ namespace WY_App
             txt_PixelResolutionColumn.Text = Parameters.detectionSpec[MainForm.CamNum].PixelResolutionColum.ToString();
             uiDoubleUpDown1.Value = Parameters.detectionSpec[MainForm.CamNum].RowBase[1];
             uiDoubleUpDown2.Value = Parameters.detectionSpec[MainForm.CamNum].ColumBase[1];
-        }
+            label_Gray.Text = "灰度值";
+		}
 
         private void btn_OpenTestimage_Click(object sender, EventArgs e)
         {
@@ -154,7 +172,8 @@ namespace WY_App
             MainForm.strDateTime = dtNow.ToString("HHmmss");
             MainForm.strDateTimeDay = dtNow.ToString("yyyy-MM-dd");
             detectionResults = new List<DetectionResult>();
-            Detection(MainForm.CamNum, hWindows, MainForm.hImage[MainForm.CamNum], ref detectionResults);
+			set_display_font(hWindows[0], 10, "mono", "true", "false");
+			Detection(MainForm.CamNum, hWindows, MainForm.hImage[MainForm.CamNum], ref detectionResults,false);
             this.Invoke((EventHandler)delegate
             {
                 for (int i = 0; i < 2; i++)
@@ -162,7 +181,25 @@ namespace WY_App
                     hWindows[i + 1].ClearWindow();
                     HOperatorSet.SetPart(hWindows[i + 1], 0, 0, 1000, 1000);//设置窗体的规格
                 }
-                messageShow4.lab_Timer.Text = "";
+
+				if (detectionResults.Count == 0)
+				{
+					HTuple X = new HTuple();
+					HTuple Y = new HTuple();
+					HOperatorSet.CropPart(MainForm.hImage[MainForm.CamNum], out AreahObject, 0, 0, 400, 400);
+					hWindows[1].SetPart(0, 0, 400, 400);
+					HOperatorSet.GetImageSize(AreahObject, out X, out Y);
+					hWindowControl3.Size = new System.Drawing.Size(X, Y);
+					hWindowControl3.ImagePart = new System.Drawing.Rectangle(0, 0, X, Y);
+
+					HOperatorSet.SetWindowAttr("background_color", "black");
+					set_display_font(hWindows[0], 67, "mono", "true", "false");
+					disp_message(hWindows[0], "OK", "window", 12, 12, "black", "true");
+
+					HOperatorSet.DispObj(AreahObject, hWindows[1]);
+				}
+
+				messageShow4.lab_Timer.Text = "";
                 messageShow4.lab_Column.Text = "";
                 messageShow4.lab_Row.Text = "";
                 messageShow4.lab_Size.Text = "";
@@ -179,14 +216,20 @@ namespace WY_App
                 if (detectionResults.Count != 0)
                 {
                     hWindows[1].DispObj(detectionResults[0].NGAreahObject);
-                    messageShow3.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
+					AreahObject = detectionResults[0].NGAreahObject;
+					messageShow3.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
                     messageShow3.lab_Column.Text = detectionResults[0].ResultXPosition.ToString();
                     messageShow3.lab_Row.Text = detectionResults[0].ResultYPosition.ToString();
                     messageShow3.lab_Size.Text = detectionResults[0].ResultSize.ToString();
                     messageShow3.lab_Kind.Text = detectionResults[0].ResultKind.ToString();
                     messageShow3.lab_Level.Text = detectionResults[0].ResultLevel.ToString();
                     messageShow3.lab_Gray.Text = detectionResults[0].ResultGray.ToString();
-                }
+
+					HOperatorSet.SetWindowAttr("background_color", "black");
+					set_display_font(hWindows[0], 67, "mono", "true", "false");
+					disp_message(hWindows[0], "NG", "window", 12, 12, "black", "true");
+
+				}
                 if (detectionResults.Count > 1)
                 {
                     hWindows[2].DispObj(detectionResults[1].NGAreahObject);
@@ -197,7 +240,12 @@ namespace WY_App
                     messageShow4.lab_Kind.Text = detectionResults[1].ResultKind.ToString();
                     messageShow4.lab_Level.Text = detectionResults[1].ResultLevel.ToString();
                     messageShow4.lab_Gray.Text = detectionResults[1].ResultGray.ToString();
-                }
+
+					HOperatorSet.SetWindowAttr("background_color", "black");
+					set_display_font(hWindows[0], 67, "mono", "true", "false");
+					disp_message(hWindows[0], "NG", "window", 12, 12, "black", "true");
+				}
+
             });
 
 
@@ -251,51 +299,91 @@ namespace WY_App
                     BaseReault[indexCam, 1].Row1, BaseReault[indexCam, 1].Colum1, BaseReault[indexCam, 1].Row2, BaseReault[indexCam, 1].Colum2, out hRow, out hColumn, out IsOverlapping);
                     Parameters.detectionSpec[indexCam].RowBase[0] = hRow * Parameters.detectionSpec[indexCam].PixelResolutionRow;
                     Parameters.detectionSpec[indexCam].ColumBase[0] = hColumn * Parameters.detectionSpec[indexCam].PixelResolutionColum;
-                    Row[0] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1]+20;
-                    Column[0] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0]+20;
-                    Row1[0] = hRow + 10;
-                    Col1[0] = hColumn + 10;
-                    Row1[3] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1]-20;
-                    Col1[3] = hColumn + 10;
-                    Row2[0] = hRow +(HTuple)Parameters.detectionSpec[indexCam].OffSet[1] +20;
-                    Col2[0] = hColumn + 20;
-                    Row2[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] +20;
-                    Col2[1] = hColumn +(HTuple)Parameters.detectionSpec[indexCam].OffSet[0] -20;
-                    HOperatorSet.SetColor(hWindows[0], "red");
+					//Row[0] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1]+10;
+					//Column[0] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0]+10;
+					//Row1[0] = hRow + 10;
+					//Col1[0] = hColumn + 10;
+					//Row1[3] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1]-10;
+					//Col1[3] = hColumn + 10;
+					//Row2[0] = hRow +(HTuple)Parameters.detectionSpec[indexCam].OffSet[1] +10;
+					//Col2[0] = hColumn + 10;
+					//Row2[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] +10;
+					//Col2[1] = hColumn +(HTuple)Parameters.detectionSpec[indexCam].OffSet[0] -10;
+					Row[0] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 10;
+					Column[0] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 10;
+					Row1[0] = hRow+10;
+					Col1[0] = hColumn+(HTuple)Parameters.detectionSpec[indexCam].OffSet[0]+10;
+					Row1[3] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] - 10;
+					Col1[3] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0]+10;
+					Row2[0] = hRow  + 10;
+					Col2[0] = hColumn + 10;
+					Row2[1] = hRow  + 10;
+					Col2[1] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] - 10;
+					HOperatorSet.SetColor(hWindows[0], "red");
                     HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
+
+					
+
                     HOperatorSet.IntersectionLines(0, Halcon.hv_Width[0], Halcon.hv_Height[0], Halcon.hv_Width[0],
                     BaseReault[indexCam, 1].Row1, BaseReault[indexCam, 1].Colum1, BaseReault[indexCam, 1].Row2, BaseReault[indexCam, 1].Colum2, out hRow, out hColumn, out IsOverlapping);
-                    Row[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1]+20;
-                    Column[1] = hColumn;
-                    Row1[1] = hRow + 00;
-                    Col1[1] = hColumn;
-                    Row1[2] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1]-10;
-                    Col1[2] = hColumn ;
-                    HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
-                    HOperatorSet.IntersectionLines(0, Halcon.hv_Width[0], Halcon.hv_Height[0], Halcon.hv_Width[0],
+
+					
+					//Row[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1]+10;
+					//Column[1] = hColumn;
+					//Row1[1] = hRow + 00;
+					//Col1[1] = hColumn;
+					//Row1[2] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1]-10;
+					//Col1[2] = hColumn ;
+					Row[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 10;
+					Column[1] = hColumn ;
+					Row1[1] = hRow ;
+					Col1[1] = hColumn ;
+					Row1[2] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] - 10;
+					Col1[2] = hColumn;
+					HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
+
+					HOperatorSet.IntersectionLines(0, Halcon.hv_Width[0], Halcon.hv_Height[0], Halcon.hv_Width[0],
                     BaseReault[indexCam, 2].Row1, BaseReault[indexCam, 2].Colum1, BaseReault[indexCam, 2].Row2, BaseReault[indexCam, 2].Colum2, out hRow, out hColumn, out IsOverlapping);
-                    Row[2] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2]-20;
-                    Column[2] = hColumn;
-                    Row3[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 20;
-                    Col3[1] = hColumn;
-                    Row3[1] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 20;
-                    Col3[1] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 20;
-                    Row3[2] = hRow - 20;
-                    Col3[2] = hColumn;
-                    HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
+					//Row[2] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2]-10;
+					//Column[2] = hColumn;
+					//Row3[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 10;
+					//Col3[1] = hColumn;
+					//Row3[1] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 10;
+					//Col3[1] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 10;
+					//Row3[2] = hRow - 10;
+					//Col3[2] = hColumn;
+					Row[2] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 10;
+					Column[2] = hColumn;
+					Row3[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 10;
+					Col3[1] = hColumn;
+					Row3[1] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 10;
+					Col3[1] = hColumn+10 ;
+					Row3[2] = hRow - 10;
+					Col3[2] = hColumn;
+					HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
                     HOperatorSet.IntersectionLines(BaseReault[indexCam, 0].Row1, BaseReault[indexCam, 0].Colum1, BaseReault[indexCam, 0].Row2, BaseReault[indexCam, 0].Colum2,
                         BaseReault[indexCam, 2].Row1, BaseReault[indexCam, 2].Colum1, BaseReault[indexCam, 2].Row2, BaseReault[indexCam, 2].Colum2, out hRow, out hColumn, out IsOverlapping);
-                    Row[3] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 20;
-                    Column[3] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 20;
-                    Row2[3] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] -20;
-                    Col2[3] = hColumn + 20;
-                    Row2[2] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] -20;
-                    Col2[2] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] -20;
-                    Row3[0] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 20;
-                    Col3[0] = hColumn + 20;
-                    Row3[3] = hRow - 20;
-                    Col3[3] = hColumn + 20;
-                    HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
+					//Row[3] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 10;
+					//Column[3] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 10;
+					//Row2[3] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] -10;
+					//Col2[3] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 10;
+					//Row2[2] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] -10;
+					//Col2[2] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] -10;
+					//Row3[0] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 10;
+					//Col3[0] = hColumn + 10;
+					//Row3[3] = hRow - 10;
+					//Col3[3] = hColumn + 10;
+					Row[3] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 10;
+					Column[3] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 10;
+					Row2[2] = hRow  - 10;
+					Col2[2] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] - 10;
+					Row2[3] = hRow - 10;
+					Col2[3] = hColumn +10;
+					Row3[0] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 10;
+					Col3[0] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 10;
+					Row3[3] = hRow - 10;
+					Col3[3] = hColumn + (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 10;
+					HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
                     if (Parameters.detectionSpec[indexCam].OffSet[1] != 0)
                     {
                         HOperatorSet.SetColor(hWindows[0], "blue");
@@ -313,54 +401,85 @@ namespace WY_App
                     BaseReault[indexCam, 1].Row1, BaseReault[indexCam, 1].Colum1, BaseReault[indexCam, 1].Row2, BaseReault[indexCam, 1].Colum2, out hRow, out hColumn, out IsOverlapping);
                     Parameters.detectionSpec[indexCam].RowBase[0] = hRow * Parameters.detectionSpec[indexCam].PixelResolutionColum;
                     Parameters.detectionSpec[indexCam].ColumBase[0] = hColumn * Parameters.detectionSpec[indexCam].PixelResolutionRow;
-                    Row[0] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 20;
-                    Column[0] = hColumn;
-                    Row1[0] = hRow + 20;
-                    Col1[0] = hColumn;
-                    Row1[3] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] - 20;
-                    Col1[3] = hColumn ;
-                    
-                    HOperatorSet.SetColor(hWindows[0], "red");
+					//Row[0] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 10;
+					//Column[0] = hColumn;
+					//Row1[0] = hRow + 10;
+					//Col1[0] = hColumn;
+					//Row1[3] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] - 10;
+					//Col1[3] = hColumn ;
+					Row[0] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 10;
+					Column[0] = hColumn;
+					Row1[0] = hRow + 10;
+					Col1[0] = hColumn;
+					Row1[3] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] - 10;
+					Col1[3] = hColumn;
+
+					HOperatorSet.SetColor(hWindows[0], "red");
                     HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
 
                     HOperatorSet.IntersectionLines(BaseReault[indexCam, 0].Row1, BaseReault[indexCam, 0].Colum1, BaseReault[indexCam, 0].Row2, BaseReault[indexCam, 0].Colum2,
                     BaseReault[indexCam, 1].Row1, BaseReault[indexCam, 1].Colum1, BaseReault[indexCam, 1].Row2, BaseReault[indexCam, 1].Colum2, out hRow, out hColumn, out IsOverlapping);
-                    Row[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 20;
-                    Column[1] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] - 20;
-                    Row1[1] = hRow + 20;
-                    Col1[1] = hColumn-20;
-                    Row1[2] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] - 20;
-                    Col1[2] = hColumn-20;
-                    Row2[0] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 20;
-                    Col2[0] = hColumn - 20;
-                    Row2[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 20;
-                    Col2[1] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 20;
-                    HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
+					//Row[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 10;
+					//Column[1] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] - 10;
+					//Row1[1] = hRow + 10;
+					//Col1[1] = hColumn-10;
+					//Row1[2] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] - 10;
+					//Col1[2] = hColumn-10;
+					//Row2[0] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 10;
+					//Col2[0] = hColumn - 10;
+					//Row2[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 10;
+					//Col2[1] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 10; Row[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 10;
+					Row[1] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] + 10;
+					Column[1] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] - 10;
+					Row1[1] = hRow + 10;
+					Col1[1] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] - 10;
+					Row1[2] = hRow + (HTuple)Parameters.detectionSpec[indexCam].OffSet[1] - 10;
+					Col1[2] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] - 10;
+					Row2[0] = hRow + 10;
+					Col2[0] = hColumn - 10;
+					Row2[1] = hRow  + 10;
+					Col2[1] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 10;
+					HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
                     HOperatorSet.IntersectionLines(BaseReault[indexCam, 0].Row1, BaseReault[indexCam, 0].Colum1, BaseReault[indexCam, 0].Row2, BaseReault[indexCam, 0].Colum2,
                     BaseReault[indexCam, 2].Row1, BaseReault[indexCam, 2].Colum1, BaseReault[indexCam, 2].Row2, BaseReault[indexCam, 2].Colum2, out hRow, out hColumn, out IsOverlapping);
-                   
-                    Row[2] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 20;
-                    Column[2] = hColumn -(HTuple)Parameters.detectionSpec[indexCam].OffSet[0] - 20; ;
-                    Row3[1] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 20;
-                    Col3[1] = hColumn - 20;
-                    Row3[2] = hRow - 20;
-                    Col3[2] = hColumn-20;
-                    Row2[3] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 20;
-                    Col2[3] = hColumn - 20;
-                    Row2[2] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 20;
-                    Col2[2] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 20;
-                    HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
+
+					//Row[2] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 10;
+					//Column[2] = hColumn -(HTuple)Parameters.detectionSpec[indexCam].OffSet[0] - 10; ;
+					//Row3[1] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 10;
+					//Col3[1] = hColumn - 10;
+					//Row3[2] = hRow - 10;
+					//Col3[2] = hColumn-10;
+					//Row2[3] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 10;
+					//Col2[3] = hColumn - 10;
+					//Row2[2] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 10;
+					//Col2[2] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 10;
+					Row[2] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 10;
+					Column[2] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] - 10; ;
+					Row3[1] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 10;
+					Col3[1] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] - 10;
+					Row3[2] = hRow - 10;
+					Col3[2] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] - 10;
+					Row2[3] = hRow - 10;
+					Col2[3] = hColumn - 10;
+					Row2[2] = hRow  - 10;
+					Col2[2] = hColumn - (HTuple)Parameters.detectionSpec[indexCam].OffSet[0] + 10;
+					HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
 
                     HOperatorSet.IntersectionLines(0, 0, Halcon.hv_Height[0], 0,
-                   BaseReault[indexCam, 2].Row1, BaseReault[indexCam, 2].Colum1, BaseReault[indexCam, 2].Row2, BaseReault[indexCam, 2].Colum2, out hRow, out hColumn, out IsOverlapping);
-                    Row[3] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 20;
-                    Column[3] = hColumn;
-                   
-                    Row3[0] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 20;
-                    Col3[0] = hColumn;
-                    Row3[3] = hRow - 20;
-                    Col3[3] = hColumn;
-                    HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
+                    BaseReault[indexCam, 2].Row1, BaseReault[indexCam, 2].Colum1, BaseReault[indexCam, 2].Row2, BaseReault[indexCam, 2].Colum2, out hRow, out hColumn, out IsOverlapping);
+					//Row[3] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 10;
+					//Column[3] = hColumn;
+					//Row3[0] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 10;
+					//Col3[0] = hColumn;
+					//Row3[3] = hRow - 10;
+					//Col3[3] = hColumn
+					Row[3] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] - 10;
+					Column[3] = hColumn;
+					Row3[0] = hRow - (HTuple)Parameters.detectionSpec[indexCam].OffSet[2] + 10;
+					Col3[0] = hColumn;
+					Row3[3] = hRow - 10;
+					Col3[3] = hColumn;
+					HOperatorSet.DispCross(hWindows[0], hRow, hColumn, 600, 0);
 
                     if (Parameters.detectionSpec[indexCam].OffSet[1] != 0)
                     {
@@ -415,9 +534,11 @@ namespace WY_App
             }
             
         }
-        public static void Detection(int indexCam, HWindow[] hWindows,HObject hImage, ref List<DetectionResult> detectionResult)
+        public static void Detection(int indexCam, HWindow[] hWindows,HObject hImage, ref List<DetectionResult> detectionResult,bool bProductReport)
         {
-            if( Parameters.specifications.MeanImageEnabled)
+            int KindIndex = 0;
+
+			if ( Parameters.specifications.MeanImageEnabled)
             {
                 try
                 {
@@ -440,25 +561,25 @@ namespace WY_App
                 //MessageBox.Show("基准线查找异常，请联系软件工程师", "严重错误提示");
                 return;
             }
-            HTuple Row, Column, IsOverlapping;
-            try
-            {
-                HOperatorSet.IntersectionLines(BaseReault[indexCam, 0].Row1, BaseReault[indexCam, 0].Colum1, BaseReault[indexCam, 0].Row2, BaseReault[indexCam, 0].Colum2,
-                BaseReault[indexCam, 1].Row1, BaseReault[indexCam, 1].Colum1, BaseReault[indexCam, 1].Row2, BaseReault[indexCam, 1].Colum2, out Row, out Column, out IsOverlapping);
-                Parameters.detectionSpec[indexCam].RowBase[0] = Row;
-                Parameters.detectionSpec[indexCam].ColumBase[0] = Column;
-                HOperatorSet.SetColor(hWindows[0], "red");
-                HOperatorSet.DispCross(hWindows[0], Row, Column, 60, 0);
+            //HTuple Row, Column, IsOverlapping;
+            //try
+            //{
+            //    HOperatorSet.IntersectionLines(BaseReault[indexCam, 0].Row1, BaseReault[indexCam, 0].Colum1, BaseReault[indexCam, 0].Row2, BaseReault[indexCam, 0].Colum2,
+            //    BaseReault[indexCam, 1].Row1, BaseReault[indexCam, 1].Colum1, BaseReault[indexCam, 1].Row2, BaseReault[indexCam, 1].Colum2, out Row, out Column, out IsOverlapping);
+            //    Parameters.detectionSpec[indexCam].RowBase[0] = Row;
+            //    Parameters.detectionSpec[indexCam].ColumBase[0] = Column;
+            //    HOperatorSet.SetColor(hWindows[0], "red");
+            //    HOperatorSet.DispCross(hWindows[0], Row, Column, 60, 0);
 
-                HOperatorSet.IntersectionLines(BaseReault[indexCam, 0].Row1, BaseReault[indexCam, 0].Colum1, BaseReault[indexCam, 0].Row2, BaseReault[indexCam, 0].Colum2,
-                    BaseReault[indexCam, 2].Row1, BaseReault[indexCam, 2].Colum1, BaseReault[indexCam, 2].Row2, BaseReault[indexCam, 2].Colum2, out Row, out Column, out IsOverlapping);
-                HOperatorSet.DispCross(hWindows[0], Row, Column, 60, 0);
-            }
-            catch
-            {
-                //MessageBox.Show("基准点寻找异常，请联系软件工程师", "严重错误提示");
-                return;
-            }
+            //    HOperatorSet.IntersectionLines(BaseReault[indexCam, 0].Row1, BaseReault[indexCam, 0].Colum1, BaseReault[indexCam, 0].Row2, BaseReault[indexCam, 0].Colum2,
+            //        BaseReault[indexCam, 2].Row1, BaseReault[indexCam, 2].Colum1, BaseReault[indexCam, 2].Row2, BaseReault[indexCam, 2].Colum2, out Row, out Column, out IsOverlapping);
+            //    HOperatorSet.DispCross(hWindows[0], Row, Column, 60, 0);
+            //}
+            //catch
+            //{
+            //    //MessageBox.Show("基准点寻找异常，请联系软件工程师", "严重错误提示");
+            //    return;
+            //}
             //HTuple HomMat2DIdentity = new HTuple();
             //HTuple HomMat2DRotate = new HTuple();
             //HObject ImageAffineTran = new HObject();
@@ -470,28 +591,27 @@ namespace WY_App
 
                 for (int indexKind = 0; indexKind < 7; indexKind++)
                 {
-                    Halcon.DetectionHalconRegion(indexCam, indexKind, hWindows, hImage, Parameters.detectionSpec[indexCam], MainForm.hoRegions[indexCam*4], ref detectionResult);
-                    Halcon.DetectionHalconRegion(indexCam, 7+indexKind, hWindows, hImage, Parameters.detectionSpec[indexCam], MainForm.hoRegions[indexCam * 4+1], ref detectionResult);
-                    Halcon.DetectionHalconRegion(indexCam, 21+indexKind, hWindows, hImage, Parameters.detectionSpec[indexCam], MainForm.hoRegions[indexCam * 4 + 3], ref detectionResult);
-                    if (indexCam!=1)
-                    {
-                        Halcon.DetectionHalconRegion(indexCam, 14+indexKind, hWindows, hImage, Parameters.detectionSpec[indexCam], MainForm.hoRegions[indexCam * 4 + 2], ref detectionResult);
-                        
-                    }                 
+					KindIndex = indexKind;
+					Halcon.DetectionHalconRegion(indexCam, indexKind, hWindows, hImage, Parameters.detectionSpec[indexCam], MainForm.hoRegions[indexCam*4], ref detectionResult, bProductReport);
+                    Halcon.DetectionHalconRegion(indexCam, 7+indexKind, hWindows, hImage, Parameters.detectionSpec[indexCam], MainForm.hoRegions[indexCam * 4+1], ref detectionResult, bProductReport);
+                    Halcon.DetectionHalconRegion(indexCam, 21+indexKind, hWindows, hImage, Parameters.detectionSpec[indexCam], MainForm.hoRegions[indexCam * 4 + 3], ref detectionResult, bProductReport);
+                  
+                    Halcon.DetectionHalconRegion(indexCam, 14+indexKind, hWindows, hImage, Parameters.detectionSpec[indexCam], MainForm.hoRegions[indexCam * 4 + 2], ref detectionResult, bProductReport);
+                                   
                 }                
             }
             catch (Exception ex)
             {
-                //HomMat2DIdentity.Dispose();
-                //HomMat2DRotate.Dispose();
-                MessageBox.Show("瑕疵检测处理异常，请联系软件工程师", "严重错误提示");
-                //return;
-            }
+				//HomMat2DIdentity.Dispose();
+				//HomMat2DRotate.Dispose();
+				MessageBox.Show("瑕疵检测处理异常，请联系软件工程师" + indexCam.ToString() + "号相机" + KindIndex.ToString() + "号缺陷，参数设置有有误", "严重错误提示");
+				//return;
+			}
             //HomMat2DIdentity.Dispose();
             //HomMat2DRotate.Dispose();
-            Row.Dispose();
-            Column.Dispose();
-            IsOverlapping.Dispose();
+            //Row.Dispose();
+            //Column.Dispose();
+            //IsOverlapping.Dispose();
         }
 
         private void btn_DrawAOI_Click(object sender, EventArgs e)
@@ -564,10 +684,20 @@ namespace WY_App
 
         private void btnn_IndicationTest_Click(object sender, EventArgs e)
         {
-            DateTime dtNow = System.DateTime.Now;  // 获取系统当前时间
+			try
+			{
+				DetectionBase(MainForm.CamNum, hWindows, MainForm.hImage[MainForm.CamNum]);
+			}
+			catch
+			{
+				MessageBox.Show("基准线查找异常", "严重错误提示");
+			}
+
+			DateTime dtNow = System.DateTime.Now;  // 获取系统当前时间
             MainForm.strDateTime = dtNow.ToString("HHmmss");
             MainForm.strDateTimeDay = dtNow.ToString("yyyy-MM-dd");
-            if (Parameters.specifications.MeanImageEnabled)
+			set_display_font(hWindows[0], 10, "mono", "true", "false");
+			if (Parameters.specifications.MeanImageEnabled)
             {
                 Halcon.DetectionMeanImageint((MeanImageEnum)Parameters.specifications.meanImageEnum, MainForm.hImage[MainForm.CamNum], ref MainForm.hImage[MainForm.CamNum]);
             }
@@ -575,27 +705,56 @@ namespace WY_App
             {
                 HOperatorSet.DispObj(MainForm.hImage[MainForm.CamNum], hWindows[0]);
                 HOperatorSet.DispObj(MainForm.hoRegions[MainForm.CamNum * 4 + uiComboBox1.SelectedIndex], hWindows[0]);
-                if (Parameters.detectionSpec[MainForm.CamNum].ThresholdLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0 
-                    && Parameters.detectionSpec[MainForm.CamNum].ThresholdHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0
-                    || Parameters.detectionSpec[MainForm.CamNum].AreaLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0 
-                    && Parameters.detectionSpec[MainForm.CamNum].AreaHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0
-                    || (Parameters.detectionSpec[MainForm.CamNum].ThresholdLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0
-                    || Parameters.detectionSpec[MainForm.CamNum].ThresholdHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0)
-                    && (Parameters.detectionSpec[MainForm.CamNum].AreaLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0
-                    || Parameters.detectionSpec[MainForm.CamNum].AreaHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0))
-                {
-                    MessageBox.Show("检测参数为空，请检查!");
-                    return;
-                }
-                detectionResults = new List<DetectionResult>();
-                Halcon.DetectionHalconRegion(MainForm.CamNum, uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex, hWindows, MainForm.hImage[MainForm.CamNum], Parameters.detectionSpec[MainForm.CamNum], MainForm.hoRegions[MainForm.CamNum * 4 + uiComboBox1.SelectedIndex], ref detectionResults);
+
+				if (Parameters.detectionSpec[MainForm.CamNum].ThresholdLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] >= Parameters.detectionSpec[MainForm.CamNum].ThresholdHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex]
+				|| Parameters.detectionSpec[MainForm.CamNum].AreaLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] >= Parameters.detectionSpec[MainForm.CamNum].AreaHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex]
+				|| Parameters.detectionSpec[MainForm.CamNum].ThresholdLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] > 255 || Parameters.detectionSpec[MainForm.CamNum].ThresholdLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] < 0
+				|| Parameters.detectionSpec[MainForm.CamNum].ThresholdHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] > 255 || Parameters.detectionSpec[MainForm.CamNum].ThresholdHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] < 0
+				|| Parameters.detectionSpec[MainForm.CamNum].AreaLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] < 0 || Parameters.detectionSpec[MainForm.CamNum].AreaHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] < 0
+				)
+				{
+					MessageBox.Show("参数设定有误，请检查");
+					return;
+				}
+				//if (Parameters.detectionSpec[MainForm.CamNum].ThresholdLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0 
+				//    && Parameters.detectionSpec[MainForm.CamNum].ThresholdHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0
+				//    || Parameters.detectionSpec[MainForm.CamNum].AreaLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0 
+				//    && Parameters.detectionSpec[MainForm.CamNum].AreaHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0
+				//    || (Parameters.detectionSpec[MainForm.CamNum].ThresholdLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0
+				//    || Parameters.detectionSpec[MainForm.CamNum].ThresholdHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0)
+				//    && (Parameters.detectionSpec[MainForm.CamNum].AreaLow[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0
+				//    || Parameters.detectionSpec[MainForm.CamNum].AreaHigh[uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex] == 0))
+				//{
+				//    MessageBox.Show("检测参数为空，请检查!");
+				//    return;
+				//}
+				detectionResults = new List<DetectionResult>();
+                Halcon.DetectionHalconRegion(MainForm.CamNum, uiComboBox1.SelectedIndex * 7 + cmb_Indication.SelectedIndex, hWindows, MainForm.hImage[MainForm.CamNum], Parameters.detectionSpec[MainForm.CamNum], MainForm.hoRegions[MainForm.CamNum * 4 + uiComboBox1.SelectedIndex], ref detectionResults,false);
 
                 for (int i = 0; i < 2; i++)
                 {
                     hWindows[i + 1].ClearWindow();
                     HOperatorSet.SetPart(hWindows[i + 1], 0, 0, 1000, 1000);//设置窗体的规格
                 }
-                messageShow4.lab_Timer.Text = "";
+
+				if (detectionResults.Count == 0)
+				{
+					HTuple X = new HTuple();
+					HTuple Y = new HTuple();
+					HOperatorSet.CropPart(MainForm.hImage[MainForm.CamNum], out AreahObject, 0, 0, 400, 400);
+					hWindows[1].SetPart(0, 0, 400, 400);
+					HOperatorSet.GetImageSize(AreahObject, out X, out Y);
+					hWindowControl3.Size = new System.Drawing.Size(X, Y);
+					hWindowControl3.ImagePart = new System.Drawing.Rectangle(0, 0, X, Y);
+
+					HOperatorSet.SetWindowAttr("background_color", "black");
+					set_display_font(hWindows[0], 67, "mono", "true", "false");
+					disp_message(hWindows[0], "OK", "window", 12, 12, "black", "true");
+
+					HOperatorSet.DispObj(AreahObject, hWindows[1]);
+				}
+
+				messageShow4.lab_Timer.Text = "";
                 messageShow4.lab_Column.Text = "";
                 messageShow4.lab_Row.Text = "";
                 messageShow4.lab_Size.Text = "";
@@ -612,14 +771,19 @@ namespace WY_App
                 if (detectionResults.Count != 0)
                 {
                     hWindows[1].DispObj(detectionResults[0].NGAreahObject);
-                    messageShow3.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
+					AreahObject = detectionResults[0].NGAreahObject;
+					messageShow3.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
                     messageShow3.lab_Column.Text = detectionResults[0].ResultXPosition.ToString();
                     messageShow3.lab_Row.Text = detectionResults[0].ResultYPosition.ToString();
                     messageShow3.lab_Size.Text = detectionResults[0].ResultSize.ToString();
                     messageShow3.lab_Kind.Text = detectionResults[0].ResultKind.ToString();
                     messageShow3.lab_Level.Text = detectionResults[0].ResultLevel.ToString();
                     messageShow3.lab_Gray.Text = detectionResults[0].ResultGray.ToString();
-                }
+
+					HOperatorSet.SetWindowAttr("background_color", "black");
+					set_display_font(hWindows[0], 67, "mono", "true", "false");
+					disp_message(hWindows[0], "NG", "window", 12, 12, "black", "true");
+				}
                 if (detectionResults.Count > 1)
                 {                   
                     hWindows[2].DispObj(detectionResults[1].NGAreahObject);
@@ -630,7 +794,11 @@ namespace WY_App
                     messageShow4.lab_Kind.Text = detectionResults[1].ResultKind.ToString();
                     messageShow4.lab_Level.Text = detectionResults[1].ResultLevel.ToString();
                     messageShow4.lab_Gray.Text = detectionResults[1].ResultGray.ToString();
-                }
+
+					HOperatorSet.SetWindowAttr("background_color", "black");
+					set_display_font(hWindows[0], 67, "mono", "true", "false");
+					disp_message(hWindows[0], "NG", "window", 12, 12, "black", "true");
+				}
             }
             catch  (Exception ex)
             {
@@ -843,129 +1011,72 @@ namespace WY_App
             {
                 HOperatorSet.SetPart(hWindow, 0, 0, -1, -1);//设置窗体的规格
                 HOperatorSet.DispObj(MainForm.hImage[MainForm.CamNum], hWindow);//显示图片
-            }
-            if (e.Clicks == 1)
-            {
-                HTuple X = new HTuple();
-                HTuple Y = new HTuple();
-                HTuple row = new HTuple();
-                HTuple col = new HTuple();
-                HTuple grayval = new HTuple();
-                hWindows[1].SetPart(0, 0, 400, 400);
-                HOperatorSet.GetImageSize(MainForm.hImage[MainForm.CamNum], out X, out Y);
-                //hWindowControl1.Size = new System.Drawing.Size(X, Y);
-                hWindowControl1.ImagePart = new System.Drawing.Rectangle(0, 0, X, Y);
-                if ((int)e.X < 200)
-                {
-                    col = 200;
-                }
-                else if ((int)e.X > Halcon.hv_Width[MainForm.CamNum] - 200)
-                {
-                    col = (int)e.X - 200;
-                }
-                else
-                {
-                    col = (int)e.X;
-                }
-                if ((int)e.Y < 200)
-                {
-                    row = 200;
-                }
-                else if ((int)e.Y > Halcon.hv_Height[MainForm.CamNum] - 200)
-                {
-                    row = (int)e.Y - 200;
-                }
-                else
-                {
-                    row = (int)e.Y;
-                }
-                col = (int)e.X;
-                row = (int)e.Y;
-                hWindows[1].SetPart(0, 0, 400, 400);
-                try
-                {
-                    HOperatorSet.CropPart(MainForm.hImage[MainForm.CamNum], out AreahObject, row - 200, col - 200, 400, 400);
-                    HOperatorSet.DispObj(AreahObject, hWindows[1]);
-                }
-                catch (Exception ex)
-                {
-                    
-                }
-                HOperatorSet.DispObj(MainForm.hImage[MainForm.CamNum], hWindows[0]);
-                X.Dispose();
-                Y.Dispose();
-                row.Dispose();
-                col.Dispose();
-                grayval.Dispose();
-            }
+
+                HOperatorSet.SetPart(hWindows[0], 0, 0, -1, -1);//设置窗体的规格
+				HOperatorSet.DispObj(MainForm.hImage[MainForm.CamNum], hWindows[0]);//显示图片
+			}
+           
                 
         }
 
         private void hWindowControl2_HMouseDown(object sender, HMouseEventArgs e)
         {
-            HTuple X = new HTuple();
-            HTuple Y = new HTuple();
-            HTuple row = new HTuple();
-            HTuple col = new HTuple();
-            HTuple grayval = new HTuple();
-            hWindows[2].SetPart(0, 0, 40, 40);
-            HOperatorSet.GetImageSize(AreahObject, out X, out Y);
-            //hWindows[2].Size = new System.Drawing.Size(X, Y);
-            hWindowControl1.ImagePart = new System.Drawing.Rectangle(0, 0, X, Y);
-            if ((int)e.X < 20)
-            {
-                col = 20;
-            }
-            else if ((int)e.X > 400 - 20)
-            {
-                col = (int)e.X - 20;
-            }
-            else
-            {
-                col = (int)e.X;
-            }
-            if ((int)e.Y < 20)
-            {
-                row = 20;
-            }
-            else if ((int)e.Y > 400 - 20)
-            {
-                row = (int)e.Y - 20;
-            }
-            else
-            {
-                row = (int)e.Y;
-            }
-            //HOperatorSet.GetGrayval(MainForm.hImage[MainForm.CamNum], row, col, out grayval);
-            //MessageBox.Show("当前坐标：  Y：" + row.ToString() + "  X: " + col.ToString() + "  灰度值  " + grayval.ToString());
-            hWindows[2].SetPart(0, 0, 40, 40);
-            HObject AreahObject1;
-            HOperatorSet.CropPart(AreahObject, out AreahObject1, row - 20, col - 20, 40, 40);
-            HOperatorSet.DispObj(AreahObject1, hWindows[2]);
-            //HOperatorSet.DispObj(MainForm.hImage[MainForm.CamNum], hWindows[0]);
-            AreahObject1.Dispose();
-            X.Dispose();
-            Y.Dispose();
-            row.Dispose();
-            col.Dispose();
-            grayval.Dispose();
+            //HTuple X = new HTuple();
+            //HTuple Y = new HTuple();
+            //HTuple row = new HTuple();
+            //HTuple col = new HTuple();
+            //HTuple grayval = new HTuple();
+            //hWindows[2].SetPart(0, 0, 40, 40);
+            //HOperatorSet.GetImageSize(AreahObject, out X, out Y);
+            ////hWindows[2].Size = new System.Drawing.Size(X, Y);
+            //hWindowControl1.ImagePart = new System.Drawing.Rectangle(0, 0, X, Y);
+            //if ((int)e.X < 20)
+            //{
+            //    col = 20;
+            //}
+            //else if ((int)e.X > 400 - 20)
+            //{
+            //    col = (int)e.X - 20;
+            //}
+            //else
+            //{
+            //    col = (int)e.X;
+            //}
+            //if ((int)e.Y < 20)
+            //{
+            //    row = 20;
+            //}
+            //else if ((int)e.Y > 400 - 20)
+            //{
+            //    row = (int)e.Y - 20;
+            //}
+            //else
+            //{
+            //    row = (int)e.Y;
+            //}
+            ////HOperatorSet.GetGrayval(MainForm.hImage[MainForm.CamNum], row, col, out grayval);
+            ////MessageBox.Show("当前坐标：  Y：" + row.ToString() + "  X: " + col.ToString() + "  灰度值  " + grayval.ToString());
+            //hWindows[2].SetPart(0, 0, 40, 40);
+            //HObject AreahObject1;
+            //HOperatorSet.CropPart(AreahObject, out AreahObject1, row - 20, col - 20, 40, 40);
+            //HOperatorSet.DispObj(AreahObject1, hWindows[2]);
+            ////HOperatorSet.DispObj(MainForm.hImage[MainForm.CamNum], hWindows[0]);
+            //AreahObject1.Dispose();
+            //X.Dispose();
+            //Y.Dispose();
+            //row.Dispose();
+            //col.Dispose();
+            //grayval.Dispose();
         }
 
         private void hWindowControl4_HMouseWheel(object sender, HMouseEventArgs e)
         {
-            this.MouseWheel += new System.Windows.Forms.MouseEventHandler(LMap_MouseWheel4);
+            //this.MouseWheel += new System.Windows.Forms.MouseEventHandler(LMap_MouseWheel4);
         }
         public void LMap_MouseWheel4(object sender, MouseEventArgs e)
         {
             //当e.Delta > 0时鼠标滚轮是向上滚动，e.Delta < 0时鼠标滚轮向下滚动
-            if (e.Delta > 0)//滚轮向上
-            {
-                Halcon.ImgZoom(MainForm.hImage[MainForm.CamNum], hWindow, 1);
-            }
-            else
-            {
-                Halcon.ImgZoom(MainForm.hImage[MainForm.CamNum], hWindow, 0);
-            }
+           
         }
 
         private void hWindowControl1_HMouseWheel(object sender, HMouseEventArgs e)
@@ -974,25 +1085,180 @@ namespace WY_App
         }
         public void LMap_MouseWheel1(object sender, MouseEventArgs e)
         {
-            //当e.Delta > 0时鼠标滚轮是向上滚动，e.Delta < 0时鼠标滚轮向下滚动
-            if (e.Delta > 0)//滚轮向上
-            {
-                Halcon.ImgZoom(MainForm.hImage[MainForm.CamNum], hWindows[0], 1);
-            }
-            else
-            {
-                Halcon.ImgZoom(MainForm.hImage[MainForm.CamNum], hWindows[0], 0);
-            }
-        }
+			//当e.Delta > 0时鼠标滚轮是向上滚动，e.Delta < 0时鼠标滚轮向下滚动
+			//if (e.Delta > 0)//滚轮向上
+			//{
+			//    Halcon.ImgZoom(MainForm.hImage[MainForm.CamNum], hWindows[0], 1);
+			//}
+			//else
+			//{
+			//    Halcon.ImgZoom(MainForm.hImage[MainForm.CamNum], hWindows[0], 0);
+			//}
+
+			if (e.Delta > 0)//滚轮向上
+			{
+				Halcon.ImgZoomTwo(MainForm.hImage[MainForm.CamNum],  hWindows[0], hWindow, 1);
+			}
+			else
+			{
+				Halcon.ImgZoomTwo(MainForm.hImage[MainForm.CamNum], hWindows[0], hWindow,  0);
+			}
+
+		}
+
+
 
         private void hWindowControl1_HMouseDown(object sender, HMouseEventArgs e)
         {
-            if (e.Clicks == 2)
-            {
-                HOperatorSet.SetPart(hWindows[0], 0, 0, -1, -1);//设置窗体的规格
-                HOperatorSet.DispObj(MainForm.hImage[MainForm.CamNum], hWindows[0]);//显示图片
-            }
-        }
+			if (e.Button == MouseButtons.Left)
+			{
+				if (e.Clicks == 1)
+				{
+					int tempNum = 0;
+					hWindows[0].GetMposition(out mouse_X0, out mouse_Y0, out tempNum);  //记录按下鼠标时的位置
+				}
+
+			}
+			else if(e.Button == MouseButtons.Right)
+			{
+				if (e.Clicks == 1)
+				{
+					HTuple X = new HTuple();
+					HTuple Y = new HTuple();
+					HTuple row = new HTuple();
+					HTuple col = new HTuple();
+					HTuple grayval = new HTuple();
+					hWindows[1].SetPart(0, 0, 400, 400);
+					HOperatorSet.GetImageSize(MainForm.hImage[MainForm.CamNum], out X, out Y);
+					//hWindowControl1.Size = new System.Drawing.Size(X, Y);
+					hWindowControl4.ImagePart = new System.Drawing.Rectangle(0, 0, X, Y);
+					if ((int)e.X < 200)
+					{
+						col = 200;
+					}
+					else if ((int)e.X > Halcon.hv_Width[MainForm.CamNum] - 200)
+					{
+						col = (int)e.X - 200;
+					}
+					else
+					{
+						col = (int)e.X;
+					}
+					if ((int)e.Y < 200)
+					{
+						row = 200;
+					}
+					else if ((int)e.Y > Halcon.hv_Height[MainForm.CamNum] - 200)
+					{
+						row = (int)e.Y - 200;
+					}
+					else
+					{
+						row = (int)e.Y;
+					}
+					col = (int)e.X;
+					row = (int)e.Y;
+					hWindows[1].SetPart(0, 0, 400, 400);
+					try
+					{
+						HOperatorSet.CropPart(MainForm.hImage[MainForm.CamNum], out AreahObject, row - 200, col - 200, 400, 400);
+						HOperatorSet.DispObj(AreahObject, hWindows[1]);
+					}
+					catch (Exception ex)
+					{
+
+					}
+					messageShow3.lab_Column.Text = (col * Parameters.detectionSpec[MainForm.CamNum].PixelResolutionColum - Parameters.detectionSpec[MainForm.CamNum].ColumBase[0] + Parameters.detectionSpec[MainForm.CamNum].ColumBase[1]).ToString();
+					messageShow3.lab_Row.Text = (row * Parameters.detectionSpec[MainForm.CamNum].PixelResolutionRow - Parameters.detectionSpec[MainForm.CamNum].RowBase[0] + Parameters.detectionSpec[MainForm.CamNum].RowBase[1]).ToString();
+					//HOperatorSet.DispObj(MainForm.hImage[MainForm.CamNum], hWindows[1]);
+					X.Dispose();
+					Y.Dispose();
+					row.Dispose();
+					col.Dispose();
+					grayval.Dispose();
+				}
+				if (e.Clicks == 2)
+				{
+					DateTime dtNow = System.DateTime.Now;  // 获取系统当前时间
+					MainForm.strDateTime = dtNow.ToString("HHmmss");
+					MainForm.strDateTimeDay = dtNow.ToString("yyyy-MM-dd");
+					detectionResults = new List<DetectionResult>();
+					set_display_font(hWindows[0], 10, "mono", "true", "false");
+					Detection(MainForm.CamNum, hWindows, MainForm.hImage[MainForm.CamNum], ref detectionResults, false);
+					this.Invoke((EventHandler)delegate
+					{
+						for (int i = 0; i < 2; i++)
+						{
+							hWindows[i + 1].ClearWindow();
+							HOperatorSet.SetPart(hWindows[i + 1], 0, 0, 1000, 1000);//设置窗体的规格
+						}
+
+						if (detectionResults.Count == 0)
+						{
+							HTuple X = new HTuple();
+							HTuple Y = new HTuple();
+							HOperatorSet.CropPart(MainForm.hImage[MainForm.CamNum], out AreahObject, 0, 0, 400, 400);
+							hWindows[1].SetPart(0, 0, 400, 400);
+							HOperatorSet.GetImageSize(AreahObject, out X, out Y);
+							hWindowControl3.Size = new System.Drawing.Size(X, Y);
+							hWindowControl3.ImagePart = new System.Drawing.Rectangle(0, 0, X, Y);
+
+							HOperatorSet.SetWindowAttr("background_color", "black");
+							set_display_font(hWindows[0], 67, "mono", "true", "false");
+							disp_message(hWindows[0], "OK", "window", 12, 12, "black", "true");
+
+							HOperatorSet.DispObj(AreahObject, hWindows[1]);
+						}
+
+						messageShow4.lab_Timer.Text = "";
+						messageShow4.lab_Column.Text = "";
+						messageShow4.lab_Row.Text = "";
+						messageShow4.lab_Size.Text = "";
+						messageShow4.lab_Kind.Text = "";
+						messageShow4.lab_Level.Text = "";
+						messageShow4.lab_Gray.Text = "";
+						messageShow3.lab_Timer.Text = "";
+						messageShow3.lab_Column.Text = "";
+						messageShow3.lab_Row.Text = "";
+						messageShow3.lab_Size.Text = "";
+						messageShow3.lab_Kind.Text = "";
+						messageShow3.lab_Level.Text = "";
+						messageShow3.lab_Gray.Text = "";
+						if (detectionResults.Count != 0)
+						{
+							hWindows[1].DispObj(detectionResults[0].NGAreahObject);
+							AreahObject = detectionResults[0].NGAreahObject;
+							messageShow3.lab_Timer.Text = detectionResults[0].ResultdateTime.ToString();
+							messageShow3.lab_Column.Text = detectionResults[0].ResultXPosition.ToString();
+							messageShow3.lab_Row.Text = detectionResults[0].ResultYPosition.ToString();
+							messageShow3.lab_Size.Text = detectionResults[0].ResultSize.ToString();
+							messageShow3.lab_Kind.Text = detectionResults[0].ResultKind.ToString();
+							messageShow3.lab_Level.Text = detectionResults[0].ResultLevel.ToString();
+							messageShow3.lab_Gray.Text = detectionResults[0].ResultGray.ToString();
+
+							HOperatorSet.SetWindowAttr("background_color", "black");
+							set_display_font(hWindows[0], 67, "mono", "true", "false");
+							disp_message(hWindows[0], "NG", "window", 12, 12, "black", "true");
+						}
+						if (detectionResults.Count > 1)
+						{
+							hWindows[2].DispObj(detectionResults[1].NGAreahObject);
+							messageShow4.lab_Timer.Text = detectionResults[1].ResultdateTime.ToString();
+							messageShow4.lab_Column.Text = detectionResults[1].ResultXPosition.ToString();
+							messageShow4.lab_Row.Text = detectionResults[1].ResultYPosition.ToString();
+							messageShow4.lab_Size.Text = detectionResults[1].ResultSize.ToString();
+							messageShow4.lab_Kind.Text = detectionResults[1].ResultKind.ToString();
+							messageShow4.lab_Level.Text = detectionResults[1].ResultLevel.ToString();
+							messageShow4.lab_Gray.Text = detectionResults[1].ResultGray.ToString();
+
+							HOperatorSet.SetWindowAttr("background_color", "black");
+							set_display_font(hWindows[0], 67, "mono", "true", "false");
+							disp_message(hWindows[0], "NG", "window", 12, 12, "black", "true");
+						}
+					});
+				}
+			}
+		}
 
         private void uiButton5_Click(object sender, EventArgs e)
         {
@@ -1010,5 +1276,656 @@ namespace WY_App
             num_AreaLow.Value = Parameters.detectionSpec[MainForm.CamNum].AreaLow[uiComboBox1.SelectedIndex *7];
             num_AreaHigh.Value = Parameters.detectionSpec[MainForm.CamNum].AreaHigh[uiComboBox1.SelectedIndex * 7];
         }
-    }
+
+        private void hWindowControl2_HMouseMove(object sender, HMouseEventArgs e)
+        {
+
+			HTuple X = new HTuple();
+			HTuple Y = new HTuple();
+			HTuple row = new HTuple();
+			HTuple col = new HTuple();
+			HTuple grayval = new HTuple();
+			try
+			{
+				if (AreahObject != null)
+				{
+					hWindows[1].SetPart(0, 0, 400, 400);
+					HOperatorSet.GetImageSize(AreahObject, out X, out Y);
+					hWindowControl3.Size = new System.Drawing.Size(X, Y);
+					hWindowControl3.ImagePart = new System.Drawing.Rectangle(0, 0, X, Y);
+					row = (int)e.X;
+					col = (int)e.Y;
+					HOperatorSet.GetGrayval(AreahObject, col, row, out grayval);
+					//HOperatorSet.SetColor(hWindows[1], "red");
+
+					label_Gray.Text = grayval.ToString();
+
+				}
+			}
+			catch (Exception ex)
+			{
+				return;
+			}
+
+		}
+
+		private void hWindowControl1_HMouseMove(object sender, HMouseEventArgs e)
+		{
+
+		}
+
+		private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void groupBox4_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		private void panel3_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void groupBox5_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		private void messageShow3_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void panel5_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void groupBox6_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		private void messageShow4_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void groupBox3_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		private void panel1_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void groupBox2_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void hWindowControl3_HMouseMove(object sender, HMouseEventArgs e)
+		{
+
+		}
+
+		private void uiLabel16_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel15_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiDoubleUpDown1_ValueChanged(object sender, double value)
+		{
+
+		}
+
+		private void uiDoubleUpDown2_ValueChanged(object sender, double value)
+		{
+
+		}
+
+		private void uiLabel13_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel14_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel12_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel11_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel10_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel9_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel8_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel6_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel2_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel3_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel7_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void lab_detectionTime_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel5_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void uiLabel4_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void groupBox1_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		private void hWindowControl4_HMouseMove(object sender, HMouseEventArgs e)
+		{
+
+		}
+
+		private void pictureBox2_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		public static void set_display_font(HWindow hWindow, HTuple hv_Size, HTuple hv_Font, HTuple hv_Bold, HTuple hv_Slant)
+		{
+
+			HTuple hv_OS = new HTuple(), hv_Fonts = new HTuple();
+			HTuple hv_Style = new HTuple(), hv_Exception = new HTuple();
+			HTuple hv_AvailableFonts = new HTuple(), hv_Fdx = new HTuple();
+			HTuple hv_Indices = new HTuple();
+			HTuple hv_Font_COPY_INP_TMP = new HTuple(hv_Font);
+			HTuple hv_Size_COPY_INP_TMP = new HTuple(hv_Size);
+
+			try
+			{
+				hv_OS.Dispose();
+				HOperatorSet.GetSystem("operating_system", out hv_OS);
+				if ((int)((new HTuple(hv_Size_COPY_INP_TMP.TupleEqual(new HTuple()))).TupleOr(
+					new HTuple(hv_Size_COPY_INP_TMP.TupleEqual(-1)))) != 0)
+				{
+					hv_Size_COPY_INP_TMP.Dispose();
+					hv_Size_COPY_INP_TMP = 16;
+				}
+				if ((int)(new HTuple(((hv_OS.TupleSubstr(0, 2))).TupleEqual("Win"))) != 0)
+				{
+					using (HDevDisposeHelper dh = new HDevDisposeHelper())
+					{
+						{
+							HTuple
+							  ExpTmpLocalVar_Size = ((1.13677 * hv_Size_COPY_INP_TMP)).TupleInt()
+								;
+							hv_Size_COPY_INP_TMP.Dispose();
+							hv_Size_COPY_INP_TMP = ExpTmpLocalVar_Size;
+						}
+					}
+				}
+				else
+				{
+					using (HDevDisposeHelper dh = new HDevDisposeHelper())
+					{
+						{
+							HTuple
+							  ExpTmpLocalVar_Size = hv_Size_COPY_INP_TMP.TupleInt()
+								;
+							hv_Size_COPY_INP_TMP.Dispose();
+							hv_Size_COPY_INP_TMP = ExpTmpLocalVar_Size;
+						}
+					}
+				}
+				if ((int)(new HTuple(hv_Font_COPY_INP_TMP.TupleEqual("Courier"))) != 0)
+				{
+					hv_Fonts.Dispose();
+					hv_Fonts = new HTuple();
+					hv_Fonts[0] = "Courier";
+					hv_Fonts[1] = "Courier 10 Pitch";
+					hv_Fonts[2] = "Courier New";
+					hv_Fonts[3] = "CourierNew";
+					hv_Fonts[4] = "Liberation Mono";
+				}
+				else if ((int)(new HTuple(hv_Font_COPY_INP_TMP.TupleEqual("mono"))) != 0)
+				{
+					hv_Fonts.Dispose();
+					hv_Fonts = new HTuple();
+					hv_Fonts[0] = "Consolas";
+					hv_Fonts[1] = "Menlo";
+					hv_Fonts[2] = "Courier";
+					hv_Fonts[3] = "Courier 10 Pitch";
+					hv_Fonts[4] = "FreeMono";
+					hv_Fonts[5] = "Liberation Mono";
+				}
+				else if ((int)(new HTuple(hv_Font_COPY_INP_TMP.TupleEqual("sans"))) != 0)
+				{
+					hv_Fonts.Dispose();
+					hv_Fonts = new HTuple();
+					hv_Fonts[0] = "Luxi Sans";
+					hv_Fonts[1] = "DejaVu Sans";
+					hv_Fonts[2] = "FreeSans";
+					hv_Fonts[3] = "Arial";
+					hv_Fonts[4] = "Liberation Sans";
+				}
+				else if ((int)(new HTuple(hv_Font_COPY_INP_TMP.TupleEqual("serif"))) != 0)
+				{
+					hv_Fonts.Dispose();
+					hv_Fonts = new HTuple();
+					hv_Fonts[0] = "Times New Roman";
+					hv_Fonts[1] = "Luxi Serif";
+					hv_Fonts[2] = "DejaVu Serif";
+					hv_Fonts[3] = "FreeSerif";
+					hv_Fonts[4] = "Utopia";
+					hv_Fonts[5] = "Liberation Serif";
+				}
+				else
+				{
+					hv_Fonts.Dispose();
+					hv_Fonts = new HTuple(hv_Font_COPY_INP_TMP);
+				}
+				hv_Style.Dispose();
+				hv_Style = "";
+				if ((int)(new HTuple(hv_Bold.TupleEqual("true"))) != 0)
+				{
+					using (HDevDisposeHelper dh = new HDevDisposeHelper())
+					{
+						{
+							HTuple
+							  ExpTmpLocalVar_Style = hv_Style + "Bold";
+							hv_Style.Dispose();
+							hv_Style = ExpTmpLocalVar_Style;
+						}
+					}
+				}
+				else if ((int)(new HTuple(hv_Bold.TupleNotEqual("false"))) != 0)
+				{
+					hv_Exception.Dispose();
+					hv_Exception = "Wrong value of control parameter Bold";
+					throw new HalconException(hv_Exception);
+				}
+				if ((int)(new HTuple(hv_Slant.TupleEqual("true"))) != 0)
+				{
+					using (HDevDisposeHelper dh = new HDevDisposeHelper())
+					{
+						{
+							HTuple
+							  ExpTmpLocalVar_Style = hv_Style + "Italic";
+							hv_Style.Dispose();
+							hv_Style = ExpTmpLocalVar_Style;
+						}
+					}
+				}
+				else if ((int)(new HTuple(hv_Slant.TupleNotEqual("false"))) != 0)
+				{
+					hv_Exception.Dispose();
+					hv_Exception = "Wrong value of control parameter Slant";
+					throw new HalconException(hv_Exception);
+				}
+				if ((int)(new HTuple(hv_Style.TupleEqual(""))) != 0)
+				{
+					hv_Style.Dispose();
+					hv_Style = "Normal";
+				}
+				hv_AvailableFonts.Dispose();
+				HOperatorSet.QueryFont(hWindow, out hv_AvailableFonts);
+				hv_Font_COPY_INP_TMP.Dispose();
+				hv_Font_COPY_INP_TMP = "";
+				for (hv_Fdx = 0; (int)hv_Fdx <= (int)((new HTuple(hv_Fonts.TupleLength())) - 1); hv_Fdx = (int)hv_Fdx + 1)
+				{
+					hv_Indices.Dispose();
+					using (HDevDisposeHelper dh = new HDevDisposeHelper())
+					{
+						hv_Indices = hv_AvailableFonts.TupleFind(
+							hv_Fonts.TupleSelect(hv_Fdx));
+					}
+					if ((int)(new HTuple((new HTuple(hv_Indices.TupleLength())).TupleGreater(
+						0))) != 0)
+					{
+						if ((int)(new HTuple(((hv_Indices.TupleSelect(0))).TupleGreaterEqual(0))) != 0)
+						{
+							hv_Font_COPY_INP_TMP.Dispose();
+							using (HDevDisposeHelper dh = new HDevDisposeHelper())
+							{
+								hv_Font_COPY_INP_TMP = hv_Fonts.TupleSelect(
+									hv_Fdx);
+							}
+							break;
+						}
+					}
+				}
+				if ((int)(new HTuple(hv_Font_COPY_INP_TMP.TupleEqual(""))) != 0)
+				{
+					throw new HalconException("Wrong value of control parameter Font");
+				}
+				using (HDevDisposeHelper dh = new HDevDisposeHelper())
+				{
+					{
+						HTuple
+						  ExpTmpLocalVar_Font = (((hv_Font_COPY_INP_TMP + "-") + hv_Style) + "-") + hv_Size_COPY_INP_TMP;
+						hv_Font_COPY_INP_TMP.Dispose();
+						hv_Font_COPY_INP_TMP = ExpTmpLocalVar_Font;
+					}
+				}
+				HOperatorSet.SetFont(hWindow, hv_Font_COPY_INP_TMP);
+
+				hv_Font_COPY_INP_TMP.Dispose();
+				hv_Size_COPY_INP_TMP.Dispose();
+				hv_OS.Dispose();
+				hv_Fonts.Dispose();
+				hv_Style.Dispose();
+				hv_Exception.Dispose();
+				hv_AvailableFonts.Dispose();
+				hv_Fdx.Dispose();
+				hv_Indices.Dispose();
+
+				return;
+			}
+			catch (HalconException HDevExpDefaultException)
+			{
+
+				hv_Font_COPY_INP_TMP.Dispose();
+				hv_Size_COPY_INP_TMP.Dispose();
+				hv_OS.Dispose();
+				hv_Fonts.Dispose();
+				hv_Style.Dispose();
+				hv_Exception.Dispose();
+				hv_AvailableFonts.Dispose();
+				hv_Fdx.Dispose();
+				hv_Indices.Dispose();
+
+				throw HDevExpDefaultException;
+			}
+		}
+
+		private void uiButton6_Click(object sender, EventArgs e)
+		{
+			相机参数修改 flg = new 相机参数修改();
+			flg.ShowDialog();
+		}
+
+		public static void disp_message(HWindow hWindow, HTuple hv_String, HTuple hv_CoordSystem, HTuple hv_Row, HTuple hv_Column, HTuple hv_Color, HTuple hv_Box)
+		{
+
+			HTuple hv_GenParamName = new HTuple(), hv_GenParamValue = new HTuple();
+			HTuple hv_Color_COPY_INP_TMP = new HTuple(hv_Color);
+			HTuple hv_Column_COPY_INP_TMP = new HTuple(hv_Column);
+			HTuple hv_CoordSystem_COPY_INP_TMP = new HTuple(hv_CoordSystem);
+			HTuple hv_Row_COPY_INP_TMP = new HTuple(hv_Row);
+			try
+			{
+				if ((int)((new HTuple(hv_Row_COPY_INP_TMP.TupleEqual(new HTuple()))).TupleOr(
+					new HTuple(hv_Column_COPY_INP_TMP.TupleEqual(new HTuple())))) != 0)
+				{
+
+					hv_Color_COPY_INP_TMP.Dispose();
+					hv_Column_COPY_INP_TMP.Dispose();
+					hv_CoordSystem_COPY_INP_TMP.Dispose();
+					hv_Row_COPY_INP_TMP.Dispose();
+					hv_GenParamName.Dispose();
+					hv_GenParamValue.Dispose();
+
+					return;
+				}
+				if ((int)(new HTuple(hv_Row_COPY_INP_TMP.TupleEqual(-1))) != 0)
+				{
+					hv_Row_COPY_INP_TMP.Dispose();
+					hv_Row_COPY_INP_TMP = 12;
+				}
+				if ((int)(new HTuple(hv_Column_COPY_INP_TMP.TupleEqual(-1))) != 0)
+				{
+					hv_Column_COPY_INP_TMP.Dispose();
+					hv_Column_COPY_INP_TMP = 12;
+				}
+				//
+				//Convert the parameter Box to generic parameters.
+				hv_GenParamName.Dispose();
+				hv_GenParamName = new HTuple();
+				hv_GenParamValue.Dispose();
+				hv_GenParamValue = new HTuple();
+				if ((int)(new HTuple((new HTuple(hv_Box.TupleLength())).TupleGreater(0))) != 0)
+				{
+					if ((int)(new HTuple(((hv_Box.TupleSelect(0))).TupleEqual("false"))) != 0)
+					{
+						//Display no box
+						using (HDevDisposeHelper dh = new HDevDisposeHelper())
+						{
+							{
+								HTuple
+								  ExpTmpLocalVar_GenParamName = hv_GenParamName.TupleConcat(
+									"box");
+								hv_GenParamName.Dispose();
+								hv_GenParamName = ExpTmpLocalVar_GenParamName;
+							}
+						}
+						using (HDevDisposeHelper dh = new HDevDisposeHelper())
+						{
+							{
+								HTuple
+								  ExpTmpLocalVar_GenParamValue = hv_GenParamValue.TupleConcat(
+									"false");
+								hv_GenParamValue.Dispose();
+								hv_GenParamValue = ExpTmpLocalVar_GenParamValue;
+							}
+						}
+					}
+					else if ((int)(new HTuple(((hv_Box.TupleSelect(0))).TupleNotEqual(
+						"true"))) != 0)
+					{
+						//Set a color other than the default.
+						using (HDevDisposeHelper dh = new HDevDisposeHelper())
+						{
+							{
+								HTuple
+								  ExpTmpLocalVar_GenParamName = hv_GenParamName.TupleConcat(
+									"box_color");
+								hv_GenParamName.Dispose();
+								hv_GenParamName = ExpTmpLocalVar_GenParamName;
+							}
+						}
+						using (HDevDisposeHelper dh = new HDevDisposeHelper())
+						{
+							{
+								HTuple
+								  ExpTmpLocalVar_GenParamValue = hv_GenParamValue.TupleConcat(
+									hv_Box.TupleSelect(0));
+								hv_GenParamValue.Dispose();
+								hv_GenParamValue = ExpTmpLocalVar_GenParamValue;
+							}
+						}
+					}
+				}
+				if ((int)(new HTuple((new HTuple(hv_Box.TupleLength())).TupleGreater(1))) != 0)
+				{
+					if ((int)(new HTuple(((hv_Box.TupleSelect(1))).TupleEqual("false"))) != 0)
+					{
+						//Display no shadow.
+						using (HDevDisposeHelper dh = new HDevDisposeHelper())
+						{
+							{
+								HTuple
+								  ExpTmpLocalVar_GenParamName = hv_GenParamName.TupleConcat(
+									"shadow");
+								hv_GenParamName.Dispose();
+								hv_GenParamName = ExpTmpLocalVar_GenParamName;
+							}
+						}
+						using (HDevDisposeHelper dh = new HDevDisposeHelper())
+						{
+							{
+								HTuple
+								  ExpTmpLocalVar_GenParamValue = hv_GenParamValue.TupleConcat(
+									"false");
+								hv_GenParamValue.Dispose();
+								hv_GenParamValue = ExpTmpLocalVar_GenParamValue;
+							}
+						}
+					}
+					else if ((int)(new HTuple(((hv_Box.TupleSelect(1))).TupleNotEqual(
+						"true"))) != 0)
+					{
+						//Set a shadow color other than the default.
+						using (HDevDisposeHelper dh = new HDevDisposeHelper())
+						{
+							{
+								HTuple
+								  ExpTmpLocalVar_GenParamName = hv_GenParamName.TupleConcat(
+									"shadow_color");
+								hv_GenParamName.Dispose();
+								hv_GenParamName = ExpTmpLocalVar_GenParamName;
+							}
+						}
+						using (HDevDisposeHelper dh = new HDevDisposeHelper())
+						{
+							{
+								HTuple
+								  ExpTmpLocalVar_GenParamValue = hv_GenParamValue.TupleConcat(
+									hv_Box.TupleSelect(1));
+								hv_GenParamValue.Dispose();
+								hv_GenParamValue = ExpTmpLocalVar_GenParamValue;
+							}
+						}
+					}
+				}
+				//Restore default CoordSystem behavior.
+				if ((int)(new HTuple(hv_CoordSystem_COPY_INP_TMP.TupleNotEqual("window"))) != 0)
+				{
+					hv_CoordSystem_COPY_INP_TMP.Dispose();
+					hv_CoordSystem_COPY_INP_TMP = "image";
+				}
+				//
+				if ((int)(new HTuple(hv_Color_COPY_INP_TMP.TupleEqual(""))) != 0)
+				{
+					//disp_text does not accept an empty string for Color.
+					hv_Color_COPY_INP_TMP.Dispose();
+					hv_Color_COPY_INP_TMP = new HTuple();
+				}
+				//
+				HOperatorSet.DispText(hWindow, hv_String, hv_CoordSystem_COPY_INP_TMP,
+					hv_Row_COPY_INP_TMP, hv_Column_COPY_INP_TMP, hv_Color_COPY_INP_TMP, hv_GenParamName,
+					hv_GenParamValue);
+
+				hv_Color_COPY_INP_TMP.Dispose();
+				hv_Column_COPY_INP_TMP.Dispose();
+				hv_CoordSystem_COPY_INP_TMP.Dispose();
+				hv_Row_COPY_INP_TMP.Dispose();
+				hv_GenParamName.Dispose();
+				hv_GenParamValue.Dispose();
+
+				return;
+			}
+			catch (HalconException HDevExpDefaultException)
+			{
+
+				hv_Color_COPY_INP_TMP.Dispose();
+				hv_Column_COPY_INP_TMP.Dispose();
+				hv_CoordSystem_COPY_INP_TMP.Dispose();
+				hv_Row_COPY_INP_TMP.Dispose();
+				hv_GenParamName.Dispose();
+				hv_GenParamValue.Dispose();
+
+				throw HDevExpDefaultException;
+			}
+		}
+
+		private void hWindowControl1_HMouseUp(object sender, HMouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Left)
+			{
+				int row1, col1, row2, col2;
+				if (mouse_X0 == 0 || mouse_Y0 == 0)
+					return;
+
+				int tempNum = 0;
+				hWindows[0].GetMposition(out mouse_X1, out mouse_Y1, out tempNum);
+
+				double dbRowMove, dbColMove;
+				dbRowMove = mouse_X0 - mouse_X1;//计算光标在X轴拖动的距离
+				dbColMove = mouse_Y0 - mouse_Y1;//计算光标在Y轴拖动的距离
+
+				hWindows[0].GetPart(out row1, out col1, out row2, out col2);//计算HWindow控件在当前状态下显示图像的位置
+				hWindows[0].SetPart((int)(row1 + dbRowMove), (int)(col1 + dbColMove), (int)(row2 + dbRowMove), (int)(col2 + dbColMove));//根据拖动距离调整HWindows控件显示图像的位置
+				RefreshImage(hWindows[0], MainForm.hImage[MainForm.CamNum]);//刷新图像
+			}
+		}
+
+		private void RefreshImage(HWindow hWindows, HObject hImage)
+		{
+			hWindows.ClearWindow();//清空HWindow控件
+			hWindows.DispObj(hImage);//重新显示图像
+		}
+	}
 }

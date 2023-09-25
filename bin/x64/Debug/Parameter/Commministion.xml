@@ -1,20 +1,29 @@
 <?xml version="1.0"?>
 <Commministion xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <LogLevel>Debug</LogLevel>
-  <LogFileExistDay>8</LogFileExistDay>
+  <LogFileExistDay>7</LogFileExistDay>
   <PlcEnable>true</PlcEnable>
   <PlcType>Melsec.MelsecMcNet</PlcType>
   <PlcIpAddress>192.168.3.39</PlcIpAddress>
   <PlcIpPort>1027</PlcIpPort>
   <PlcDevice>1</PlcDevice>
   <TcpClientEnable>false</TcpClientEnable>
-  <TcpClientIpAddress>127.0.0.1</TcpClientIpAddress>
-  <TcpClientIpPort>9600</TcpClientIpPort>
+  <TcpClientIpAddress>192.168.3.39</TcpClientIpAddress>
+  <TcpClientIpPort>1027</TcpClientIpPort>
   <TcpServerEnable>false</TcpServerEnable>
   <TcpServerIpAddress>192.168.3.20</TcpServerIpAddress>
   <TcpServerIpPort>580</TcpServerIpPort>
   <ImagePath>D:\VisionDetect\InspectImage\</ImagePath>
   <ImageSavePath>D:\Image\</ImageSavePath>
-  <productName>初始化</productName>
-  <DeviceID>955A54B7DE2A0866AAA5F99EE136F07E9076E479E27F5DDD23A084DDFED82795</DeviceID>
+  <productName>12</productName>
+  <DeviceID>BB313B649F965E8853389373C97FBC2BF37F82C5C497ED83877C05DD45FB306E</DeviceID>
+  <ImageUploadOne>\\DESKTOP-VGP2OOV\Image</ImageUploadOne>
+  <ImageUploadTwo>\\DESKTOP-VGP2OOV\Image\</ImageUploadTwo>
+  <ImageUploadThree>D:\Image\</ImageUploadThree>
+  <UploadOneEnable>false</UploadOneEnable>
+  <UploadTwoEnable>false</UploadTwoEnable>
+  <UploadThreeEnable>false</UploadThreeEnable>
+  <UploadOneTestEnable>false</UploadOneTestEnable>
+  <UploadTwoTestEnable>false</UploadTwoTestEnable>
+  <UploadThreeTestEnable>false</UploadThreeTestEnable>
 </Commministion>

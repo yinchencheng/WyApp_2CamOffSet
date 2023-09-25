@@ -4,17 +4,17 @@
   <Completion0>D8600</Completion0>
   <Trigger_Detection1>D8502</Trigger_Detection1>
   <Completion1>D8602</Completion1>
-  <Trigger_Detection2>D8520</Trigger_Detection2>
-  <Completion2>D8612</Completion2>
+  <Trigger_Detection2>D112</Trigger_Detection2>
+  <Completion2>D114</Completion2>
   <HeartBeatAdd>D8720</HeartBeatAdd>
   <StartAdd>D8700</StartAdd>
   <SNReadAdd>D116</SNReadAdd>
   <预留地址>
-    <string>D0200</string>
-    <string>D2200</string>
-    <string>D4200</string>
-    <string>D2200</string>
-    <string>D4200</string>
+    <string>D8902</string>
+    <string>D8098</string>
+    <string>D8100</string>
+    <string>D8810</string>
+    <string>D8802</string>
     <string>D4000</string>
     <string>D4001</string>
     <string>D4002</string>
@@ -35,22 +35,22 @@
     <string>D4017</string>
     <string>D4018</string>
     <string>D4019</string>
-    <string>D4020</string>
-    <string>D4021</string>
-    <string>D4022</string>
-    <string>D4023</string>
-    <string>D4024</string>
-    <string>D4025</string>
-    <string>D4026</string>
-    <string>D4027</string>
-    <string>D4028</string>
-    <string>D4029</string>
     <string>D4090</string>
     <string>D4091</string>
     <string>D4092</string>
     <string>D4093</string>
-    <string>D4094</string>
-    <string>D4095</string>
+    <string>D58200</string>
+    <string>D60200</string>
+    <string>D62200</string>
+    <string>D64200</string>
+    <string>D66200</string>
+    <string>D68200</string>
+    <string>D70200</string>
+    <string>D72200</string>
+    <string>D74200</string>
+    <string>D76200</string>
+    <string>D78200</string>
+    <string>D80200</string>
     <string>D82200</string>
     <string>D84200</string>
     <string>D86200</string>
